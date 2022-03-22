@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.teacher;
+package com.stagemont.controller.company;
 
 import com.stagemont.entities.Company;
 import com.stagemont.source.company.CompanyFakeData;
