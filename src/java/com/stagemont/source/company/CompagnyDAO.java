@@ -9,7 +9,7 @@ import com.stagemont.entities.Company;
 public class CompagnyDAO implements CompanySource {
 
     @Override
-    public Company getEntepriseFromId(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Company getCompanyFromId(int id) {
+        return null;
     }
 }

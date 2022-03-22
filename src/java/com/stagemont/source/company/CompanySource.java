@@ -8,5 +8,5 @@ import com.stagemont.entities.Company;
  */
 public interface CompanySource {
 
-    public Company getEntepriseFromId(int id);
+    public Company getCompanyFromId(int id);
 }
