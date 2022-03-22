@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 9fr 10fr 9fr;
 }
-body {
+.center {
     justify-content: center;
 }
 h1{
