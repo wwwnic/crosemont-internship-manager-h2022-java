@@ -3,25 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.company;
+package com.stagemont.controller.teacher;
 
-import com.stagemont.entities.Company;
-import com.stagemont.source.company.CompanyFakeData;
-import com.stagemont.source.company.CompanySource;
+import com.stagemont.entities.Student;
+import com.stagemont.entities.Teacher;
+import com.stagemont.source.student.StudentFakeData;
+import com.stagemont.source.student.StudentSource;
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
  * @author Nicolas Brunet
  */
-public class Dashboard extends HttpServlet {
+public class StudentList extends HttpServlet {
 
-    private static final String DESTINATION = "/teacher/dashboard.jsp";
-    private final CompanySource DATA_SOURCE = new CompanyFakeData();
+    private static StudentSource DATA_SOURCE = new StudentFakeData();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,22 +34,12 @@ public class Dashboard extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        int companyId;
-        try {
-            companyId = Integer.parseInt(request.getParameter("companyId"));
-        } catch (NumberFormatException e) {
-            companyId = 0;
-        }
-        Company company = DATA_SOURCE.getCompanyFromId(companyId);
-
-        request.setAttribute("name", company.getName());
-        request.setAttribute("phone", company.getPhone());
-        request.setAttribute("email", company.getEmail());
-        request.setAttribute("personInCharge", company.getPersonInCharge());
-
-        request.getRequestDispatcher("company/dashboard.jsp").forward(request, response);
+    protected void processRequest(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response)
+            throws jakarta.servlet.ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        List<Student> lstStudent = DATA_SOURCE.getAllStudents();
+        request.setAttribute("listStudent", lstStudent);
+        request.getRequestDispatcher("studentList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

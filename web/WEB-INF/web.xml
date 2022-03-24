@@ -4,9 +4,17 @@
         <servlet-name>Dashboard</servlet-name>
         <servlet-class>com.stagemont.controller.company.Dashboard</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentList</servlet-name>
+        <servlet-class>com.stagemont.controller.teacher.StudentList</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard</servlet-name>
         <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentList</servlet-name>
+        <url-pattern>/teacher/studentlist</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

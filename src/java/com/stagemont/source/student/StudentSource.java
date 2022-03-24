@@ -1,6 +1,7 @@
 package com.stagemont.source.student;
 
 import com.stagemont.entities.Student;
+import java.util.List;
 
 /**
  *
@@ -8,5 +9,5 @@ import com.stagemont.entities.Student;
  */
 public interface StudentSource {
 
-    public Student getStudentFromId(int id);
+    public List<Student> getAllStudents();
 }

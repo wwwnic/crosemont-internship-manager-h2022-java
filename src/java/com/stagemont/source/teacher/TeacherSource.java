@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.stagemont.source.teacher;
 
 import com.stagemont.entities.Teacher;
@@ -14,7 +13,5 @@ import com.stagemont.entities.Teacher;
  */
 public interface TeacherSource {
 
-        public Teacher getTeacherFromId(int id);
-
-    
+    public Teacher getTeacherFromId(int id);
 }
