@@ -3,9 +3,8 @@
     Created on : 2022-03-20, 13:15:59
     Author     : Nicolas Brunet
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 
 <!DOCTYPE html>
 <html>
@@ -26,16 +25,18 @@
                     <div class='line'>
                         </br>
                         <p id="elementname">Nom</h2>
-                        <p id="element"><%=request.getAttribute("name")%></p>
+                        <p id="element"><td><c:out value = "${name}"/></td>
+                        </p>
                         </br>
                         <p id="elementname">Téléphone</p>
-                        <p id="element"><%=request.getAttribute("phone")%></p>
+                        <p id="element"><c:out value = "${phone}"/></p>
                         </br>
                         <p id="elementname">Courriel</p>
-                        <a id="element" href='mailto:<%=request.getAttribute("email")%>'><%=request.getAttribute("email")%></a>                        </br>
+                        <a id="element" href='mailto:<c:out value = "${email}"/>'><c:out value = "${email}"/></a>
+                        </br>
                         </br>
                         <p id="elementname">Personne à contacter</p>
-                        <p id="element"><%=request.getAttribute("personInCharge")%></p>
+                        <p id="element"><c:out value = "${personInCharge}"/></p>
                         </br>
                     </div>
                     </br>
