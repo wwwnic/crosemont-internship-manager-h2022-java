@@ -8,13 +8,13 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table.css" /> 
 
         <%@include file="../teacher/header.html" %>
-        <title>Liste des etudiants</title>
+        <title>Liste des entreprises</title>
     </head>
     <body>
         <div class="wrapper">
             <div></div>  
             <div>
-                <h1 class="center">Liste des etudiants</h1>
+                <h1 class="center">Liste des entreprises</h1>
                 <div class="find">
                     <input class="form-control" type="text" placeholder="Recherche">
                 </div>
@@ -23,22 +23,20 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>DA</th>
+                                <th>Id</th>
                                 <th>Nom</th>
-                                <th>Prenom</th>
-                                <th></th>
+                                <th> </th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${listStudent}" var="stud">
+                            <c:forEach items="${listCompany}" var="comp">
                                 <tr>
-                                    <td><c:out value = "${stud.da}"/></td>
-                                    <td><c:out value = "${stud.lastname}"/></td>
-                                    <td><c:out value = "${stud.firstname}"/></td>
-                                    <td></td>
+                                    <td><c:out value = "${comp.id}"/></td>
+                                    <td><c:out value = "${comp.name}"/></td>
+                                    <td> </td>
                                     <td>
                                         <a href="#" data-toggle="tooltip" title="Tableau de bord">
                                             <svg width="37" height="37" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" >

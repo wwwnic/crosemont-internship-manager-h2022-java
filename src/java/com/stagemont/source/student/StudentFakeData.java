@@ -18,7 +18,7 @@ public class StudentFakeData implements StudentSource {
 
         List<Student> lstStudent = new ArrayList();
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 10; i++) {
             lstStudent.add(student0);
             lstStudent.add(student1);
             lstStudent.add(student2);

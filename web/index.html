@@ -11,15 +11,19 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Write content</h1>
-        <form action="dashboard">
+        <h1>Compagnie : tableau de bord</h1>
+        <form action="company/dashboard">
             <input type="checkbox" id="CompanyId" name="CompanyId" value="1">
             <label for="CompanyId"> id = 1</label><br>
             <input type="submit" value="Submit">
         </form>
 
 
-        <h1>Write content</h1>
-        <a href=" teacher/studentlist">list etudiant</a>
+        <dl>
+            <dt>Professeur</dt>
+            <dd><a href="teacher/studentlist">list etudiant</a></dd>
+            <dd><a href="teacher/companylist">list company</a></dd>
+        </dl>
+
     </body>
 </html>

@@ -1,6 +1,7 @@
 package com.stagemont.source.company;
 
 import com.stagemont.entities.Company;
+import java.util.List;
 
 /**
  *
@@ -10,6 +11,11 @@ public class CompagnyDAO implements CompanySource {
 
     @Override
     public Company getCompanyFromId(int id) {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Company> getAllCompany() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
