@@ -46,7 +46,7 @@ public class Dashboard extends HttpServlet {
         request.setAttribute("phone", company.getPhone());
         request.setAttribute("email", company.getEmail());
         request.setAttribute("personInCharge", company.getPersonInCharge());
-        request.getRequestDispatcher("company/dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
