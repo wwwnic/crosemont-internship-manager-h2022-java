@@ -6,8 +6,8 @@ package com.stagemont.entities;
  */
 public class Student extends User {
 
-    public Student(String firstName, String lastname, String password, int da, String cv, String letter) {
-        super(firstName, lastname, password);
+    public Student(int id, String firstName, String lastname, String password, int da, String cv, String letter) {
+        super(id, firstName, lastname, password);
         this.da = da;
         this.cv = cv;
         this.letter = letter;

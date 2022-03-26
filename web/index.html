@@ -6,11 +6,27 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1>Compagnie : tableau de bord</h1>
+        <form action="company/dashboard">
+            <input type="checkbox" id="CompanyId" name="CompanyId" value="1">
+            <label for="CompanyId"> id = 1</label><br>
+            <input type="submit" value="Submit">
+        </form>
+
+
+        <dl>
+            <dt>Professeur</dt>
+            <dd><a href="teacher/studentlist">list etudiant</a></dd>
+            <dd><a href="teacher/companylist">list company</a></dd>
+
+            <dt>Admin</dt>
+            <dd><a href="admin/studentlist">list etudiant</a></dd>
+            <dd><a href="admin/companylist">list company</a></dd>
+        </dl>
     </body>
 </html>

@@ -1,6 +1,7 @@
 package com.stagemont.source.student;
 
 import com.stagemont.entities.Student;
+import java.util.List;
 
 /**
  *
@@ -9,7 +10,7 @@ import com.stagemont.entities.Student;
 public class StudentDAO implements StudentSource {
 
     @Override
-    public Student getStudentFromId(int id) {
+    public List<Student> getAllStudents() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
