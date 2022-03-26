@@ -9,10 +9,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/center.css" /> 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/dashboard.css" /> 
-        <%@include file="../teacher/header.html" %>
+        <%@include file="../company/header.html" %>
         <title>Dashboard</title>
     </head>
     <body>

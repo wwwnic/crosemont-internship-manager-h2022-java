@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/center.css" /> 
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table.css" /> 
 
-        <%@include file="../teacher/header.html" %>
+        <%@include file="../admin/header.html" %>
         <title>Liste des etudiants</title>
     </head>
     <body>
