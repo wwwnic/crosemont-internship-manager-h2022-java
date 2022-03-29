@@ -13,4 +13,9 @@ public class StudentDAO implements StudentSource {
     public List<Student> getAllStudents() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public Student getStudentFromId(int id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

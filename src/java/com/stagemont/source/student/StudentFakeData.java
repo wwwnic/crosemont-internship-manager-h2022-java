@@ -25,4 +25,22 @@ public class StudentFakeData implements StudentSource {
         }
         return lstStudent;
     }
+
+    @Override
+    public Student getStudentFromId(int id) {
+
+        Student student;
+
+        switch (id) {
+            case 1:
+                student = new Student(1, "Nicolas", "Brunet", "ALLO", 41242, "ALLO", "ALLO");
+                break;
+            case 2:
+                student = new Student(2, "Prenom", "Nom", "ALLO", 12345, "ALLO", "ALLO");
+                break;
+            default:
+                student = new Student(3, "RICO", "COCO", "ALLO", 10101, "ALLO", "ALLO");
+        }
+        return student;
+    }
 }

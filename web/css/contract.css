@@ -1,0 +1,141 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 26, 2022, 6:29:12 PM
+    Author     : Brune
+*/
+
+.line{
+    border: 5px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #0A98E8;
+    padding: 25px;
+}
+
+#pagetitle{
+    font-size: 40px;
+    text-align: center;
+    line-height: 1;
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+#elementname{
+    font-size: 30px;
+    font-weight: bold;   
+    font-family: 'Roboto';
+    line-height: 1;
+}
+
+#label{
+    font-size: 20px;
+    font-family: 'Roboto';
+    line-height: 0.5;
+    padding-bottom: 8px
+}
+
+#elementCalender{
+    font-size: 25px;
+    font-weight: bold;   
+    font-family: 'Roboto';
+    padding-bottom: 2px
+}
+
+#element{
+    font-size: 25px;
+    font-family: 'Roboto';
+    line-height: 0.5;
+}
+
+split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding-left: 18px;
+    padding-right: 18px;
+    height: 300px; 
+}
+
+.row {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.inputcontainer { 
+    height: 90px;
+    position: relative;
+}
+
+.centerdiv{
+    width: 15%;
+    transform: translate(-50%, -50%);
+}
+
+.btncontainer { 
+    height: 90px;
+    position: relative;
+}
+.btncontainer { 
+    height: 90px;
+    position: relative;
+}
+
+.btncenter {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.btnBlue {
+    width: 140px;
+    height: 45px;
+    background-color: #0A98E8;
+    border: none;
+    opacity: 1;
+    transition: 0.3s;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Roboto';
+}
+
+.btnBlue:hover {
+    opacity: 0.7
+}
+
+.btnRed {
+    width: 140px;
+    height: 45px;
+    background-color: #FF0C0C;
+    border: none;
+    opacity: 1;
+    transition: 0.3s;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Roboto';
+}
+
+.btnRed:hover {
+    opacity: 0.7
+}
