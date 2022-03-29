@@ -20,6 +20,10 @@
         <servlet-name>adminStudentList</servlet-name>
         <servlet-class>com.stagemont.controller.admin.StudentList</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CompanyContract</servlet-name>
+        <servlet-class>com.stagemont.controller.company.Contract</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CompanyDashboard</servlet-name>
         <url-pattern>/company/dashboard</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>adminStudentList</servlet-name>
         <url-pattern>/admin/studentlist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CompanyContract</servlet-name>
+        <url-pattern>/company/contract</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

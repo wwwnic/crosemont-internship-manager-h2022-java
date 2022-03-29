@@ -10,4 +10,6 @@ import java.util.List;
 public interface StudentSource {
 
     public List<Student> getAllStudents();
+    
+    public Student getStudentFromId(int id);
 }

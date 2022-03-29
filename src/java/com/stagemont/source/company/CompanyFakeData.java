@@ -12,7 +12,19 @@ public class CompanyFakeData implements CompanySource {
 
     @Override
     public Company getCompanyFromId(int id) {
-        Company company = new Company(1, "Crosemont", "4132321242", "crosemont@quebec.ca", "Dini");
+
+        Company company;
+
+        switch (id) {
+            case 1:
+                company = new Company(1, "Meta", "5123213131", "crosemont@quebec.ca", "Dini");
+                break;
+            case 2:
+                company = new Company(2, "Google", "4132321242", "quebec@quebec.ca", "Uber");
+                break;
+            default:
+                company = new Company(3, "Ubisoft", "5435334534", "crosemont@crosemont.ca", "Rose");
+        }
         return company;
     }
 
