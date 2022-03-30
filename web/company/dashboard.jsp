@@ -33,7 +33,7 @@
                         <p id="element"><c:out value = "${phone}"/></p>
                         </br>
                         <p id="elementname">Courriel</p>
-                        <a id="element" href='mailto:<c:out value = "${email}"/>'><c:out value = "${email}"/></a>
+                        <a id="element" class="url" href='mailto:<c:out value = "${email}"/>'><c:out value = "${email}"/></a>
                         </br>
                         </br>
                         <p id="elementname">Personne à contacter</p>

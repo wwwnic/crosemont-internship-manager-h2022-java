@@ -30,7 +30,7 @@
             <div></div>  
             <div>
                 <div>
-                    <p id="pagetitle">Élaboration du contrat</p>
+                    <p id="pagetitle">Élaboration d'un contrat</p>
                     <div class='line'>
                         <p id="elementname"> La compagnie :</p>
                         <p id="element"><c:out value = "${name}"/></p>

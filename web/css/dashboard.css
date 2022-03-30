@@ -39,6 +39,14 @@ split {
     padding-top: 20px;
 }
 
+.url{
+    color:black;
+}
+
+.url:hover{
+    color:#0A98E8;
+}
+
 .left {
     left: 0;
     background-color: #111;
