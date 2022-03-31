@@ -63,8 +63,8 @@
                             <button type="submit" form="contractForm" class="btnBlue btncenter">Soumettre</button>
                         </div>
                     </div>
-                    <div></div>    
                 </div>    
             </div>
+            <div></div>    
     </body>
 </html>
