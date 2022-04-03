@@ -24,6 +24,10 @@
         <servlet-name>CompanyContract</servlet-name>
         <servlet-class>com.stagemont.controller.company.Contract</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddUser</servlet-name>
+        <servlet-class>com.stagemont.controller.admin.AddUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CompanyDashboard</servlet-name>
         <url-pattern>/company/dashboard</url-pattern>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>adminStudentList</servlet-name>
         <url-pattern>/admin/studentlist</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUser</servlet-name>
+        <url-pattern>/admin/adduser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CompanyContract</servlet-name>
