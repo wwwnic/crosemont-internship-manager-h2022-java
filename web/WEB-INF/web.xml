@@ -28,6 +28,10 @@
         <servlet-name>AddUser</servlet-name>
         <servlet-class>com.stagemont.controller.admin.AddUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContractList</servlet-name>
+        <servlet-class>com.stagemont.controller.company.ContractList</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CompanyDashboard</servlet-name>
         <url-pattern>/company/dashboard</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>CompanyContract</servlet-name>
         <url-pattern>/company/contract</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContractList</servlet-name>
+        <url-pattern>/company/contractList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
