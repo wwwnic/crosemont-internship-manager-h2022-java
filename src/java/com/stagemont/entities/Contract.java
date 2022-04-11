@@ -53,4 +53,14 @@ public class Contract {
     public void setStudent_id(int student_id) {
         this.student_id = student_id;
     }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+    
+    
 }
