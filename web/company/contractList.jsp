@@ -29,7 +29,7 @@
         <title>Candidatures</title>
     </head>
     <body>
-        <h1 class="center">Liste Des candidatures</h1>
+        <h1 class="center">Liste Des Candidatures</h1>
 
         <table class="center">
             <tr>
@@ -68,7 +68,7 @@
                 }
             } else {%>
 
-            <tr>listeProduits est <%=listContracts%></tr>
+            <tr>listContracts est <%=listContracts%></tr>
             <%}%>
 
         </table>

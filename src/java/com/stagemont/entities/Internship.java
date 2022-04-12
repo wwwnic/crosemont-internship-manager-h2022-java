@@ -8,7 +8,8 @@ import java.util.Date;
  */
 public class Internship {
 
-    public Internship(String title, String description, Date start_date, Date end_date, int company_id) {
+    public Internship(int id, String title, String description, Date start_date, Date end_date, int company_id) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.start_date = start_date;
@@ -16,12 +17,32 @@ public class Internship {
         this.company_id = company_id;
     }
 
+    /*
+    public Internship(String title, String description, Date start_date, Date end_date, int company_id) {
+        this.title = title;
+        this.description = description;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.company_id = company_id;
+    }
+*/
+
+    private int id;
     private String title;
     private String description;
     private Date start_date;
     private Date end_date;
     private int company_id;
 
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getTitle() {
         return title;
     }

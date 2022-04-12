@@ -5,11 +5,9 @@
  */
 package com.stagemont.controller.company;
 
-import com.stagemont.entities.Student;
-import com.stagemont.source.contract.ContractFakeData;
-import com.stagemont.source.contract.ContractSource;
-import com.stagemont.source.student.StudentFakeData;
-import com.stagemont.source.student.StudentSource;
+import com.stagemont.entities.Ads;
+import com.stagemont.source.ads.AdsFakeData;
+import com.stagemont.source.ads.AdsSource;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -21,12 +19,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author melis
  */
-public class ContractList extends HttpServlet {
+public class AdsList extends HttpServlet {
 
-    private final ContractSource DATA_CONTRACTS = new ContractFakeData();
-    
-    private static StudentSource DATA_STUDENT = new StudentFakeData();
-    
+    private final AdsSource DATA_ADS = new AdsFakeData();
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,16 +34,13 @@ public class ContractList extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");        
-        List<com.stagemont.entities.Contract> listContracts = DATA_CONTRACTS.getAllContract();
+        response.setContentType("text/html;charset=UTF-8");
         
-        request.setAttribute("listContracts", listContracts);
+        List<Ads> listAds = DATA_ADS.getAllAds();
         
-        List<Student> listStudents = DATA_STUDENT.getAllStudents();
+        request.setAttribute("listAds", listAds);
         
-        request.setAttribute("listStudents", listStudents);
-        
-        request.getRequestDispatcher("contractList.jsp").forward(request, response);
+        request.getRequestDispatcher("adsList.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
