@@ -8,6 +8,17 @@ import java.util.Date;
  */
 public class Contract {
 
+    public Contract(int id, Date start_date, Date end_date, Status status, int company_id, int student_id) {
+        this.id = id;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.status = status;
+        this.company_id = company_id;
+        this.student_id = student_id;
+    }
+    
+    /*
+
     public Contract(Date start_date, Date end_date, Status status, int company_id, int student_id) {
         this.start_date = start_date;
         this.end_date = end_date;
@@ -15,13 +26,23 @@ public class Contract {
         this.company_id = company_id;
         this.student_id = student_id;
     }
+    */
 
     private Date start_date;
     private Date end_date;
     private Status status;
     private int company_id;
     private int student_id;
+    private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public java.util.Date getStart_date() {
         return start_date;
     }
