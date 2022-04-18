@@ -36,6 +36,10 @@
         <servlet-name>AdsList</servlet-name>
         <servlet-class>com.stagemont.controller.company.AdsList</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddAds</servlet-name>
+        <servlet-class>com.stagemont.controller.company.AddAds</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CompanyDashboard</servlet-name>
         <url-pattern>/company/dashboard</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>AdsList</servlet-name>
         <url-pattern>/company/adsList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAds</servlet-name>
+        <url-pattern>/company/addAds</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
