@@ -18,11 +18,17 @@ public class StudentFakeData implements StudentSource {
 
         List<Student> lstStudent = new ArrayList();
 
+        lstStudent.add(student0);
+        lstStudent.add(student1);
+        lstStudent.add(student2);
+            
+        /*
         for (int i = 0; i < 10; i++) {
             lstStudent.add(student0);
             lstStudent.add(student1);
             lstStudent.add(student2);
         }
+        */
         return lstStudent;
     }
 

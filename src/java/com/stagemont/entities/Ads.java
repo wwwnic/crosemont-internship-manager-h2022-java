@@ -6,18 +6,38 @@ package com.stagemont.entities;
  */
 public class Ads {
 
-    public Ads(String title, String description, String image, int company_id) {
+    public Ads(int id, String title, String description, String image, int company_id) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.image = image;
         this.company_id = company_id;
     }
 
+    /*
+    public Ads(String title, String description, String image, int company_id) {
+        this.title = title;
+        this.description = description;
+        this.image = image;
+        this.company_id = company_id;
+    }
+*/
+
+    private int id;
     private String title;
     private String description;
     private String image;
     private int company_id;
 
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getTitle() {
         return title;
     }
