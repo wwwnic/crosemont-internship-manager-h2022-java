@@ -4,7 +4,7 @@ package com.stagemont.entities;
  *
  * @author Nicolas Brunet
  */
-enum Status {
+public enum Status {
     SUBMIT,
     INTERVIEW,
     EMPLOY
