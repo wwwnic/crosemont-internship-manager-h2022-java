@@ -1,7 +1,7 @@
 <%-- 
     Document   : homepage
     Created on : 2022-04-02, 16:16:55
-    Author     : TheBl
+    Author     : Jefferson
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Page d'Accueil</title>
-        <%@include file="BootstrapLinks.html" %>
+        <%@include file="css/BootstrapLinks.html" %>
         <%@include file="../admin/header.html" %>
         <link rel="stylesheet" type="text/css" href="css/carouselImages.css" /> 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
