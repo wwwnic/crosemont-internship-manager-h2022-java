@@ -6,6 +6,10 @@ package com.stagemont.entities;
  */
 public class Company {
 
+    public Company() {
+    }
+    
+    
     public Company(int id, String name, String phone, String email, String personInCharge) {
         this.id = id;
         this.name = name;
