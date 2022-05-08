@@ -33,5 +33,10 @@ public class ContractFakeData implements ContractSource{
         
         return listContract;
     }
+
+    @Override
+    public List<Contract> getContractByComapnyId(int company_id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

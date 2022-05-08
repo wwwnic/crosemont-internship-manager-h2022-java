@@ -16,6 +16,9 @@ public class Contract {
         this.company_id = company_id;
         this.student_id = student_id;
     }
+
+    public Contract() {
+    }
     
     /*
 

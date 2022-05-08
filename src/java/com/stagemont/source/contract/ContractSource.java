@@ -16,4 +16,6 @@ public interface ContractSource {
     
     public List<Contract> getAllContract();
     
+    public List<Contract> getContractByComapnyId(int company_id);
+    
 }

@@ -18,6 +18,8 @@ public class CompagnyDAO implements CompanySource {
 
     private static String SQL_SELECT = "select * from company";
     private static String SQL_SELECT_ID = "select * from company where id = ?";
+    
+    //CREATE UPDATE DELETE - COMPANY
 
     @Override
     public List<Company> getAllCompany() {
