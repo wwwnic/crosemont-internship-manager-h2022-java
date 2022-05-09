@@ -6,6 +6,7 @@
 package com.stagemont.source.teacher;
 
 import com.stagemont.entities.Teacher;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,12 @@ import com.stagemont.entities.Teacher;
 public interface TeacherSource {
 
     public Teacher getTeacherFromId(int id);
+
+    public List<Teacher> getAllTeacher();
+
+    public boolean insertTeacher(Teacher teacher);
+
+    public boolean updateTeacher(Teacher teacher);
+
+    public boolean deleteTeacher(int id);
 }
