@@ -48,6 +48,10 @@
         <servlet-name>InternshipList</servlet-name>
         <servlet-class>com.stagemont.controller.internship.InternshipList</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TeacherList</servlet-name>
+        <servlet-class>com.stagemont.controller.admin.TeacherList</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CompanyDashboard</servlet-name>
         <url-pattern>/company/dashboard</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>InternshipList</servlet-name>
         <url-pattern>/internship/internshipList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeacherList</servlet-name>
+        <url-pattern>/admin/teacherlist</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
