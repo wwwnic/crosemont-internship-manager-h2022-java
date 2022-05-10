@@ -10,43 +10,43 @@ import java.util.List;
  */
 public class StudentFakeData implements StudentSource {
 
+    List<Student> lstStudent = new ArrayList();
+    public StudentFakeData() {
+        this.lstStudent.add(new Student(1, "Nicolas", "Brunet", "ALLO", 41242, "ALLO", "ALLO"));
+        this.lstStudent.add(new Student(2, "Prenom", "Nom", "ALLO", 12345, "ALLO", "ALLO"));
+        this.lstStudent.add(new Student(3, "RICO", "COCO", "ALLO", 10101, "ALLO", "ALLO"));
+    }
+    
+    
+    
     @Override
     public List<Student> getAllStudents() {
-        Student student0 = new Student(1, "Nicolas", "Brunet", "ALLO", 41242, "ALLO", "ALLO");
-        Student student1 = new Student(2, "Prenom", "Nom", "ALLO", 12345, "ALLO", "ALLO");
-        Student student2 = new Student(3, "RICO", "COCO", "ALLO", 10101, "ALLO", "ALLO");
-
-        List<Student> lstStudent = new ArrayList();
-
-        lstStudent.add(student0);
-        lstStudent.add(student1);
-        lstStudent.add(student2);
-            
-        /*
-        for (int i = 0; i < 10; i++) {
-            lstStudent.add(student0);
-            lstStudent.add(student1);
-            lstStudent.add(student2);
-        }
-        */
-        return lstStudent;
+        return this.lstStudent;
     }
 
     @Override
     public Student getStudentFromId(int id) {
 
-        Student student;
+       return lstStudent.get(id);
+    }
 
-        switch (id) {
-            case 1:
-                student = new Student(1, "Nicolas", "Brunet", "ALLO", 41242, "ALLO", "ALLO");
-                break;
-            case 2:
-                student = new Student(2, "Prenom", "Nom", "ALLO", 12345, "ALLO", "ALLO");
-                break;
-            default:
-                student = new Student(3, "RICO", "COCO", "ALLO", 10101, "ALLO", "ALLO");
-        }
-        return student;
+    @Override
+    public boolean insertStudent(Student student) {
+        student.setId(lstStudent.size()+1);
+        lstStudent.add(student);
+        return true;
+    }
+
+    @Override
+    public boolean updateStudent(Student student) {
+        this.lstStudent.remove(student.getId() - 1);
+        this.lstStudent.add(student.getId() - 1, student);
+        return true;
+    }
+
+    @Override
+    public boolean deleteStudent(int id) {
+        this.lstStudent.remove(id - 1);
+        return true;
     }
 }
