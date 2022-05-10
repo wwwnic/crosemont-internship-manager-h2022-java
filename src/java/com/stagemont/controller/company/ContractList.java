@@ -54,18 +54,8 @@ public class ContractList extends HttpServlet {
         List<com.stagemont.entities.Contract> listContracts = DATA_CONTRACTS_DAO.getAllContract();
         request.setAttribute("listContracts", listContracts);
         
-        List<com.stagemont.entities.Contract> listContractsByCompanyId = DATA_CONTRACTS_DAO.getContractByComapnyId(3);
-        request.setAttribute("listContractsByCompanyId", listContractsByCompanyId);
-        
         List<Student> listStudents = DATA_STUDENT.getAllStudents();
         request.setAttribute("listStudents", listStudents);
-        
-        
-        List<Company> listCompanyDAO = DATA_COMPANY_DAO.getAllCompany();
-        request.setAttribute("listCompanyDAO", listCompanyDAO);
-        
-        Company companyTest = DATA_COMPANY_DAO.getCompanyFromId(2);
-        request.setAttribute("companyTest", companyTest);
         
         request.getRequestDispatcher("contractList.jsp").forward(request, response);
     }

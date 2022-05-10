@@ -39,7 +39,7 @@ public class Dashboard extends HttpServlet {
             throws ServletException, IOException {
         int companyId;
         try {
-            companyId = Integer.parseInt(request.getParameter("companyId"));
+            companyId = Integer.parseInt(request.getParameter("CompanyId"));
         } catch (NumberFormatException e) {
             companyId = 0;
         }

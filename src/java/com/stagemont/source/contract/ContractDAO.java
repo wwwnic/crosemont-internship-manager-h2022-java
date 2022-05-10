@@ -8,6 +8,7 @@ package com.stagemont.source.contract;
 import com.stagemont.entities.Contract;
 import com.stagemont.entities.Status;
 import com.stagemont.service.ConnectionDB;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,9 +25,9 @@ public class ContractDAO implements ContractSource {
 
     private static String SQL_SELECT = "select * from contract";
     private static String SQL_SELECT_ID = "select * from contract where company_id = ?";
-    
-    //CREATE UPDATE DELETE - CONTRACTS
-    //signer/accepter candidat 
+    private static String SQL_INSERT = "insert into contract(status, start_date, end_date, company_id, student_id) value(?,?,?,?,?)";
+    private static String SQL_UPDATE = "update contract set status = ?, start_date = ?, end_date = ?, company_id = ?, student_id = ? where id = ?";
+    private static String SQL_DELETE = "delete from contract where id = ?";
     
     
     @Override
@@ -96,6 +97,100 @@ public class ContractDAO implements ContractSource {
         }
         
         return listContract;
+    }
+
+    @Override
+    public boolean insertContract(Contract contract) {
+        boolean result = false;
+        int nbLines = 0;
+        PreparedStatement ps;
+        
+        try {
+            ps = ConnectionDB.getConnection().prepareStatement(SQL_INSERT);
+            
+            ps.setString(1, contract.getStatus().toString());
+            ps.setDate(2, new java.sql.Date(  contract.getStart_date().getTime()  ));
+            ps.setDate(3, new java.sql.Date(  contract.getEnd_date().getTime()    ));
+            ps.setInt(4, contract.getCompany_id());
+            ps.setInt(5, contract.getStudent_id());
+            
+            nbLines = ps.executeUpdate();
+            
+            ConnectionDB.closeConnection();
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ContractDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(nbLines>0){
+            result=true;
+        }
+        
+        return result;
+    }
+
+    @Override
+    public boolean deleteContract(int id) {
+        boolean result = false;
+        int nbLines = 0;
+        PreparedStatement ps;
+        
+        try {
+            ps = ConnectionDB.getConnection().prepareStatement(SQL_DELETE);
+            ps.setInt(1, id);
+            
+            
+            nbLines = ps.executeUpdate();
+            
+            ConnectionDB.closeConnection();
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ContractDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(nbLines>0){
+            result=true;
+        }
+        
+        return result;
+        
+    }
+
+    @Override
+    public boolean updateContract(Contract contract) {
+        boolean result = false;
+        int nbLines = 0;
+        PreparedStatement ps;
+        
+        try {
+            ps = ConnectionDB.getConnection().prepareStatement(SQL_UPDATE);
+            
+            //int id, Date start_date, Date end_date, Status status, int company_id, int student_id
+            
+            ps.setString(1, contract.getStatus().toString());
+            ps.setDate(2, new java.sql.Date(  contract.getStart_date().getTime()  )  );
+            ps.setDate(3, new java.sql.Date(  contract.getEnd_date().getTime()  )  );
+            ps.setInt(4, contract.getCompany_id());
+            ps.setInt(5, contract.getStudent_id());
+            
+            ps.setInt(6, contract.getId());
+            
+            
+            nbLines = ps.executeUpdate();
+            
+            ConnectionDB.closeConnection();
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ContractDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(nbLines>0){
+            result=true;
+        }
+        
+        return result;
+        
+    
     }
     
 }
