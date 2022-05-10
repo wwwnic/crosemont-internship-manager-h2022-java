@@ -13,7 +13,14 @@ import java.util.List;
  * @author melis
  */
 public interface AdsSource {
-    
+
+    public Ads getAdsFromid(int id);
+
     public List<Ads> getAllAds();
-    
+
+    public boolean insertAds(Ads ads);
+
+    public boolean updateAds(Ads ads);
+
+    public boolean deleteAds(int id);
 }
