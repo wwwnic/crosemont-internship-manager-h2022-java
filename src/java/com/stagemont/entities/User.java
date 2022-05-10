@@ -6,15 +6,15 @@ package com.stagemont.entities;
  */
 public class User {
 
-    public User(int id, String firstName, String lastname, String password) {
+    public User(int id, String firstname, String lastname, String password) {
         this.id = id;
-        this.firstName = firstName;
+        this.firstname = firstname;
         this.lastname = lastname;
         this.password = password;
     }
     
     private int id;
-    private String firstName;
+    private String firstname;
     private String lastname;
     private String password;
 
@@ -27,11 +27,11 @@ public class User {
     }
 
     public String getFirstname() {
-        return firstName;
+        return firstname;
     }
 
     public void setFirstname(String firstName) {
-        this.firstName = firstName;
+        this.firstname = firstName;
     }
 
     public String getLastname() {
