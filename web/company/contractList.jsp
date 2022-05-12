@@ -57,15 +57,9 @@
 
                             if (s.getId() == c.getStudent_id()) {%>
             <tr>
-                
                 <td><%=s.getFirstname()%></td>
                 <td> <%=s.getLastname()%> </td>
                 <td><%=s.getDa()%> </td>
-                <!--
-                <td><//%=c.getId()%></td>
-                <td><//%=c.getCompany_id()%></td>
-                <td><//%=c.getStudent_id()%></td>
-                -->
                 <td>(ici CV)</td>
                 <td>(ici motivation)</td>
                 <td><%=c.getStatus()%></td>
@@ -89,7 +83,7 @@
         </br>
         </br>
         </br>
-
+        
         <div class = "everythingTimeline">
             <div class ="bodyTimeline">
                 <%@ include file = "../company/timeline.jsp" %>
