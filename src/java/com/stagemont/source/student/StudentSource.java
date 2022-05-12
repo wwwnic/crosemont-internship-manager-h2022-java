@@ -12,4 +12,10 @@ public interface StudentSource {
     public List<Student> getAllStudents();
     
     public Student getStudentFromId(int id);
+    
+    public boolean insertStudent(Student student);
+
+    public boolean updateStudent(Student student);
+
+    public boolean deleteStudent(int id);
 }

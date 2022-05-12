@@ -16,4 +16,12 @@ public interface InternshipSource {
     
     public List<Internship> getAllInternship();
     
+    public Internship getInternshipFromId(int id);
+    
+    public boolean insertInternship(Internship internship);
+
+    public boolean updateInternship(Internship internship);
+
+    public boolean deleteInternship(int id);
+    
 }
