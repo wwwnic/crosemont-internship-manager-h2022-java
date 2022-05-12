@@ -1,6 +1,6 @@
 package com.stagemont.entities;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -16,17 +16,9 @@ public class Contract {
         this.company_id = company_id;
         this.student_id = student_id;
     }
-    
-    /*
 
-    public Contract(Date start_date, Date end_date, Status status, int company_id, int student_id) {
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.status = status;
-        this.company_id = company_id;
-        this.student_id = student_id;
+    public Contract() {
     }
-    */
 
     private Date start_date;
     private Date end_date;
@@ -47,7 +39,7 @@ public class Contract {
         return start_date;
     }
 
-    public void setStart_date(java.util.Date start_date) {
+    public void setStart_date(Date start_date) {
         this.start_date = start_date;
     }
 
@@ -55,7 +47,7 @@ public class Contract {
         return end_date;
     }
 
-    public void setEnd_date(java.util.Date end_date) {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
 

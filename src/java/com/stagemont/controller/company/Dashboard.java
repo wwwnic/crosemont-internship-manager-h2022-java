@@ -6,6 +6,7 @@
 package com.stagemont.controller.company;
 
 import com.stagemont.entities.Company;
+import com.stagemont.source.company.CompagnyDAO;
 import com.stagemont.source.company.CompanyFakeData;
 import com.stagemont.source.company.CompanySource;
 import java.io.IOException;
@@ -23,6 +24,8 @@ public class Dashboard extends HttpServlet {
     private static final String DESTINATION = "/teacher/dashboard.jsp";
     private final CompanySource DATA_SOURCE = new CompanyFakeData();
 
+    private static CompanySource DATA_COMPANY_DAO = new CompagnyDAO();
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,11 +39,12 @@ public class Dashboard extends HttpServlet {
             throws ServletException, IOException {
         int companyId;
         try {
-            companyId = Integer.parseInt(request.getParameter("companyId"));
+            companyId = Integer.parseInt(request.getParameter("CompanyId"));
         } catch (NumberFormatException e) {
             companyId = 0;
         }
-        Company company = DATA_SOURCE.getCompanyFromId(companyId);
+        Company company = DATA_COMPANY_DAO.getCompanyFromId(companyId);
+        //Company company = DATA_SOURCE.getCompanyFromId(companyId);
 
         request.setAttribute("name", company.getName());
         request.setAttribute("phone", company.getPhone());

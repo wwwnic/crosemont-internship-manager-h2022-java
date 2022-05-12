@@ -22,9 +22,10 @@ public class ContractFakeData implements ContractSource{
     public List<Contract> getAllContract() {
         List<Contract> listContract = new ArrayList();
         
-        Contract contract1 = new Contract(1, (new Date(2021,6,30)), (new Date(2021,8,30)), Status.SUBMIT, 1, 1);
-        Contract contract2 = new Contract(2, (new Date(2022,1,11)), (new Date(2021,2,22)), Status.INTERVIEW, 1, 2);
-        Contract contract3 = new Contract(3, (new Date(2000,5,05)), (new Date(2021,5,06)), Status.EMPLOY, 1, 3);
+                
+        Contract contract1 = new Contract(1, java.sql.Date.valueOf("2021-06-30"), java.sql.Date.valueOf("2021-08-30"), Status.SUBMIT, 1, 1);
+        Contract contract2 = new Contract(2, java.sql.Date.valueOf("2022-01-11"), java.sql.Date.valueOf("2022-02-22"), Status.INTERVIEW, 1, 2);
+        Contract contract3 = new Contract(3, java.sql.Date.valueOf("2021-05-05"), java.sql.Date.valueOf("2021-05-06"), Status.EMPLOY, 1, 3);
 
         listContract.add(contract1);
         listContract.add(contract2);
@@ -33,5 +34,27 @@ public class ContractFakeData implements ContractSource{
         
         return listContract;
     }
+
+    @Override
+    public List<Contract> getContractByComapnyId(int company_id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean insertContract(Contract contract) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean deleteContract(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean updateContract(Contract contract) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     
 }
