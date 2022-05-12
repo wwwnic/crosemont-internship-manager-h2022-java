@@ -24,65 +24,57 @@ public class CompagnyDAO implements CompanySource {
 
     @Override
     public List<Company> getAllCompany() {
-
         List<Company> listCompany = null;
 
         try {
-            
             PreparedStatement ps = ConnectionDB.getConnection().prepareStatement(SQL_SELECT);
-
             ResultSet result = ps.executeQuery();
             listCompany = new ArrayList<>();
-            while(result.next()){
-                Company company = new Company();
-                company.setId(result.getInt("id"));
-                company.setName(result.getString("name"));
-                company.setPhone(result.getString("phone"));
-                company.setEmail(result.getString("email"));
-                company.setPersonInCharge(result.getString("person_in_charge"));
-                
+            while (result.next()) {
+                Company company = new Company(
+                        result.getInt("id"),
+                        result.getString("name"),
+                        result.getString("password"),
+                        result.getString("phone"),
+                        result.getString("email"),
+                        result.getString("person_in_charge"));
+
                 listCompany.add(company);
             }
-            
+
             ConnectionDB.closeConnection();
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         return listCompany;
 
     }
 
     @Override
     public Company getCompanyFromId(int id) {
-        
         Company company = null;
-
         try {
-            
             PreparedStatement ps = ConnectionDB.getConnection().prepareStatement(SQL_SELECT_ID);
             ps.setInt(1, (int) id);
             ResultSet result = ps.executeQuery();
-            company = new Company();
-            while(result.next()){
-                company.setId(result.getInt("id"));
-                company.setName(result.getString("name"));
-                company.setPhone(result.getString("phone"));
-                company.setEmail(result.getString("email"));
-                company.setPersonInCharge(result.getString("person_in_charge"));
+            while (result.next()) {
+                company = new Company(
+                        result.getInt("id"),
+                        result.getString("name"),
+                        result.getString("password"),
+                        result.getString("phone"),
+                        result.getString("email"),
+                        result.getString("person_in_charge"));
             }
-            
-            
-            
+
             ConnectionDB.closeConnection();
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         return company;
     }
 
@@ -91,31 +83,30 @@ public class CompagnyDAO implements CompanySource {
         boolean result = false;
         int nbLines = 0;
         PreparedStatement ps;
-        
+
         try {
             ps = ConnectionDB.getConnection().prepareStatement(SQL_INSERT);
-            
+
             ps.setString(1, company.getName());
             ps.setString(2, company.getPassword());
             ps.setString(3, company.getPhone());
             ps.setString(4, company.getEmail());
             ps.setString(5, company.getPersonInCharge());
-            
+
             nbLines = ps.executeUpdate();
-            
+
             ConnectionDB.closeConnection();
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if(nbLines>0){
-            result=true;
+
+        if (nbLines > 0) {
+            result = true;
         }
-        
+
         return result;
-        
-        
+
     }
 
     @Override
@@ -123,24 +114,23 @@ public class CompagnyDAO implements CompanySource {
         boolean result = false;
         int nbLines = 0;
         PreparedStatement ps;
-        
+
         try {
             ps = ConnectionDB.getConnection().prepareStatement(SQL_DELETE);
             ps.setInt(1, id);
-            
-            
+
             nbLines = ps.executeUpdate();
-            
+
             ConnectionDB.closeConnection();
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if(nbLines>0){
-            result=true;
+
+        if (nbLines > 0) {
+            result = true;
         }
-        
+
         return result;
     }
 
@@ -149,31 +139,30 @@ public class CompagnyDAO implements CompanySource {
         boolean result = false;
         int nbLines = 0;
         PreparedStatement ps;
-        
+
         try {
             ps = ConnectionDB.getConnection().prepareStatement(SQL_UPDATE);
-            
+
             ps.setString(1, company.getName());
             ps.setString(2, company.getPassword());
             ps.setString(3, company.getPhone());
             ps.setString(4, company.getEmail());
             ps.setString(5, company.getPersonInCharge());
-            
+
             ps.setInt(6, company.getId());
-            
-            
+
             nbLines = ps.executeUpdate();
-            
+
             ConnectionDB.closeConnection();
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if(nbLines>0){
-            result=true;
+
+        if (nbLines > 0) {
+            result = true;
         }
-        
-        return result; 
+
+        return result;
     }
 
 }

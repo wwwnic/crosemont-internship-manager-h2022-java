@@ -6,7 +6,7 @@ package com.stagemont.entities;
  */
 public class Company {
 
-    public Company(int id, String name, String phone, String email, String personInCharge) {
+    public Company(int id, String name, String password, String phone, String email, String personInCharge) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -35,6 +35,14 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhone() {
