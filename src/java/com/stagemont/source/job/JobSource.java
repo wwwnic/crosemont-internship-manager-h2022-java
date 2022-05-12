@@ -16,4 +16,12 @@ public interface JobSource {
     
     public List<Job> getAllJob();
     
+    public Job getJobFromId(int id);
+    
+    public boolean insertJob(Job job);
+
+    public boolean updateJob(Job job);
+
+    public boolean deleteJob(int id);
+    
 }
