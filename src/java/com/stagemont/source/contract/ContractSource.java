@@ -16,4 +16,12 @@ public interface ContractSource {
     
     public List<Contract> getAllContract();
     
+    public List<Contract> getContractByComapnyId(int company_id);
+    
+    public boolean insertContract(Contract contract);
+    
+    public boolean deleteContract(int id);
+    
+    public boolean updateContract(Contract contract);
+    
 }
