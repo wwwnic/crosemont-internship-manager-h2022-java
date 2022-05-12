@@ -4,6 +4,7 @@
     Author     : melis
 --%>
 
+<%@page import="com.stagemont.entities.Company"%>
 <%@page import="com.stagemont.entities.Contract"%>
 <%@page import="com.stagemont.entities.Student"%>
 <%@page import="java.util.ArrayList"%>
@@ -20,6 +21,12 @@
             ArrayList<Contract> listContracts = (ArrayList) request.getAttribute("listContracts");
 
             ArrayList<Student> listStudents = (ArrayList) request.getAttribute("listStudents");
+
+            ArrayList<Company> listCompanyDAO = (ArrayList) request.getAttribute("listCompanyDAO");
+            
+            ArrayList<Contract> listContractsByCompanyId = (ArrayList) request.getAttribute("listContractsByCompanyId");
+
+            Company comp = (Company) request.getAttribute("companyTest");
         %>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
@@ -50,9 +57,15 @@
 
                             if (s.getId() == c.getStudent_id()) {%>
             <tr>
+                
                 <td><%=s.getFirstname()%></td>
                 <td> <%=s.getLastname()%> </td>
                 <td><%=s.getDa()%> </td>
+                <!--
+                <td><//%=c.getId()%></td>
+                <td><//%=c.getCompany_id()%></td>
+                <td><//%=c.getStudent_id()%></td>
+                -->
                 <td>(ici CV)</td>
                 <td>(ici motivation)</td>
                 <td><%=c.getStatus()%></td>
@@ -76,7 +89,7 @@
         </br>
         </br>
         </br>
-        
+
         <div class = "everythingTimeline">
             <div class ="bodyTimeline">
                 <%@ include file = "../company/timeline.jsp" %>
