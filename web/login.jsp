@@ -18,10 +18,10 @@
     <body>
         <div class="container">
             <div></div>
-            <p class="text-center">username etudiant = stu-{prenom}{id}</p>
-            <p class="text-center">username professeur = tea-{prenom}{id}</p>
-            <p class="text-center">username entreprise = com-{prenom}{id}</p>
-            <p class="text-center">ex : com-google1</p>
+            <p class="text-center">username etudiant = stu.{prenom}{id}</p>
+            <p class="text-center">username professeur = tea.{prenom}{id}</p>
+            <p class="text-center">username entreprise = com.{prenom}{id}</p>
+            <p class="text-center">ex : com.google1</p>
             <h2>Connexion</h2>
             <c:if test="${not empty msgError}">
                 <div class="alert alert-danger" role="alert">
