@@ -6,17 +6,24 @@ package com.stagemont.entities;
  */
 public class User {
 
-    public User(int id, String firstname, String lastname, String password) {
+    public User(int id, String firstname, String password) {
         this.id = id;
         this.firstname = firstname;
-        this.lastname = lastname;
         this.password = password;
     }
-    
-    private int id;
-    private String firstname;
-    private String lastname;
-    private String password;
+
+    protected int id;
+    protected String firstname;
+    protected String password;
+    protected String userTypeName;
+
+    public String getUserTypeName() {
+        return userTypeName;
+    }
+
+    public void setUserTypeName(String userTypeName) {
+        this.userTypeName = userTypeName;
+    }
 
     public int getId() {
         return id;
@@ -32,14 +39,6 @@ public class User {
 
     public void setFirstname(String firstName) {
         this.firstname = firstName;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
     }
 
     public String getPassword() {

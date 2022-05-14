@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.company;
+package com.stagemont.controller.controllerFrontal;
 
-import com.stagemont.entities.Company;
-import com.stagemont.source.company.CompanyDAO;
-import com.stagemont.source.company.CompanyFakeData;
-import com.stagemont.source.company.CompanySource;
+import com.stagemont.controller.actionsHelper.ActionBuilder;
+import com.stagemont.controller.actionsHelper.Action;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,15 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Nicolas Brunet
+ * @author dahamada Le contrôleur frontal est une servlet configurée pour
+ * recevoir toutes les requêtes. Pour cela, on lui attribue l’URL pattern /.
  */
-public class Dashboard extends HttpServlet {
+public class ControllerFrontal extends HttpServlet {
 
-    private static final String DESTINATION = "/teacher/dashboard.jsp";
-    private final CompanySource DATA_SOURCE = new CompanyFakeData();
-
-    private static CompanySource DATA_COMPANY_DAO = new CompanyDAO();
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,20 +31,23 @@ public class Dashboard extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int companyId;
-        try {
-            companyId = Integer.parseInt(request.getParameter("CompanyId"));
-        } catch (NumberFormatException e) {
-            companyId = 0;
-        }
-        Company company = DATA_COMPANY_DAO.getCompanyFromId(companyId);
-        //Company company = DATA_SOURCE.getCompanyFromId(companyId);
+        response.setContentType("text/html;charset=UTF-8");
+        Action action;
+        String vue;
 
-        request.setAttribute("name", company.getFirstname());
-        request.setAttribute("phone", company.getPhone());
-        request.setAttribute("email", company.getEmail());
-        request.setAttribute("personInCharge", company.getPersonInCharge());
-        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+        //On demande à l'action-builder de nous fournir le bon contrôleur :
+        action = ActionBuilder.getAction(request);
+        System.out.println(" action : " + action);
+
+        //On injecte dans le contrôleur les objets request et response :
+        action.setRequest(request);
+        action.setResponse(response);
+
+        //On exécute l'action qui nous retourne la vue qui présentera la réponse au client :
+        vue = action.execute();
+
+        //On transfert la requête à la vue :
+        request.getRequestDispatcher("/" + vue + ".jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

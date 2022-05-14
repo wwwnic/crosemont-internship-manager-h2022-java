@@ -12,7 +12,6 @@ import com.stagemont.source.company.CompanySource;
 import com.stagemont.source.student.StudentFakeData;
 import com.stagemont.source.student.StudentSource;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -53,7 +52,7 @@ public class Contract extends HttpServlet {
 
         Company company = DATA_SOURCE_COMPANY.getCompanyFromId(companyId);
         Student student = DATA_SOURCE_STUDENT.getStudentFromId(studentId);
-        request.setAttribute("name", company.getName());
+        request.setAttribute("name", company.getFirstname());
         request.setAttribute("phone", company.getPhone());
         request.setAttribute("email", company.getEmail());
         request.setAttribute("personInCharge", company.getPersonInCharge());

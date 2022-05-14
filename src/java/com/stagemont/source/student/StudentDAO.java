@@ -25,15 +25,17 @@ public class StudentDAO implements StudentSource {
     private static final String SQL_UPDATE = "UPDATE student SET firstname = ?, lastname = ?, password = ?, da = ?, cv = ?, letter = ? WHERE id = ?";
 
     private static final String SQL_DELETE = "DELETE FROM student WHERE id = ?";
-    
+
+    private static final String SQL_LOGIN = "SELECT * FROM student WHERE id = ? AND firstName = ? AND password = BINARY ?";
+
     @Override
     public List<Student> getAllStudents() {
-       try {
+        try {
             PreparedStatement ps = ConnectionDB.getConnection().prepareStatement(SQL_SELECT);
             ResultSet result = ps.executeQuery();
             List<Student> studentLst = new ArrayList();
 
-            while (result.next()){
+            while (result.next()) {
                 studentLst.add(new Student(
                         result.getInt("id"),
                         result.getString("firstName"),
@@ -42,11 +44,11 @@ public class StudentDAO implements StudentSource {
                         result.getInt("da"),
                         result.getString("cv"),
                         result.getString("letter")
-                )); 
+                ));
             }
             ConnectionDB.closeConnection();
             return studentLst;
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -139,7 +141,7 @@ public class StudentDAO implements StudentSource {
         try {
             ps = ConnectionDB.getConnection().prepareStatement(SQL_DELETE);
             ps.setInt(1, id);
-            
+
             rowCount = ps.executeUpdate();
             ConnectionDB.closeConnection();
         } catch (SQLException | ClassNotFoundException ex) {
@@ -149,5 +151,35 @@ public class StudentDAO implements StudentSource {
             isSucces = true;
         }
         return isSucces;
+    }
+
+    @Override
+    public Student loginStudent(int id, String firstName, String password) {
+
+        try {
+            PreparedStatement ps = ConnectionDB.getConnection().prepareStatement(SQL_LOGIN);
+            ps.setInt(1, id);
+            ps.setString(2, firstName);
+            ps.setString(3, password);
+            ResultSet result = ps.executeQuery();
+
+            if (result.next()) {
+                Student student = new Student(
+                        result.getInt("id"),
+                        result.getString("firstName"),
+                        result.getString("lastname"),
+                        result.getString("password"),
+                        result.getInt("da"),
+                        result.getString("cv"),
+                        result.getString("letter")
+                );
+                ConnectionDB.closeConnection();
+                return student;
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
     }
 }
