@@ -59,4 +59,9 @@ public class CompanyFakeData implements CompanySource {
     public boolean updateCompany(Company company) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Company loginCompany(int id, String name, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

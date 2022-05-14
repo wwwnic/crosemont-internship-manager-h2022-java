@@ -15,7 +15,7 @@ public class TestCompanyDAO {
     
     public static void main(String[] args) {
         
-        CompanySource dao = new CompagnyDAO();
+        CompanySource dao = new CompanyDAO();
         boolean result=false;
         
         System.out.println("******Test la méthode create*****");

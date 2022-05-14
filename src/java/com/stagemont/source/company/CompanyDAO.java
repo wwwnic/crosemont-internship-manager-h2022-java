@@ -14,13 +14,14 @@ import java.util.logging.Logger;
  *
  * @author Nicolas Brunet
  */
-public class CompagnyDAO implements CompanySource {
+public class CompanyDAO implements CompanySource {
 
     private static String SQL_SELECT = "select * from company";
     private static String SQL_SELECT_ID = "select * from company where id = ?";
     private static String SQL_INSERT = "insert into company(name, password, phone, email, person_in_charge) value(?,?,?,?,?)";
     private static String SQL_UPDATE = "update company set name = ?, password = ?, phone = ?, email = ?, person_in_charge = ? where id = ?";
     private static String SQL_DELETE = "delete from company where id = ?";
+    private static final String SQL_LOGIN = "SELECT * FROM company WHERE id = ? AND name = ? AND password = BINARY ?";
 
     @Override
     public List<Company> getAllCompany() {
@@ -45,7 +46,7 @@ public class CompagnyDAO implements CompanySource {
             ConnectionDB.closeConnection();
 
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return listCompany;
@@ -72,7 +73,7 @@ public class CompagnyDAO implements CompanySource {
             ConnectionDB.closeConnection();
 
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return company;
@@ -87,7 +88,7 @@ public class CompagnyDAO implements CompanySource {
         try {
             ps = ConnectionDB.getConnection().prepareStatement(SQL_INSERT);
 
-            ps.setString(1, company.getName());
+            ps.setString(1, company.getFirstname());
             ps.setString(2, company.getPassword());
             ps.setString(3, company.getPhone());
             ps.setString(4, company.getEmail());
@@ -98,7 +99,7 @@ public class CompagnyDAO implements CompanySource {
             ConnectionDB.closeConnection();
 
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if (nbLines > 0) {
@@ -124,7 +125,7 @@ public class CompagnyDAO implements CompanySource {
             ConnectionDB.closeConnection();
 
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if (nbLines > 0) {
@@ -143,7 +144,7 @@ public class CompagnyDAO implements CompanySource {
         try {
             ps = ConnectionDB.getConnection().prepareStatement(SQL_UPDATE);
 
-            ps.setString(1, company.getName());
+            ps.setString(1, company.getFirstname());
             ps.setString(2, company.getPassword());
             ps.setString(3, company.getPhone());
             ps.setString(4, company.getEmail());
@@ -155,7 +156,7 @@ public class CompagnyDAO implements CompanySource {
 
             ConnectionDB.closeConnection();
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(CompagnyDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CompanyDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         if (nbLines > 0) {
@@ -165,4 +166,32 @@ public class CompagnyDAO implements CompanySource {
         return result;
     }
 
+    @Override
+    public Company loginCompany(int id, String name, String password) {
+
+        try {
+            PreparedStatement ps = ConnectionDB.getConnection().prepareStatement(SQL_LOGIN);
+            ps.setInt(1, id);
+            ps.setString(2, name);
+            ps.setString(3, password);
+            ResultSet result = ps.executeQuery();
+
+            if (result.next()) {
+                Company company = new Company(
+                        result.getInt("id"),
+                        result.getString("name"),
+                        result.getString("password"),
+                        result.getString("phone"),
+                        result.getString("email"),
+                        result.getString("person_in_charge")
+                );
+                ConnectionDB.closeConnection();
+                return company;
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(CompanyDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
+    }
 }

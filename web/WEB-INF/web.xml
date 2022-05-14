@@ -1,108 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>CompanyDashboard</servlet-name>
-        <servlet-class>com.stagemont.controller.company.Dashboard</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>StudentList</servlet-name>
-        <servlet-class>com.stagemont.controller.teacher.StudentList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CompanyList</servlet-name>
-        <servlet-class>com.stagemont.controller.teacher.CompanyList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminCompanyList</servlet-name>
-        <servlet-class>com.stagemont.controller.admin.CompanyList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>adminStudentList</servlet-name>
-        <servlet-class>com.stagemont.controller.admin.StudentList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CompanyContract</servlet-name>
-        <servlet-class>com.stagemont.controller.company.Contract</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddUser</servlet-name>
-        <servlet-class>com.stagemont.controller.admin.AddUser</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ContractList</servlet-name>
-        <servlet-class>com.stagemont.controller.company.ContractList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AdsList</servlet-name>
-        <servlet-class>com.stagemont.controller.company.AdsList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddAds</servlet-name>
-        <servlet-class>com.stagemont.controller.company.AddAds</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>JobList</servlet-name>
-        <servlet-class>com.stagemont.controller.job.JobList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>InternshipList</servlet-name>
-        <servlet-class>com.stagemont.controller.internship.InternshipList</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TeacherList</servlet-name>
-        <servlet-class>com.stagemont.controller.admin.TeacherList</servlet-class>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>com.stagemont.controller.controllerFrontal.ControllerFrontal</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>CompanyDashboard</servlet-name>
-        <url-pattern>/company/dashboard</url-pattern>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>StudentList</servlet-name>
-        <url-pattern>/teacher/studentlist</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CompanyList</servlet-name>
-        <url-pattern>/teacher/companylist</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminCompanyList</servlet-name>
-        <url-pattern>/admin/companylist</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>adminStudentList</servlet-name>
-        <url-pattern>/admin/studentlist</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddUser</servlet-name>
-        <url-pattern>/admin/adduser</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CompanyContract</servlet-name>
-        <url-pattern>/company/contract</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ContractList</servlet-name>
-        <url-pattern>/company/contractList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AdsList</servlet-name>
-        <url-pattern>/company/adsList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddAds</servlet-name>
-        <url-pattern>/company/addAds</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>JobList</servlet-name>
-        <url-pattern>/job/jobList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>InternshipList</servlet-name>
-        <url-pattern>/internship/internshipList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TeacherList</servlet-name>
-        <url-pattern>/admin/teacherlist</url-pattern>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/static/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

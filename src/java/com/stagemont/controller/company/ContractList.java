@@ -7,7 +7,7 @@ package com.stagemont.controller.company;
 
 import com.stagemont.entities.Company;
 import com.stagemont.entities.Student;
-import com.stagemont.source.company.CompagnyDAO;
+import com.stagemont.source.company.CompanyDAO;
 import com.stagemont.source.company.CompanySource;
 import com.stagemont.source.contract.ContractDAO;
 import com.stagemont.source.contract.ContractFakeData;
@@ -33,7 +33,7 @@ public class ContractList extends HttpServlet {
     
     private static StudentSource DATA_STUDENT = new StudentFakeData();
     
-    private static CompanySource DATA_COMPANY_DAO = new CompagnyDAO();
+    private static CompanySource DATA_COMPANY_DAO = new CompanyDAO();
     
     
     /**

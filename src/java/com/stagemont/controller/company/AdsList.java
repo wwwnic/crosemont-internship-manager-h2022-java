@@ -22,8 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AdsList extends HttpServlet {
 
     private final AdsSource DATA_ADS = new AdsFakeData();
-    
-    /**
+     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *

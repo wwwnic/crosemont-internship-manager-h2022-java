@@ -6,11 +6,15 @@ package com.stagemont.entities;
  */
 public class Student extends User {
 
+    private String lastname;
+
     public Student(int id, String firstName, String lastname, String password, int da, String cv, String letter) {
-        super(id, firstName, lastname, password);
+        super(id, firstName, password);
+        super.userTypeName = "student";
         this.da = da;
         this.cv = cv;
         this.letter = letter;
+        this.lastname = lastname;
     }
 
     private int da;
@@ -39,5 +43,13 @@ public class Student extends User {
 
     public void setLetter(String letter) {
         this.letter = letter;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }

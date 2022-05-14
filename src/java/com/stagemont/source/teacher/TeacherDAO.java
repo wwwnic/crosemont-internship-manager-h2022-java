@@ -26,6 +26,8 @@ public class TeacherDAO implements TeacherSource {
 
     private static final String SQL_DELETE = "DELETE FROM teacher WHERE id = ?";
 
+    private static final String SQL_LOGIN = "SELECT * FROM teacher WHERE id = ? AND firstName = ? AND password = BINARY ?";
+
     @Override
     public Teacher getTeacherFromId(int id) {
 
@@ -131,7 +133,7 @@ public class TeacherDAO implements TeacherSource {
         try {
             ps = ConnectionDB.getConnection().prepareStatement(SQL_DELETE);
             ps.setInt(1, id);
-            
+
             rowCount = ps.executeUpdate();
             ConnectionDB.closeConnection();
         } catch (SQLException | ClassNotFoundException ex) {
@@ -141,6 +143,33 @@ public class TeacherDAO implements TeacherSource {
             isSucces = true;
         }
         return isSucces;
+    }
+
+    @Override
+    public Teacher loginTeacher(int id, String firstName, String password) {
+
+        try {
+            PreparedStatement ps = ConnectionDB.getConnection().prepareStatement(SQL_LOGIN);
+            ps.setInt(1, id);
+            ps.setString(2, firstName);
+            ps.setString(3, password);
+            ResultSet result = ps.executeQuery();
+
+            if (result.next()) {
+                Teacher teacher = new Teacher(
+                        result.getInt("id"),
+                        result.getString("firstName"),
+                        result.getString("lastname"),
+                        result.getString("password")
+                );
+                ConnectionDB.closeConnection();
+                return teacher;
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(TeacherDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
     }
 
 }

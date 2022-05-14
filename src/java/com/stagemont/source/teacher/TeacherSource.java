@@ -23,4 +23,6 @@ public interface TeacherSource {
     public boolean updateTeacher(Teacher teacher);
 
     public boolean deleteTeacher(int id);
+    
+    public Teacher loginTeacher(int id, String firstName, String password);
 }
