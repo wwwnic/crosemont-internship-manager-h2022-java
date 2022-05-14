@@ -28,7 +28,7 @@ import javax.servlet.http.HttpSession;
  */
 public class Login extends AbstractAction {
 
-    private final String SPLIT_CHARACTER = ".";
+    private final String SPLIT_CHARACTER = ", ";
 
     private final List<String> LST_STUDENT_PREFIX = Arrays.asList("etu", "stu");
     private final List<String> LST_TEACHER_PREFIX = Arrays.asList("pro", "ens", "tea");
