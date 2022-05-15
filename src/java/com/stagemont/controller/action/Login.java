@@ -67,6 +67,7 @@ public class Login extends AbstractAction {
         HttpSession session = request.getSession();
         session.setAttribute("id", user.getId());
         session.setAttribute("name", user.getFirstname());
+        session.setAttribute("type", user.getUserTypeName());
     }
 
     private User getUserInDataBase(String username, String password) {

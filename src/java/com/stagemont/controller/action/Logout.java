@@ -14,6 +14,13 @@ import javax.servlet.http.HttpSession;
  */
 public class Logout extends AbstractAction {
 
+    private void addHeader() {
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
+    }
+
     @Override
     public String execute() {
         HttpSession session = request.getSession(false);
@@ -23,6 +30,7 @@ public class Logout extends AbstractAction {
         } else {
             request.setAttribute("msgError", "Déconnexion non terminée");
         }
+        addHeader();
         return "login";
     }
 }

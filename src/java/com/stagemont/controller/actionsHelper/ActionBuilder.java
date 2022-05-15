@@ -5,45 +5,55 @@
  */
 package com.stagemont.controller.actionsHelper;
 
-import com.stagemont.controller.action.Login;
 import com.stagemont.controller.action.ByDefault;
-import com.stagemont.controller.action.Logout;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class ActionBuilder {
 
     public static Action getAction(HttpServletRequest request) {
         Action action = null;
-        if (request.getSession(false) == null) {
-            request.setAttribute("msgError", "Veuillez vous connecter");
+        String userType = "";
+        HttpSession session = request.getSession(false);
+        if (session == null) {
             return new ByDefault();
         }
         System.out.println("la session est active? " + request.getSession(false));
 
-        String actionAFaire;
+        String actionToDo;
         String servletPath = request.getServletPath();
         System.out.println("servlet to action a faire " + servletPath);
 
         servletPath = servletPath.substring(1);
         int i = servletPath.indexOf("/");
         if (i == -1) {
-            actionAFaire = servletPath;
+            actionToDo = servletPath;
         } else {
-            actionAFaire = servletPath.substring(0, i);
+            actionToDo = servletPath.substring(0, i);
         }
-        i = actionAFaire.indexOf(".");
+        i = actionToDo.indexOf(".");
         if (i != -1) {
-            actionAFaire = actionAFaire.substring(0, i);
+            actionToDo = actionToDo.substring(0, i);
         }
-        switch (actionAFaire) {
-            case "login":
-                action = new Login();
+        Object userTypeAttribute = session.getAttribute("type");
+        userType = userTypeAttribute != null ? userTypeAttribute.toString() : "";
+
+        switch (userType) {
+            case "student":
+                action = BuilderHelper.iterateActionStudent(actionToDo);
                 break;
-            case "logout":
-                action = new Logout();
+            case "teacher":
+                action = BuilderHelper.iterateActionTeacher(actionToDo);
                 break;
-            default:
-                action = new ByDefault();
+            case "company":
+                action = BuilderHelper.iterateActionCompany(actionToDo);
+                break;
+            case "admin":
+                throw new UnsupportedOperationException("Not supported yet.");
+        }
+
+        if (action == null) {
+            action = BuilderHelper.iterateActionOther(actionToDo);
         }
 
         return action;
