@@ -118,9 +118,10 @@ public class StudentDAO implements StudentSource {
             ps.setString(1, student.getFirstname());
             ps.setString(2, student.getLastname());
             ps.setString(3, student.getPassword());
-            ps.setInt(4, student.getId());
+            ps.setInt(4, student.getDa());
             ps.setString(5, student.getCv());
             ps.setString(6, student.getLetter());
+            ps.setInt(7, student.getId());
 
             rowCount = ps.executeUpdate();
             ConnectionDB.closeConnection();

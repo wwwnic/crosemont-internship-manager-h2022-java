@@ -23,10 +23,8 @@ public class FrontController extends HttpServlet {
 
         action = ActionBuilder.getAction(request);
         System.out.println(" action : " + action);
-
         action.setRequest(request);
         action.setResponse(response);
-
         path = action.execute();
 
         request.getRequestDispatcher("/" + path + ".jsp").forward(request, response);
