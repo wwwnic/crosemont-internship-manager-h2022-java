@@ -7,12 +7,19 @@ package com.stagemont.controller.actionsHelper;
 
 import com.stagemont.controller.action.Login;
 import com.stagemont.controller.action.ByDefault;
+import com.stagemont.controller.action.Logout;
 import javax.servlet.http.HttpServletRequest;
 
 public class ActionBuilder {
 
     public static Action getAction(HttpServletRequest request) {
         Action action = null;
+        if (request.getSession(false) == null) {
+            request.setAttribute("msgError", "Veuillez vous connecter");
+            return new ByDefault();
+        }
+        System.out.println("la session est active? " + request.getSession(false));
+
         String actionAFaire;
         String servletPath = request.getServletPath();
         System.out.println("servlet to action a faire " + servletPath);
@@ -31,6 +38,9 @@ public class ActionBuilder {
         switch (actionAFaire) {
             case "login":
                 action = new Login();
+                break;
+            case "logout":
+                action = new Logout();
                 break;
             default:
                 action = new ByDefault();

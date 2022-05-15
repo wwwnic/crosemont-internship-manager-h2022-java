@@ -13,8 +13,9 @@ and open the template in the editor.
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css" /> 
+        <link rel="stylesheet" href="./static/css/header.css" /> 
 
     </head>
     <body>
@@ -41,7 +42,11 @@ and open the template in the editor.
                         <li class="nav-item"><a href="#" class="nav-link">Stage</a></li>
                         <li class="nav-item"><a href="studentlist" class="nav-link">Entreprise</a></li>
                         <li class="nav-item"><a href="companylist" class="nav-link">Etudiant</a></li>
+                        <li class="nav-item"><a href="dashboard" class="nav-link">Tableau de bord</a></li>
                     </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="logout" class="nav-link">D&eacuteconnexion <span class="sr-only">(current)</span></a></li>
+                    </ul> 
                 </div> 
             </div>
         </nav>

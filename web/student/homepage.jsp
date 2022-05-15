@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Page d'Accueil</title>
-        <%@include file="../admin/header.html" %>
+        <%@include file="../student/header.html" %>
         <script>
             $(function () {
                 $("#accordion").accordion();
@@ -32,18 +32,17 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="images/INTERNSHIP.jpg" alt="Image d'accueil">
+                                <img src="./static/images/INTERNSHIP.jpg" alt="Image d'accueil">
                             </div>
 
                             <div class="item">
-                                <img src="images/DOCTOR.jpg" alt="Doctor">
+                                <img src="./static/images/DOCTOR.jpg" alt="Doctor">
                             </div>
 
                             <div class="item">
-                                <img src="images/CODING.jpg" alt="Coder">
+                                <img src="./static/images/CODING.jpg" alt="Coder">
                             </div>
                         </div>
-
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
