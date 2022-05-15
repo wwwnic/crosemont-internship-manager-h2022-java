@@ -13,41 +13,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author dahamada Le contrôleur frontal est une servlet configurée pour
- * recevoir toutes les requêtes. Pour cela, on lui attribue l’URL pattern /.
- */
-public class ControllerFrontal extends HttpServlet {
+public class FrontController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         Action action;
-        String vue;
+        String path;
 
-        //On demande à l'action-builder de nous fournir le bon contrôleur :
         action = ActionBuilder.getAction(request);
         System.out.println(" action : " + action);
 
-        //On injecte dans le contrôleur les objets request et response :
         action.setRequest(request);
         action.setResponse(response);
 
-        //On exécute l'action qui nous retourne la vue qui présentera la réponse au client :
-        vue = action.execute();
+        path = action.execute();
 
-        //On transfert la requête à la vue :
-        request.getRequestDispatcher("/" + vue + ".jsp").forward(request, response);
+        request.getRequestDispatcher("/" + path + ".jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

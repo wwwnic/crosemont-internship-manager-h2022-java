@@ -6,9 +6,6 @@
 package com.stagemont.controller.action;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
-import com.stagemont.entities.Company;
-import com.stagemont.entities.Student;
-import com.stagemont.entities.Teacher;
 import com.stagemont.entities.User;
 import com.stagemont.source.company.CompanyDAO;
 import com.stagemont.source.company.CompanySource;
@@ -28,7 +25,7 @@ import javax.servlet.http.HttpSession;
  */
 public class Login extends AbstractAction {
 
-    private final String SPLIT_CHARACTER = ", ";
+    private final String SPLIT_CHARACTER = "=";
 
     private final List<String> LST_STUDENT_PREFIX = Arrays.asList("etu", "stu");
     private final List<String> LST_TEACHER_PREFIX = Arrays.asList("pro", "ens", "tea");
@@ -57,7 +54,7 @@ public class Login extends AbstractAction {
         try {
             userId = Integer.parseInt(intAndAfter);
         } catch (NumberFormatException ex) {
-            request.setAttribute("erreur", "Nom ou mot de passe invalide");
+            sendErrorMessage();
         }
         return userId;
     }
