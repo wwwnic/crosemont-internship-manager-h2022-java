@@ -70,15 +70,15 @@ CREATE TABLE `contract` (
   `student_id` INT NOT NULL
 );
 
-ALTER TABLE `internship` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`);
+ALTER TABLE `internship` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `job` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`);
+ALTER TABLE `job` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `ads` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`);
+ALTER TABLE `ads` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `contract` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`);
+ALTER TABLE `contract` ADD FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `contract` ADD FOREIGN KEY (`student_id`) REFERENCES `student` (`id`);
+ALTER TABLE `contract` ADD FOREIGN KEY (`student_id`) REFERENCES `student` (`id`) ON DELETE CASCADE;
 
 CREATE UNIQUE INDEX `da_UNIQUE` ON `student` (`da`);
 
