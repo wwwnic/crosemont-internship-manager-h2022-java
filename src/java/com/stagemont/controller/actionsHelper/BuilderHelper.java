@@ -10,6 +10,7 @@ import com.stagemont.controller.action.Login;
 import com.stagemont.controller.action.Logout;
 import com.stagemont.controller.action.teacher.DeleteStudent;
 import com.stagemont.controller.action.teacher.EditStudent;
+import com.stagemont.controller.action.teacher.ShowStudentDashboard;
 import com.stagemont.controller.action.teacher.ShowStudentForm;
 import com.stagemont.controller.action.teacher.ShowStudentList;
 
@@ -43,6 +44,9 @@ public interface BuilderHelper {
                 break;
             case "deleteStudent":
                 action = new DeleteStudent();
+                break;
+            case "showStudentDashboard":
+                action = new ShowStudentDashboard();
                 break;
         }
         return action;
