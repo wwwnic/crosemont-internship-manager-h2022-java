@@ -125,3 +125,35 @@ split {
     width: 15%;
     transform: translate(-50%, -50%);
 }
+.buttonForTable{
+    background:    #ffffff;
+    border:        1px solid #000000;
+    border-radius: 7px;
+    width:         90px;
+    height:        30px;
+    color:         #000000;
+    display:       inline-block;
+    font:          normal normal 15px/30px "Open Sans", sans-serif;
+    text-align:    center;
+}
+.buttonForTable:hover{
+    opacity: 0.7
+}
+
+th {
+    font-size: 15px;
+    border-top: 1px solid #0A98E8;
+    border-bottom: 2px solid #0A98E8;
+    padding: 10px 14px 10px 14px;
+
+}
+
+td {
+    font-size: 15px;
+    border-bottom: 1px solid #0A98E8;
+    padding: 9px 14px 9px 14px;
+}
+table { 
+    margin-left: auto;
+    margin-right: auto;
+}
