@@ -98,7 +98,7 @@
                             <td><c:out value = "${contRel.contract.id}"/></td>
                             <td><c:out value = "${contRel.contract.status}"/></td>
                             <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${contRel.contract.start_date}" /></td>
-                            <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${contRel.contract.start_date}" /></td>
+                            <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${contRel.contract.end_date}" /></td>
                             <td>
                                 <a href="showContract?id=<c:out value = "${contRel.contract.id}"/>" data-toggle="tooltip" title="Voir le contrat">
                                     <button class="buttonForTable">Visualiser</button>
