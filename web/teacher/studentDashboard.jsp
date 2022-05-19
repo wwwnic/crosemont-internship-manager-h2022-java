@@ -4,6 +4,8 @@
     Author     : Nicolas Brunet
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -14,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
         <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" /> 
         <link rel="stylesheet" type="text/css" href="./static/css/imgCenter.css" /> 
-        <%@include file="../student/header.html" %>
+        <%@include file="../teacher/header.html" %>
         <title>Dashboard</title>
     </head>
     <body>
@@ -47,7 +49,7 @@
                         </div>
                     </div>
                     </br>
-                    <p id="elementname" class="text-center">Curriculum vitae</p>
+                    <h2 id="elementname" class="text-center">Curriculum vitae</h2>
                     <div class="row">
                         <div class="column">
                             <a href="uploadCV?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner un cv">
@@ -63,7 +65,7 @@
 
                         </div>
                     </div>
-                    <p id="elementname" class="text-center">Lettre de motivation</p>
+                    <h2 class="text-center">Lettre de motivation</h2>
                     <div class="row">
                         <div class="column">
                             <a href="uploadLetter?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner une lettre">
@@ -74,10 +76,38 @@
                             <a href="showLetter?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="voir votre lettre">
                                 <img src="./static/images/PDF.png" width="25%" alt="PDF2">
                             </a>
-
                         </div>
                     </div>
                 </div>
+                </br>
+                <h2 class='text-center'>Requêtes de l'étudiant</h2>
+                </br>
+                <table>
+                    <tr>
+                        <th>Nom entreprise</th>
+                        <th>Id</th>
+                        <th>État</th>
+                        <th>Date début</th>
+                        <th>Date fin</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <c:forEach items="${lstContRelation}" var="contRel">
+                        <tr>
+                            <td><c:out value = "${contRel.company.name}"/></td>
+                            <td><c:out value = "${contRel.contract.id}"/></td>
+                            <td><c:out value = "${contRel.contract.status}"/></td>
+                            <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${contRel.contract.start_date}" /></td>
+                            <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${contRel.contract.end_date}" /></td>
+                            <td>
+                                <a href="showContract?id=<c:out value = "${contRel.contract.id}"/>" data-toggle="tooltip" title="Voir le contrat">
+                                    <button class="buttonForTable">Visualiser</button>
+                                </a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tr>
+                </table>
             </div>    
             <div></div>    
     </body>
