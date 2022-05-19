@@ -34,7 +34,7 @@ public class Contract {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public java.util.Date getStart_date() {
         return start_date;
     }
@@ -74,6 +74,5 @@ public class Contract {
     public void setStatus(Status status) {
         this.status = status;
     }
-    
-    
+
 }
