@@ -6,9 +6,9 @@
 package com.stagemont.controller.action.student;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
-import com.stagemont.entities.Job;
-import com.stagemont.source.job.JobDAO;
-import com.stagemont.source.job.JobSource;
+import com.stagemont.entities.Internship;
+import com.stagemont.source.internship.InternshipDAO;
+import com.stagemont.source.internship.InternshipSource;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
@@ -16,19 +16,18 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jefferson
  */
-public class ShowStudentJobs extends AbstractAction  {
-    
-    private final JobSource J_SOURCE = new JobDAO();
+public class ShowStudentInternship extends AbstractAction  {
 
+    private final InternshipSource I_SOURCE = new InternshipDAO();
+    
     @Override
     public String execute() {
-        
         HttpSession session = request.getSession(false);
-        List<Job> lstJob = J_SOURCE.getAllJob();
-        String userType = session.getAttribute("type").toString();    
-        request.setAttribute("listJob", lstJob);
+        List<Internship> lstIntern = I_SOURCE.getAllInternship();
+        String userType = session.getAttribute("type").toString();
+        request.setAttribute("listInternship", lstIntern);
         
-        String viewPath = userType + "/jobList";        
+        String viewPath = userType + "/internList";
         return viewPath;
     }
     

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : infoEmploi
-    Created on : 2022-05-08, 19:51:02
+    Document   : InfoStage
+    Created on : 2022-05-08, 19:51:17
     Author     : Jefferson
 --%>
 
@@ -10,14 +10,14 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/center.css" /> 
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/dashboard.css" />
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" />
+        <link rel="stylesheet" type="text/css" href="./static/css/table.css" /> 
         <%@include file="../student/header.html" %>
-        <title>Détails Emplois</title>
+        <title>Détails Stages</title>
     </head>
     <body>
-        <h1 class="text-center">Détails de l'emploi</h1>
+        <h1 class="text-center">Détails du stage</h1>
         <div>
             <div>
                 </br>
@@ -36,18 +36,16 @@
                     </br>
                     <p id="elementname">Date de fin</p>
                     </br>
-     
+                    <i class="fa-solid fa-envelope"></i><p>Postuler par courriel</p>
                 </div>
                 </br>
                 <div class="row">
                     <div class="column btncontainer">
-                        <button class="btnBlue btncenter fa-2xl">Modifier</button>
+                        <button class="btnBlue btncenter fa-2xl">Postuler</button>
                     </div>
-                    <div class="column btncontainer">
-                        <button class="btnRed btncenter">Supprimer</button>
-                    </div>
+                    
                 </div>
             </div>
-        </div>
+        </div>  
     </body>
 </html>
