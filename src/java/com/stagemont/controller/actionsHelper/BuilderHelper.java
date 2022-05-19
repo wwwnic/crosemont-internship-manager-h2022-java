@@ -10,8 +10,9 @@ import com.stagemont.controller.action.Login;
 import com.stagemont.controller.action.Logout;
 import com.stagemont.controller.action.teacher.DeleteStudent;
 import com.stagemont.controller.action.teacher.EditStudent;
-import com.stagemont.controller.action.teacher.ShowStudentDashboard;
-import com.stagemont.controller.action.teacher.ShowStudentForm;
+import com.stagemont.controller.action.display.ShowStudentDashboard;
+import com.stagemont.controller.action.display.ShowStudentForm;
+import com.stagemont.controller.action.student.ShowStudentHomepage;
 import com.stagemont.controller.action.teacher.ShowStudentList;
 
 /**
@@ -25,6 +26,12 @@ public interface BuilderHelper {
         switch (actionToDo) {
             case "test":
                 action = new ByDefault();
+                break;
+            case "showStudentDashboard":
+                action = new ShowStudentDashboard();
+                break;
+            case "showStudentHomepage":
+                action = new ShowStudentHomepage();
                 break;
         }
         return action;

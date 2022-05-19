@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.teacher;
+package com.stagemont.controller.action.display;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Student;
 import com.stagemont.source.student.StudentDAO;
 import com.stagemont.source.student.StudentSource;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -20,8 +21,13 @@ public class ShowStudentDashboard extends AbstractAction {
 
     @Override
     public String execute() {
+
         String userId = request.getParameter("id");
-        String userType = request.getSession(false).getAttribute("type").toString();
+        HttpSession session = request.getSession(false);
+        if (userId == null) {
+             userId = session.getAttribute("id").toString();
+        }
+        String userType = session.getAttribute("type").toString();
         Student student = SOURCE.getStudentFromId(Integer.parseInt(userId));
         request.setAttribute("student", student);
         String viewPath = userType + "/studentDashboard";

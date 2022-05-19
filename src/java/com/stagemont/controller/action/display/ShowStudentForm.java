@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.teacher;
+package com.stagemont.controller.action.display;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 
