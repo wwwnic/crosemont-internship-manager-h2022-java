@@ -14,6 +14,7 @@ import com.stagemont.controller.action.display.ShowStudentDashboard;
 import com.stagemont.controller.action.display.ShowStudentForm;
 import com.stagemont.controller.action.student.ShowStudentHomepage;
 import com.stagemont.controller.action.student.ShowStudentInfoJob;
+import com.stagemont.controller.action.student.ShowStudentInfoStage;
 import com.stagemont.controller.action.student.ShowStudentInternship;
 import com.stagemont.controller.action.student.ShowStudentJobs;
 import com.stagemont.controller.action.teacher.ShowStudentList;
@@ -64,9 +65,7 @@ public interface BuilderHelper {
             case "showStudentDashboard":
                 action = new ShowStudentDashboard();
                 break;
-            case "showStudentInfoJob":
-                action = new ShowStudentInfoJob();
-                break;
+
         }
         return action;
     }
@@ -99,6 +98,12 @@ public interface BuilderHelper {
                 break;
             case "logout":
                 action = new Logout();
+                break;
+            case "showStudentInfoJob":
+                action = new ShowStudentInfoJob();
+                break;
+            case "showStudentInfoStage":
+                action = new ShowStudentInfoStage();
                 break;
             default:
                 action = new ByDefault();
