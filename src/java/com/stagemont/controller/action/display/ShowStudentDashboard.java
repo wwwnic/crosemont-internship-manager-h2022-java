@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.teacher;
+package com.stagemont.controller.action.display;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Company;
@@ -18,6 +18,7 @@ import com.stagemont.source.student.StudentDAO;
 import com.stagemont.source.student.StudentSource;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,8 +32,13 @@ public class ShowStudentDashboard extends AbstractAction {
 
     @Override
     public String execute() {
+
         String userId = request.getParameter("id");
-        String userType = request.getSession(false).getAttribute("type").toString();
+        HttpSession session = request.getSession(false);
+        if (userId == null) {
+             userId = session.getAttribute("id").toString();
+        }
+        String userType = session.getAttribute("type").toString();
         int studentId = Integer.parseInt(userId);
         Student student = STUDENT_SOURCE.getStudentFromId(studentId);
         List<Contract> lstContract = CONTRACT_SOURCE.getContractByStudentId(studentId);
