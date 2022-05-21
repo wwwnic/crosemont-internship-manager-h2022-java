@@ -35,6 +35,12 @@ CREATE TABLE `company` (
   `person_in_charge` VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE `admin` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE `internship` (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) NOT NULL,
