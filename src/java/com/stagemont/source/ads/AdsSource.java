@@ -17,6 +17,8 @@ public interface AdsSource {
     public Ads getAdsFromid(int id);
 
     public List<Ads> getAllAds();
+    
+    public List<Ads> getAdsFromCompanyid(int company_id);
 
     public boolean insertAds(Ads ads);
 

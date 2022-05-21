@@ -22,6 +22,11 @@ import com.stagemont.controller.action.teacher.DeleteCompany;
 import com.stagemont.controller.action.edit.EditCompany;
 import com.stagemont.controller.action.teacher.ShowCompanyList;
 import com.stagemont.controller.action.teacher.ShowStudentList;
+import com.stagemont.controller.action.company.AddAds;
+import com.stagemont.controller.action.company.AdsList;
+import com.stagemont.controller.action.company.Contract;
+import com.stagemont.controller.action.company.ContractList;
+import com.stagemont.controller.action.company.Dashboard;
 
 /**
  *
@@ -96,6 +101,22 @@ public interface BuilderHelper {
             case "test":
                 action = new ByDefault();
                 break;
+            case "addAdsForm":
+                action = new AddAds();
+                break;
+            case "adsList":
+                action = new AdsList();
+                break;
+            case "contract":
+                action = new Contract();
+                break;
+            case "contractList":
+                action = new ContractList();
+                break;
+            case "dashboard":
+                action = new Dashboard();
+                break;
+                
         }
         return action;
     }

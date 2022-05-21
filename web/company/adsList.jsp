@@ -11,8 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/center.css" />
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
+        <link rel="stylesheet" type="text/css" href="./static/css/table.css" />
+        <link rel="stylesheet" href="/resources/demos/style.css">
         <%@include file="../company/header.html" %>
 
         <%
@@ -36,23 +37,22 @@
                 <th>Image</th>
             </tr>
 
-            <% if (listAds != null) {
+            <% if (listAds != null && listAds.size()!=0) {
                     for (Ads a : listAds) {%>
             <tr>
                 <td><%=a.getTitle()%></td>
                 <td> <%=a.getDescription()%> </td>
                 <td>
-                    <img alt="<%=a.getImage()%>"  src="${pageContext.request.contextPath}/images/<%=a.getImage()%>.png" height="100" width="100"/> 
+                    <img alt="<%=a.getImage()%>"  src="./static/images/<%=a.getImage()%>.png" height="100" width="100"/> 
                 
                 </td>
             </tr>
-
+        </table>
             <%}
             } else {%>
 
-            <tr>listAds est <%=listAds%></tr>
+            <h1>Cette compagnie n'a pas de publicités!</h1>
             <%}%>
 
-        </table>
     </body>
 </html>
