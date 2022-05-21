@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="/resources/demos/style.css">
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-        <script src="../js/calenderFrench.js"></script>
+        <script src="./static/js/formToggler.js"></script>
 
         <title>Contract</title>
     </head>

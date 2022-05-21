@@ -12,8 +12,9 @@
         <title>Form</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/formuser.css" /> 
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/center.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/formuser.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
+
         <%@include file="../admin/header.html" %>
     </head>
     <body>
@@ -35,7 +36,7 @@
                     </div>
                 </div>
                 <br/>
-                <script src="../js/formToggler.js"></script>
+                <script src="./static/js/formToggler.js"></script>
                 <br/>
                 <form id="formStudent">
                     <div class="form-group row">

@@ -7,6 +7,8 @@ package com.stagemont.controller.action;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.User;
+import com.stagemont.source.admin.AdminDAO;
+import com.stagemont.source.admin.AdminSource;
 import com.stagemont.source.company.CompanyDAO;
 import com.stagemont.source.company.CompanySource;
 import com.stagemont.source.student.StudentDAO;
@@ -30,10 +32,12 @@ public class Login extends AbstractAction {
     private final List<String> LST_STUDENT_PREFIX = Arrays.asList("etu", "stu");
     private final List<String> LST_TEACHER_PREFIX = Arrays.asList("pro", "ens", "tea");
     private final List<String> LST_COMPANY_PREFIX = Arrays.asList("ent", "com", "ent");
+    private final List<String> LST_ADMIN_PREFIX = Arrays.asList("admin");
 
     private final StudentSource SOURCE_STUDENT = new StudentDAO();
     private final TeacherSource SOURCE_TEACHER = new TeacherDAO();
     private final CompanySource SOURCE_COMPANY = new CompanyDAO();
+    private final AdminSource SOURCE_ADMIN = new AdminDAO();
 
     private String getUserType(String username) {
         String[] userInfo = username.split(SPLIT_CHARACTER);
@@ -80,6 +84,8 @@ public class Login extends AbstractAction {
             return SOURCE_TEACHER.loginTeacher(userId, fname, password);
         } else if (LST_COMPANY_PREFIX.contains(userPrefix)) {
             return SOURCE_COMPANY.loginCompany(userId, fname, password);
+        } else if (LST_ADMIN_PREFIX.contains(userPrefix)) {
+            return SOURCE_ADMIN.loginAdmin(userId, fname, password);
         } else {
             return null;
         }
