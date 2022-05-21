@@ -10,9 +10,9 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/center.css" /> 
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/dashboard.css" />
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" />
+        <link rel="stylesheet" type="text/css" href="./static/css/table.css" /> 
         <%@include file="../student/header.html" %>
         <title>Modifier Étudiant</title>
         <style>

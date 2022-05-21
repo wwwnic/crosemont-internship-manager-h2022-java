@@ -19,7 +19,7 @@ public class TestCompanyDAO {
         boolean result=false;
         
         System.out.println("******Test la méthode create*****");
-        Company company = new Company(7, "c", "c", "5142222626", "c@gmail.com", "B");
+        Company company = new Company(7, "b", "b", "5142222626", "b@gmail.com", "B");
         result = dao.insertCompany(company);
         System.out.println(result);
         
@@ -30,8 +30,8 @@ public class TestCompanyDAO {
         
         System.out.println("******Test la méthode update*****");
         
- //       Company company = new Company(6, "b", "b", "5142222626", "b@gmail.com", "B");
-//       result = dao.updateCompany(company);
+        //Company company = new Company(6, "b", "b", "5142222626", "b@gmail.com", "B");
+       //result = dao.updateCompany(company);
        System.out.println(result);
         
         

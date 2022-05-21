@@ -29,6 +29,12 @@ INSERT INTO `company` VALUES
 ("4", "Dell", "iamdell", "5141112222", "Dell@dell.ca", "John"),
 ("5", "Ubisoft", "iamubisoft", "5148884536", "ubisoft@ubisoft.com", "Oliver");
 
+-- (`id` `username` `password`)
+INSERT INTO `admin` VALUES 
+("1", "root", "root"),
+("2", "admin", "admin"),
+("3", "sonic", "adventure");
+
 -- (`id` `title` `description` `start_date` `end_date` `company_id`) 
 INSERT INTO `internship` VALUES 
 ("1", "Developper Intern", "Google is hiring intern developpers who are fluent in : HTML, CSS, PHP, SQL", "2022-01-14", "2022-03-14", "1"),
@@ -54,13 +60,13 @@ INSERT INTO `ads` VALUES
 -- (`id` `status` `start_date` `end_date` `company_id` `student_id`)
 -- ENUM('submit','interview','employ')
 INSERT INTO `contract` VALUES 
-("1", "submit", null, null, "1", "1"),
-("2", "submit", null, null, "1", "2"),
-("3", "submit", null, null, "1", "3"),
-("4", "submit", null, null, "1", "5"),
-("5", "submit", null, null, "2", "1"),
-("6", "employ", "2021-06-30", "2022-08-30", "2", "4"),
-("7", "interview", null, null, "4", "5"),
-("8", "submit", null, null, "3", "2"),
-("9", "submit", null, null, "3", "3"),
-("10", "submit", null, null, "3", "5");
+("1", "submit", STR_TO_DATE('1-01-2022', '%d-%m-%Y'), STR_TO_DATE('1-01-2023', '%d-%m-%Y'), "1", "1"),
+("2", "submit", STR_TO_DATE('10-05-2022', '%d-%m-%Y'), STR_TO_DATE('6-06-2023', '%d-%m-%Y'), "1", "2"),
+("3", "submit", STR_TO_DATE('3-03-2021', '%d-%m-%Y'), STR_TO_DATE('5-07-2021', '%d-%m-%Y'), "1", "3"),
+("4", "submit", STR_TO_DATE('17-02-2022', '%d-%m-%Y'), STR_TO_DATE('4-04-2023', '%d-%m-%Y'), "1", "5"),
+("5", "submit", STR_TO_DATE('1-01-2022', '%d-%m-%Y'), STR_TO_DATE('2-03-2024', '%d-%m-%Y'), "2", "1"),
+("6", "employ", STR_TO_DATE('11-12-2022', '%d-%m-%Y'), STR_TO_DATE('5-03-2023', '%d-%m-%Y'), "2", "4"),
+("7", "interview", STR_TO_DATE('3-10-2022', '%d-%m-%Y'), STR_TO_DATE('7-9-2023', '%d-%m-%Y'), "4", "5"),
+("8", "submit", STR_TO_DATE('1-01-2022', '%d-%m-%Y'), STR_TO_DATE('1-05-2022', '%d-%m-%Y'), "3", "2"),
+("9", "submit", STR_TO_DATE('27-03-2022', '%d-%m-%Y'), STR_TO_DATE('1-01-2023', '%d-%m-%Y'), "3", "3"),
+("10", "submit", STR_TO_DATE('1-01-2022', '%d-%m-%Y'), STR_TO_DATE('1-01-2023', '%d-%m-%Y'), "3", "5");

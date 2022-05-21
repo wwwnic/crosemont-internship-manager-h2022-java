@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.teacher;
+package com.stagemont.controller.action.edit;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Student;
@@ -23,7 +23,6 @@ public class EditStudent extends AbstractAction {
 
     @Override
     public String execute() {
-        System.out.println("Je suis appelé !");
         StudentInputUtil inputUtil = new StudentInputUtil(request);
         String id = inputUtil.getIdFromRequest();
         String fname = inputUtil.getFirstNameFromRequest();

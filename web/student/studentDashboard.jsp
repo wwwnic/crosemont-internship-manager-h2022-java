@@ -1,13 +1,11 @@
 <%-- 
-    Document   : dashbord
-    Created on : 2022-03-20, 13:15:59
-    Author     : Nicolas Brunet
+    Document   : dashboard
+    Created on : 2022-05-04, 16:12:26
+    Author     : Jefferson
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
         <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" /> 
         <link rel="stylesheet" type="text/css" href="./static/css/imgCenter.css" /> 
-        <%@include file="../teacher/header.html" %>
+        <%@include file="../student/header.html" %>
         <title>Dashboard</title>
     </head>
     <body>
@@ -36,20 +34,9 @@
                         </br>
                     </div>
                     <br/>
-                    <div class="row">
-                        <div class="column btncontainer">
-                            <a href="showStudentForm?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Modifier">
-                                <button class="btnBlue btncenter">Modifier</button>
-                            </a>
-                        </div>
-                        <div class="column btncontainer">
-                            <a href="deleteStudent?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Supprimer le compte">
-                                <button class="btnRed btncenter">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
+
                     </br>
-                    <h2 id="elementname" class="text-center">Curriculum vitae</h2>
+                    <p id="elementname" class="text-center">Curriculum vitae</p>
                     <div class="row">
                         <div class="column">
                             <a href="uploadCV?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner un cv">
@@ -65,7 +52,7 @@
 
                         </div>
                     </div>
-                    <h2 class="text-center">Lettre de motivation</h2>
+                    <p id="elementname" class="text-center">Lettre de motivation</p>
                     <div class="row">
                         <div class="column">
                             <a href="uploadLetter?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner une lettre">
@@ -76,38 +63,38 @@
                             <a href="showLetter?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="voir votre lettre">
                                 <img src="./static/images/PDF.png" width="25%" alt="PDF2">
                             </a>
+
                         </div>
                     </div>
-                </div>
-                </br>
-                <h2 class='text-center'>Requêtes de l'étudiant</h2>
-                </br>
-                <table>
-                    <tr>
-                        <th>Nom entreprise</th>
-                        <th>Id</th>
-                        <th>État</th>
-                        <th>Date début</th>
-                        <th>Date fin</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <c:forEach items="${lstContRelation}" var="contRel">
+                    <h2 class='text-center'>Requêtes de l'étudiant</h2>
+                    </br>
+                    <table>
                         <tr>
-                            <td><c:out value = "${contRel.company.name}"/></td>
-                            <td><c:out value = "${contRel.contract.id}"/></td>
-                            <td><c:out value = "${contRel.contract.status}"/></td>
-                            <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${contRel.contract.start_date}" /></td>
+                            <th>Nom entreprise</th>
+                            <th>Id</th>
+                            <th>État</th>
+                            <th>Date début</th>
+                            <th>Date fin</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <c:forEach items="${lstContRelation}" var="contRel">
+                            <tr>
+                                <td><c:out value = "${contRel.company.name}"/></td>
+                                <td><c:out value = "${contRel.contract.id}"/></td>
+                                <td><c:out value = "${contRel.contract.status}"/></td>
+                                <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${contRel.contract.start_date}" /></td>
                             <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${contRel.contract.end_date}" /></td>
                             <td>
                                 <a href="showContract?id=<c:out value = "${contRel.contract.id}"/>" data-toggle="tooltip" title="Voir le contrat">
                                     <button class="buttonForTable">Visualiser</button>
                                 </a>
                             </td>
+                            </tr>
+                        </c:forEach>
                         </tr>
-                    </c:forEach>
-                    </tr>
-                </table>
+                    </table>
+                </div>
             </div>    
             <div></div>    
     </body>
