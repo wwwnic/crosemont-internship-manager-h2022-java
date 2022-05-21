@@ -10,12 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Page d'Accueil</title>
-        <%@include file="css/BootstrapLinks.html" %>
-        <%@include file="../admin/header.html" %>
-        <link rel="stylesheet" type="text/css" href="css/carouselImages.css" /> 
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+        <c:if test="${sessionScope.type=='student'}"><%@include file="../student/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='company'}"><%@include file="../company/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='admin'}"><%@include file="../admin/header.html" %>
+        </c:if> 
         <script>
             $(function () {
                 $("#accordion").accordion();
@@ -37,18 +41,17 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="images/INTERNSHIP.jpg" alt="Image d'accueil">
+                                <img src="./static/images/INTERNSHIP.jpg" alt="Image d'accueil">
                             </div>
 
                             <div class="item">
-                                <img src="images/DOCTOR.jpg" alt="Doctor">
+                                <img src="./static/images/DOCTOR.jpg" alt="Doctor">
                             </div>
 
                             <div class="item">
-                                <img src="images/CODING.jpg" alt="Coder">
+                                <img src="./static/images/CODING.jpg" alt="Coder">
                             </div>
                         </div>
-
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>

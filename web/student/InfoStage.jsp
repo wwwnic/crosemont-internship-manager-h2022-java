@@ -50,12 +50,18 @@
                     <i class="fa-solid fa-envelope"></i><p>Postuler par courriel</p>
                 </div>
                 </br>
-                <div class="row">
-                    <div class="column btncontainer">
-                        <button class="btnBlue btncenter fa-2xl">Postuler</button>
-                    </div>
-                    
+                <p id="elementname">Date de début</p>
+                </br>
+                <p id="elementname">Date de fin</p>
+                </br>
+                <i class="fa-solid fa-envelope"></i><p>Postuler par courriel</p>
+            </div>
+            </br>
+            <div class="row">
+                <div class="column btncontainer">
+                    <button class="btnBlue btncenter fa-2xl">Postuler</button>
                 </div>
+
             </div>
             <div></div>
         </div>  

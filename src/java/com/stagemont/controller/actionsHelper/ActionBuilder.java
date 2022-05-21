@@ -49,7 +49,7 @@ public class ActionBuilder {
                 action = BuilderHelper.iterateActionCompany(actionToDo);
                 break;
             case "admin":
-                throw new UnsupportedOperationException("Not supported yet.");
+                action = BuilderHelper.iterateActionAdmin(actionToDo);
         }
 
         if (action == null) {
