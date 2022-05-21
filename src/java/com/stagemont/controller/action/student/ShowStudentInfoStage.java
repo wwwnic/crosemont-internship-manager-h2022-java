@@ -7,39 +7,37 @@ package com.stagemont.controller.action.student;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Company;
-import com.stagemont.entities.Job;
+import com.stagemont.entities.Internship;
 import com.stagemont.source.company.CompanyDAO;
 import com.stagemont.source.company.CompanySource;
-import com.stagemont.source.job.JobDAO;
-import com.stagemont.source.job.JobSource;
-import java.util.List;
+import com.stagemont.source.internship.InternshipDAO;
+import com.stagemont.source.internship.InternshipSource;
 import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Jefferson
  */
-public class ShowStudentInfoJob  extends AbstractAction {
+public class ShowStudentInfoStage extends AbstractAction{
 
-    private final JobSource J_SOURCE = new JobDAO();
+    private final InternshipSource I_SOURCE = new InternshipDAO();
     private final CompanySource C_SOURCE = new CompanyDAO();
+    
     @Override
     public String execute() {
         HttpSession session = request.getSession(false);
-        int jobId = Integer.parseInt(request.getParameter("id"));
+        int stageId = Integer.parseInt(request.getParameter("id"));
         
-        Job job = J_SOURCE.getJobFromId(jobId);
-        Company company = C_SOURCE.getCompanyFromId(job.getCompany_id());
-        String userType = session.getAttribute("type").toString();    
+        Internship intern = I_SOURCE.getInternshipFromId(stageId);
+        Company company = C_SOURCE.getCompanyFromId(intern.getCompany_id());
+        String userType = session.getAttribute("type").toString(); 
         
-        //int infoJobId = Integer.parseInt(jobId);
-        //Job job = J_SOURCE.getJobFromId(infoJobId);
-        //request.setAttribute("listJob", lstJob);
-        request.setAttribute("job", job);
+        request.setAttribute("intern", intern);
         request.setAttribute("company", company);
         
-        String viewPath = userType + "/InfoEmploi";        
+        String viewPath = userType + "/InfoStage";        
         return viewPath;
+        
     }
     
 }

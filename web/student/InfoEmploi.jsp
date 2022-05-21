@@ -14,40 +14,57 @@
         <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/table.css" /> 
         <%@include file="../student/header.html" %>
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <title>Détails Emplois</title>
     </head>
     <body>
-        <h1 class="text-center">Détails de l'emploi</h1>
-        <div>
+        <div class="wrapper">
             <div>
-                </br>
-                <div class='line'>
+
+            </div>
+
+            <div>
+                <h1 class="text-center">Détails de l'emploi</h1>
+                <div>
                     </br>
-                    </br>     
-                    <p id="elementname">Nom de l'entreprise</p>
-                    </br>
-                    <p id="elementname">Description</p>
-                    </br>
-                    <p id="elementname">Status du stage</p>
-                    </br>
-                    <p id="elementname">Numéro de stage</p>
-                    </br>
-                    <p id="elementname">Date de début</p>
-                    </br>
-                    <p id="elementname">Date de fin</p>
-                    </br>
-     
-                </div>
-                </br>
-                <div class="row">
-                    <div class="column btncontainer">
-                        <button class="btnBlue btncenter fa-2xl">Modifier</button>
+                    <div class='line'>
+                        </br>
+                        </br>     
+                        <p id="elementname">Nom de l'entreprise</p>
+                        <p id="element"><c:out value = "${company.name}"/></p>
+                        </br>
+                        <p id="elementname">Description</p>
+                        <p id="element"><c:out value = "${job.description}"/></p>
+                        </br>
+                        <p id="elementname">Numéro de l'emploi</p>
+                        <p id="element"><c:out value = "${job.id}"/></p>
+                        </br>
+                        <p id="elementname">Date de début</p>
+                        <p id="element"><fmt:formatDate pattern = "yyyy-MM-dd" value = "${job.start_date}" /></p>
+                        </br>
+                        <p id="elementname">Date de fin</p>
+                        <p id="element"><fmt:formatDate pattern = "yyyy-MM-dd" value = "${job.end_date}" /></p>
+                        </br>
+
                     </div>
-                    <div class="column btncontainer">
-                        <button class="btnRed btncenter">Supprimer</button>
-                    </div>
+                    </br>
+                    <c:set var = "salary" scope = "session" value = "${2000*2}"/>
+                    <c:if test = "${salary > 60000}">
+                        <div class="row">
+                            <div class="column btncontainer">
+                                <button class="btnBlue btncenter fa-2xl">Modifier</button>
+                            </div>
+                            <div class="column btncontainer">
+                                <button class="btnRed btncenter">Supprimer</button>
+                            </div>
+                        </div>
+                    </c:if>
+
+
                 </div>
             </div>
+            <div></div>
         </div>
     </body>
 </html>

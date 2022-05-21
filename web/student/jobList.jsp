@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/table.css" /> 
         <%@include file="../student/header.html" %>
+        
 
         <title>Liste des emplois</title>
 
@@ -56,7 +57,7 @@
             <div class="card bg-info text-white">
                 <div class="card-header"><c:out value = "${job.getTitle()}"/></div>
                 <div class="card-body"><c:out value = "${job.getDescription()}"/></div> 
-                <div class="card-footer"><button type="button">Voir détails</button></div>
+                <div class="card-footer"><button type="button"><a href="showStudentInfoJob?id=<c:out value = "${job.getId()}"/>">Voir détails</a></button></div>
             </div>
                 </c:forEach>
             </br>
