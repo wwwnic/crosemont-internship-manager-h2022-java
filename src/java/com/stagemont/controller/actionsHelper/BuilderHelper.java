@@ -18,6 +18,11 @@ import com.stagemont.controller.action.display.dashboard.ShowStudentDashboard;
 import com.stagemont.controller.action.display.dashboard.ShowTeacherDashboard;
 import com.stagemont.controller.action.admin.ShowAddUserForm;
 import com.stagemont.controller.action.admin.ShowHomepage;
+import com.stagemont.controller.action.company.AddAds;
+import com.stagemont.controller.action.company.AdsList;
+import com.stagemont.controller.action.company.ContractList;
+import com.stagemont.controller.action.company.Dashboard;
+import com.stagemont.controller.action.display.dashboard.ShowInternshipDashboard;
 import com.stagemont.controller.action.display.form.ShowStudentForm;
 import com.stagemont.controller.action.display.form.ShowTeacherForm;
 import com.stagemont.controller.action.display.dashboard.ShowJobDashboard;
@@ -111,16 +116,13 @@ public interface BuilderHelper {
             case "adsList":
                 action = new AdsList();
                 break;
-            case "contract":
-                action = new Contract();
-                break;
             case "contractList":
                 action = new ContractList();
                 break;
             case "dashboard":
                 action = new Dashboard();
                 break;
-                
+
         }
         return action;
     }
@@ -211,10 +213,10 @@ public interface BuilderHelper {
                 action = new Logout();
                 break;
             case "showStudentInfoJob":
-                action = new ShowStudentInfoJob();
+                action = new ShowJobDashboard();
                 break;
             case "showStudentInfoStage":
-                action = new ShowStudentInfoStage();
+                action = new ShowInternshipDashboard();
                 break;
             default:
                 action = new ShowHomepage();

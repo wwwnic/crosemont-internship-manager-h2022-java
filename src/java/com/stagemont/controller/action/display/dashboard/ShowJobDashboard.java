@@ -12,7 +12,6 @@ import com.stagemont.source.company.CompanyDAO;
 import com.stagemont.source.company.CompanySource;
 import com.stagemont.source.job.JobDAO;
 import com.stagemont.source.job.JobSource;
-import java.util.List;
 import javax.servlet.http.HttpSession;
 
 /**

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.student;
+package com.stagemont.controller.action.display.dashboard;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Company;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jefferson
  */
-public class ShowStudentInfoStage extends AbstractAction{
+public class ShowInternshipDashboard extends AbstractAction{
 
     private final InternshipSource I_SOURCE = new InternshipDAO();
     private final CompanySource C_SOURCE = new CompanyDAO();
