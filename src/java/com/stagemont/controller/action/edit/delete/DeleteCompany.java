@@ -32,8 +32,8 @@ public class DeleteCompany extends AbstractAction {
             request.setAttribute("msgError", "Cette entreprise est impossible à supprimer");
         }
 
-        List<Company> lstStudent = C_SOURCE.getAllCompany();
-        request.setAttribute("listCompany", lstStudent);
+        List<Company> lstCompany = C_SOURCE.getAllCompany();
+        request.setAttribute("listCompany", lstCompany);
         String viewPath = "appControl/companyList";
         return viewPath;
     }

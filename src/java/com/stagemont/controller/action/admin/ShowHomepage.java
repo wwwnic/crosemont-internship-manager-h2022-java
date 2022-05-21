@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.display.form;
+
+package com.stagemont.controller.action.admin;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 
@@ -11,13 +12,10 @@ import com.stagemont.controller.actionsHelper.AbstractAction;
  *
  * @author Nicolas Brunet
  */
-public class ShowTeacherForm extends AbstractAction {
-
+public class ShowHomepage extends AbstractAction {
     @Override
     public String execute() {
-        String id = request.getParameter("id");
-        request.setAttribute("id", id);
-        String viewPath = "appControl/editTeacherForm";
+        String viewPath = "homepage";
         return viewPath;
     }
 }

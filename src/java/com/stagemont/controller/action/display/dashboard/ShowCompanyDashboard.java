@@ -23,6 +23,7 @@ public class ShowCompanyDashboard extends AbstractAction {
         int companyId = Integer.parseInt(request.getParameter("id"));
         Company company = SOURCE.getCompanyFromId(companyId);
 
+        request.setAttribute("id", company.getId());
         request.setAttribute("name", company.getFirstname());
         request.setAttribute("phone", company.getPhone());
         request.setAttribute("email", company.getEmail());

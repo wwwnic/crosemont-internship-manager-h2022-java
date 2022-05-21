@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Brune
  */
-public class StudentInputUtil {
+public class TeacherInputUtil {
 
     private HttpServletRequest request;
 
-    public StudentInputUtil(HttpServletRequest request) {
+    public TeacherInputUtil(HttpServletRequest request) {
         this.request = request;
     }
 
@@ -25,7 +25,7 @@ public class StudentInputUtil {
     }
 
     public String getIdFromRequest() {
-        return request.getParameter("uid");
+        return request.getParameter("id");
     }
 
     public String getFirstNameFromRequest() {
@@ -52,15 +52,6 @@ public class StudentInputUtil {
         String restOfTheName = lastName.substring(1);
         String capLastName = upperCaseFirstLetter + restOfTheName;
         return capLastName;
-    }
-
-    public String getDAFromRequest() {
-        String da = request.getParameter("da");
-        boolean daIsValid = InputValidator.isValidDA(da);
-        if (!daIsValid) {
-            return null;
-        }
-        return da;
     }
 
     public String getPasswordFromRequest() {

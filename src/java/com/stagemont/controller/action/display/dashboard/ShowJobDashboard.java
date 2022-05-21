@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.student;
+package com.stagemont.controller.action.display.dashboard;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Job;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jefferson
  */
-public class ShowStudentInfoJob  extends AbstractAction {
+public class ShowJobDashboard  extends AbstractAction {
 
     private final JobSource J_SOURCE = new JobDAO();
     @Override
@@ -33,7 +33,7 @@ public class ShowStudentInfoJob  extends AbstractAction {
         //request.setAttribute("listJob", lstJob);
         request.setAttribute("jobId", job);
         
-        String viewPath = userType + "/InfoEmploi";        
+        String viewPath = "student/InfoEmploi";        
         return viewPath;
     }
     

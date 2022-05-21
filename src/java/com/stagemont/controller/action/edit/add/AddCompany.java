@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.edit.edit;
+package com.stagemont.controller.action.edit.add;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Company;
@@ -17,14 +17,13 @@ import java.util.List;
  *
  * @author Nicolas Brunet
  */
-public class EditCompany extends AbstractAction {
+public class AddCompany extends AbstractAction {
 
     private final CompanySource SOURCE = new CompanyDAO();
 
     @Override
     public String execute() {
         CompanyInputUtil inputUtil = new CompanyInputUtil(request);
-        String id = inputUtil.getIdFromRequest();
         String cname = inputUtil.getNameFromRequest();
         String cphone = inputUtil.getPhoneFromRequest();
         String email = inputUtil.getEmailFromRequest();
@@ -36,13 +35,14 @@ public class EditCompany extends AbstractAction {
 
         if (isListContainsNull) {
             request.setAttribute("msgError", "Information refusée");
-            request.setAttribute("id", id);
-            String viewPath = "appControl/editCompanyForm";
+            String redirectToType = "company";
+            request.setAttribute("redirectToType", redirectToType);
+            String viewPath = "admin/addUserForm";
             return viewPath;
         }
 
         Company company = new Company(
-                Integer.parseInt(id),
+                0,
                 cname,
                 pw,
                 cphone,
@@ -50,8 +50,8 @@ public class EditCompany extends AbstractAction {
                 perInCharge
         );
 
-        SOURCE.updateCompany(company);
-        request.setAttribute("msgSuccess", company.getName() + " a été modifié avec succès");
+        SOURCE.insertCompany(company);
+        request.setAttribute("msgSuccess", company.getName() + " a été ajouté avec succès");
 
         List<Company> lstCompany = SOURCE.getAllCompany();
         request.setAttribute("listCompany", lstCompany);

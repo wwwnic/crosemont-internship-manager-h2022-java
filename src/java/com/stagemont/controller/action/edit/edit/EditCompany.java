@@ -31,7 +31,7 @@ public class EditCompany extends AbstractAction {
         String perInCharge = inputUtil.getPersonInChargeFromRequest();
         String pw = inputUtil.getPasswordFromRequest();
 
-        List<String> lstInput = Arrays.asList(cname, cphone, email, perInCharge, pw);
+        List<String> lstInput = Arrays.asList(id, cname, cphone, email, perInCharge, pw);
         boolean isListContainsNull = inputUtil.isListContainsNull(lstInput);
 
         if (isListContainsNull) {

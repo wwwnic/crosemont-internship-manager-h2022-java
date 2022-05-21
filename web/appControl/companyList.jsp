@@ -23,6 +23,17 @@
                 </div>
                 <br/>
                 <div  align="center" class="container">
+                    <c:if test="${not empty msgSuccess}">
+                        <div class="alert alert-success" role="alert">
+                            <c:out value="${msgSuccess}" />
+                        </div>
+                    </c:if>
+                    <c:if test="${not empty msgError}">
+                        <div class="alert alert-danger" role="alert">
+                            <c:out value="${msgError}" />
+                        </div>
+                    </c:if>
+
                     <table>
                         <thead>
                             <tr>

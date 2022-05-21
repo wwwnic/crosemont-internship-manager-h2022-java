@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.student;
+package com.stagemont.controller.action.display.list;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Internship;
@@ -16,19 +16,16 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jefferson
  */
-public class ShowStudentInternship extends AbstractAction  {
+public class ShowInternshipList extends AbstractAction  {
 
     private final InternshipSource I_SOURCE = new InternshipDAO();
     
     @Override
     public String execute() {
-        HttpSession session = request.getSession(false);
         List<Internship> lstIntern = I_SOURCE.getAllInternship();
-        String userType = session.getAttribute("type").toString();
         request.setAttribute("listInternship", lstIntern);
         
-        String viewPath = userType + "/internList";
+        String viewPath = "student/internList";
         return viewPath;
     }
-    
 }

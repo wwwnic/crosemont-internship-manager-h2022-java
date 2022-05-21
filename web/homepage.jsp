@@ -10,7 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Page d'Accueil</title>
-        <%@include file="../admin/header.html" %>
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+        <c:if test="${sessionScope.type=='student'}"><%@include file="../student/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='company'}"><%@include file="../company/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='admin'}"><%@include file="../admin/header.html" %>
+        </c:if> 
         <script>
             $(function () {
                 $("#accordion").accordion();

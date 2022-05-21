@@ -6,10 +6,10 @@
 package com.stagemont.controller.action.edit.add;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
-import com.stagemont.entities.Teacher;
-import com.stagemont.source.teacher.TeacherDAO;
-import com.stagemont.source.teacher.TeacherSource;
-import com.stagemont.util.TeacherInputUtil;
+import com.stagemont.entities.Student;
+import com.stagemont.source.student.StudentDAO;
+import com.stagemont.source.student.StudentSource;
+import com.stagemont.util.StudentInputUtil;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,42 +17,45 @@ import java.util.List;
  *
  * @author Nicolas Brunet
  */
-public class AddTeacher extends AbstractAction {
+public class AddStudent extends AbstractAction {
 
-    private final TeacherSource SOURCE = new TeacherDAO();
+    private final StudentSource SOURCE = new StudentDAO();
 
     @Override
     public String execute() {
-        TeacherInputUtil inputUtil = new TeacherInputUtil(request);
+        StudentInputUtil inputUtil = new StudentInputUtil(request);
         String fname = inputUtil.getFirstNameFromRequest();
         String lname = inputUtil.getLastNameFromRequest();
+        String da = inputUtil.getDAFromRequest();
         String pw = inputUtil.getPasswordFromRequest();
+        String cv = "";
+        String letter = "";
 
-        List<String> lstInput = Arrays.asList(fname, lname, pw);
+        List<String> lstInput = Arrays.asList(fname, lname, da, pw);
         boolean isListContainsNull = inputUtil.isListContainsNull(lstInput);
 
         if (isListContainsNull) {
             request.setAttribute("msgError", "Information refusée");
-            String redirectToType = "teacher";
-            request.setAttribute("redirectToType", redirectToType);
             String viewPath = "admin/addUserForm";
             return viewPath;
         }
 
-        Teacher teacher = new Teacher(
+        Student student = new Student(
                 0,
                 fname,
                 lname,
-                pw
+                pw,
+                Integer.parseInt(da),
+                cv,
+                letter
         );
 
-        SOURCE.insertTeacher(teacher);
-        request.setAttribute("msgSuccess", teacher.getFirstname() + " a été ajouté avec succès");
+        SOURCE.insertStudent(student);
+        request.setAttribute("msgSuccess", student.getFirstname() + " a été ajouté avec succès");
 
-        List<Teacher> lstTeacher = SOURCE.getAllTeacher();
-        request.setAttribute("teacherList", lstTeacher);
-        String viewPath = "appControl/teacherList";
+        List<Student> lstStudent = SOURCE.getAllStudents();
+        request.setAttribute("listStudent", lstStudent);
+        String viewPath = "appControl/studentList";
         return viewPath;
     }
-
 }

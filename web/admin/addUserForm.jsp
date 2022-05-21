@@ -15,8 +15,10 @@
         <link rel="stylesheet" type="text/css" href="./static/css/formuser.css" /> 
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
 
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
         <%@include file="../admin/header.html" %>
     </head>
+
     <body>
         <div class="wrapper">
             <div></div>  
@@ -38,7 +40,12 @@
                 <br/>
                 <script src="./static/js/formToggler.js"></script>
                 <br/>
-                <form id="formStudent">
+                <c:if test="${not empty msgError}">
+                    <div class="alert alert-danger" role="alert">
+                        <c:out value="${msgError}" />
+                    </div>
+                </c:if>
+                <form id="formStudent" style="none" action="addStudent" method="post">
                     <div class="form-group row">
                         <label for="fname" class="col-4 col-form-label">Prenom</label> 
                         <div class="col-8">
@@ -87,7 +94,7 @@
                                         <i class="fa fa-key"></i>
                                     </div>
                                 </div> 
-                                <input id="password" name="password" type="text" class="form-control" required="required">
+                                <input id="password" name="password" type="password" class="form-control" required="required">
                             </div>
                         </div>
                     </div>
@@ -98,7 +105,7 @@
                     </div>
                 </form>
 
-                <form class="hidden" id="formTeacher" style="none">
+                <form class="hidden" id="formTeacher" style="none" action="addTeacher" method="post">
                     <div class="form-group row">
                         <label for="fname" class="col-4 col-form-label">Prenom</label> 
                         <div class="col-8">
@@ -134,7 +141,7 @@
                                         <i class="fa fa-key"></i>
                                     </div>
                                 </div> 
-                                <input id="password" name="password" type="text" class="form-control" required="required">
+                                <input id="password" name="password" type="password" class="form-control" required="required">
                             </div>
                         </div>
                     </div>
@@ -145,7 +152,7 @@
                     </div>
                 </form>
 
-                <form class="hidden" id="formCompany" style="none">
+                <form class="hidden" id="formCompany" style="none" action="addCompany" method="post">
                     <div class="form-group row">
                         <label for="cname" class="col-4 col-form-label">Nom de l'entreprise</label> 
                         <div class="col-8">
@@ -168,7 +175,7 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                 </div> 
-                                <input id="phone" name="phone" type="text" required="required" class="form-control">
+                                <input id="phone" name="cphone" type="text" required="required" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -194,7 +201,7 @@
                                         <i class="fa fa-user-o"></i>
                                     </div>
                                 </div> 
-                                <input id="inCharge" name="inCharge" type="text" required="required" class="form-control">
+                                <input id="inCharge" name="personInCharge" type="text" required="required" class="form-control">
                             </div>
                         </div>
                     </div> 
@@ -207,7 +214,7 @@
                                         <i class="fa fa-key"></i>
                                     </div>
                                 </div> 
-                                <input id="password" name="password" type="text" class="form-control" required="required">
+                                <input id="password" name="password" type="password" class="form-control" required="required">
                             </div>
                         </div>
                     </div>

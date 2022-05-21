@@ -15,22 +15,22 @@
         </c:if>  
         <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
         </c:if>  
-        <title>Formulaire editer etudiant</title>
+        <title>Formulaire editer professeur</title>
     </head>
     <body>
         <div class="wrapper">
             <div></div>
             <div>
                 <br/>
-                <h2 class="text-center">Editer etudiant</h2>
+                <h2 class="text-center">Editer professeur</h2>
                 <c:if test="${not empty msgError}">
                     <div class="alert alert-danger" role="alert">
                         <c:out value="${msgError}" />
                     </div>
                 </c:if>
                 <br/>
-                <form id="editStudent" action="editStudent" method="post">
-                    <input type="hidden" id="uid" name="uid" value=<c:out value="${uid}" />>
+                <form id="editStudent" action="editTeacher" method="post">
+                    <input type="hidden" id="id" name="id" value=<c:out value="${id}" />>
                     <div class="form-group row">
                         <label for="fname" class="col-4 col-form-label">Prenom</label> 
                         <div class="col-8">
@@ -57,19 +57,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="da" class="col-4 col-form-label">Numéro étudiant</label> 
-                        <div class="col-8">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fa fa-id-card"></i>
-                                    </div>
-                                </div> 
-                                <input id="da" name="da" type="text" required="required" class="form-control">
-                            </div>
-                        </div>
-                    </div> 
                     <div class="form-group row">
                         <label class="col-4 col-form-label" for="password">Mot de passe</label> 
                         <div class="col-8">

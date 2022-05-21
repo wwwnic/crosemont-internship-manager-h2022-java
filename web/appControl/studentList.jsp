@@ -26,6 +26,12 @@
                         <c:out value="${msgSuccess}" />
                     </div>
                 </c:if>
+                <c:if test="${not empty msgError}">
+                    <div class="alert alert-success" role="alert">
+                        <c:out value="${msgError}" />
+                    </div>
+                </c:if>
+
                 <div  align="center" class="container">
                     <table>
                         <thead>

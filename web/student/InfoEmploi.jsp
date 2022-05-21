@@ -13,41 +13,47 @@
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
         <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/table.css" /> 
-        <%@include file="../student/header.html" %>
-        <title>Détails Emplois</title>
-    </head>
-    <body>
-        <h1 class="text-center">Détails de l'emploi</h1>
+    <c:if test="${sessionScope.type=='student'}"><%@include file="../student/header.html" %>
+    </c:if>  
+    <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
+    </c:if>  
+    <c:if test="${sessionScope.type=='company'}"><%@include file="../company/header.html" %>
+    </c:if>  
+    <c:if test="${sessionScope.type=='admin'}"><%@include file="../admin/header.html" %>
+    </c:if>         <title>Détails Emplois</title>
+</head>
+<body>
+    <h1 class="text-center">Détails de l'emploi</h1>
+    <div>
         <div>
-            <div>
+            </br>
+            <div class='line'>
                 </br>
-                <div class='line'>
-                    </br>
-                    </br>     
-                    <p id="elementname">Nom de l'entreprise</p>
-                    </br>
-                    <p id="elementname">Description</p>
-                    </br>
-                    <p id="elementname">Status du stage</p>
-                    </br>
-                    <p id="elementname">Numéro de stage</p>
-                    </br>
-                    <p id="elementname">Date de début</p>
-                    </br>
-                    <p id="elementname">Date de fin</p>
-                    </br>
-     
+                </br>     
+                <p id="elementname">Nom de l'entreprise</p>
+                </br>
+                <p id="elementname">Description</p>
+                </br>
+                <p id="elementname">Status du stage</p>
+                </br>
+                <p id="elementname">Numéro de stage</p>
+                </br>
+                <p id="elementname">Date de début</p>
+                </br>
+                <p id="elementname">Date de fin</p>
+                </br>
+
+            </div>
+            </br>
+            <div class="row">
+                <div class="column btncontainer">
+                    <button class="btnBlue btncenter fa-2xl">Modifier</button>
                 </div>
-                </br>
-                <div class="row">
-                    <div class="column btncontainer">
-                        <button class="btnBlue btncenter fa-2xl">Modifier</button>
-                    </div>
-                    <div class="column btncontainer">
-                        <button class="btnRed btncenter">Supprimer</button>
-                    </div>
+                <div class="column btncontainer">
+                    <button class="btnRed btncenter">Supprimer</button>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

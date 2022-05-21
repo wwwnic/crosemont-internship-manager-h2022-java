@@ -91,10 +91,6 @@ public class Login extends AbstractAction {
         }
     }
 
-    private String getUserHomePage(User user) {
-        return user.getUserTypeName() + "/homepage";
-    }
-
     @Override
     public String execute() {
         try {
@@ -104,7 +100,7 @@ public class Login extends AbstractAction {
             String nextView;
             if (user != null) {
                 setSession(user);
-                nextView = getUserHomePage(user);
+                nextView = "homepage";
             } else {
                 sendErrorMessage();
                 nextView = "login";

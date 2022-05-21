@@ -7,17 +7,18 @@ package com.stagemont.controller.action.edit.delete;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Student;
-import com.stagemont.source.student.StudentDAO;
-import com.stagemont.source.student.StudentSource;
+import com.stagemont.entities.Teacher;
+import com.stagemont.source.teacher.TeacherDAO;
+import com.stagemont.source.teacher.TeacherSource;
 import java.util.List;
 
 /**
  *
  * @author Nicolas Brunet
  */
-public class DeleteStudent extends AbstractAction {
+public class DeleteTeacher extends AbstractAction {
 
-    private final StudentSource S_SOURCE = new StudentDAO();
+    private final TeacherSource T_SOURCE = new TeacherDAO();
 
     @Override
     public String execute() {
@@ -25,15 +26,15 @@ public class DeleteStudent extends AbstractAction {
         String userId = request.getParameter("id");
 
         if (userId != null) {
-            S_SOURCE.deleteStudent(Integer.parseInt(userId));
-            request.setAttribute("msgSuccess", "Étudiant supprimé");
+            T_SOURCE.deleteTeacher(Integer.parseInt(userId));
+            request.setAttribute("msgSuccess", "Le professeur a été supprimé");
         } else {
-            request.setAttribute("msgError", "Cet étudiant est impossible à supprimer");
+            request.setAttribute("msgError", "Ce professeur est impossible à supprimer");
         }
 
-        List<Student> lstStudent = S_SOURCE.getAllStudents();
-        request.setAttribute("listStudent", lstStudent);
-        String viewPath = "appControl/studentList";
+        List<Teacher> lstTeacher = T_SOURCE.getAllTeacher();
+        request.setAttribute("teacherList", lstTeacher);
+        String viewPath = "appControl/teacherList";
         return viewPath;
     }
 
