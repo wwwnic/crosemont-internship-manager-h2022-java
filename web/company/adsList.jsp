@@ -37,7 +37,7 @@
                 <th>Image</th>
             </tr>
 
-            <% if (listAds != null) {
+            <% if (listAds != null && listAds.size()!=0) {
                     for (Ads a : listAds) {%>
             <tr>
                 <td><%=a.getTitle()%></td>
@@ -47,13 +47,12 @@
                 
                 </td>
             </tr>
-
+        </table>
             <%}
             } else {%>
 
-            <tr>listAds est <%=listAds%></tr>
+            <h1>Cette compagnie n'a pas de publicités!</h1>
             <%}%>
 
-        </table>
     </body>
 </html>

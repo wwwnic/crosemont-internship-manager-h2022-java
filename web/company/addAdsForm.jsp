@@ -44,8 +44,7 @@
                                 <i class="fa fa-align-center"></i>
                             </div>
                         </div> 
-                        <input id="adsTitle" name="adsTitle" placeholder="titre" type="text" required="required" class="form-control"
-                               v>
+                        <input id="adsTitle" name="adsTitle" placeholder="titre" type="text" required="required" class="form-control">
                     </div>
                 </div>
                 

@@ -7,9 +7,11 @@ package com.stagemont.controller.action.company;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Ads;
+import com.stagemont.source.ads.AdsDAO;
 import com.stagemont.source.ads.AdsFakeData;
 import com.stagemont.source.ads.AdsSource;
 import java.util.List;
+import javax.servlet.http.Cookie;
 
 /**
  *
@@ -17,24 +19,25 @@ import java.util.List;
  */
 public class AdsList extends AbstractAction {
 
-    private final AdsSource DATA_ADS = new AdsFakeData();
-    
-    /*
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        List<Ads> listAds = DATA_ADS.getAllAds();
-        
-        request.setAttribute("listAds", listAds);
-        
-        request.getRequestDispatcher("adsList.jsp").forward(request, response);
-    }
-    */
+    private final AdsSource DATA_ADS = new AdsDAO();
+
 
     @Override
     public String execute() {
-        List<Ads> listAds = DATA_ADS.getAllAds();
+        
+        Cookie[] idCookie = request.getCookies();
+        int idConnecte=-1;
+        if (idCookie!=null) {
+            for (int i=0; i<idCookie.length; i++) {
+                if ((idCookie[i].getName()).equals("idConnecte")){
+                    idConnecte = Integer.parseInt(idCookie[i].getValue());
+                }
+            }
+        }
+        
+        request.setAttribute("idConnecte", idConnecte);
+        
+        List<Ads> listAds = DATA_ADS.getAdsFromCompanyid(idConnecte);
         request.setAttribute("listAds", listAds);
         String userType = request.getSession(false).getAttribute("type").toString();
         return userType + "/adsList";

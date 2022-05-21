@@ -16,45 +16,34 @@ import com.stagemont.source.student.StudentDAO;
 import com.stagemont.source.student.StudentFakeData;
 import com.stagemont.source.student.StudentSource;
 import java.util.List;
+import javax.servlet.http.Cookie;
 
 /**
  *
  * @author melis
  */
 public class ContractList extends AbstractAction {
-
-    private final ContractSource DATA_CONTRACTS = new ContractFakeData();
     
     private final ContractSource DATA_CONTRACTS_DAO = new ContractDAO();
     
-    private static StudentSource DATA_STUDENT = new StudentFakeData();
-    
     private static StudentSource DATA_STUDENT_DAO  = new StudentDAO();
     
-    
-    /*
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");        
-        
-        // List<com.stagemont.entities.Contract> listContracts = DATA_CONTRACTS.getAllContract();
-        
-        List<com.stagemont.entities.Contract> listContracts = DATA_CONTRACTS_DAO.getAllContract();
-        request.setAttribute("listContracts", listContracts);
-        
-        List<Student> listStudents = DATA_STUDENT.getAllStudents();
-        request.setAttribute("listStudents", listStudents);
-        
-        request.getRequestDispatcher("contractList.jsp").forward(request, response);
-    }
-    */
 
     @Override
     public String execute() {
         
-        // List<com.stagemont.entities.Contract> listContracts = DATA_CONTRACTS.getAllContract();
+        Cookie[] idCookie = request.getCookies();
+        int idConnecte=-1;
+        if (idCookie!=null) {
+            for (int i=0; i<idCookie.length; i++) {
+                if ((idCookie[i].getName()).equals("idConnecte")){
+                    idConnecte = Integer.parseInt(idCookie[i].getValue());
+                }
+            }
+        }
+        request.setAttribute("idConnecte", idConnecte);
         
-        List<com.stagemont.entities.Contract> listContracts = DATA_CONTRACTS_DAO.getAllContract();
+        List<com.stagemont.entities.Contract> listContracts = DATA_CONTRACTS_DAO.getContractByComapnyId(idConnecte);
         request.setAttribute("listContracts", listContracts);
         
         List<Student> listStudents = DATA_STUDENT_DAO.getAllStudents();
