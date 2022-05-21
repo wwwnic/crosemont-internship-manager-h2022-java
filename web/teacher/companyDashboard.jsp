@@ -4,6 +4,8 @@
     Author     : Nicolas Brunet
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -11,9 +13,10 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
-        <link rel="stylesheet" type="text/css" href="./static/css/contract.css" /> 
-        <%@include file="../company/header.html" %>
+        <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/imgCenter.css" /> 
+        <%@include file="../teacher/header.html" %>
         <title>Dashboard</title>
     </head>
     <body>
@@ -43,10 +46,14 @@
                     </br>
                     <div class="row">
                         <div class="column btncontainer">
-                            <button class="btnBlue btncenter">Modifier</button>
+                            <a href="showCompanyForm?id=<c:out value = "${id}"/>" data-toggle="tooltip" title="Modifier">
+                                <button class="btnBlue btncenter">Modifier</button>
+                            </a>
                         </div>
                         <div class="column btncontainer">
-                            <button class="btnRed btncenter">Supprimer</button>
+                            <a href="deleteCompany?id=<c:out value = "${id}"/>" data-toggle="tooltip" title="Supprimer le compte">
+                                <button class="btnRed btncenter">Supprimer</button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -17,4 +17,12 @@ public class InputValidator {
     public static boolean isValidPassword(String pw) {
         return pw != null && 0 < pw.length() && 255 > pw.length();
     }
+
+    public static boolean isValidPhone(String phone) {
+        return phone != null && 0 < phone.length() && phone.length() < 25 && phone.matches("[0-9-()]+");
+    }
+
+    public static boolean isValidEmail(String email) {
+        return email != null && 0 < email.length() && 255 > email.length() && email.matches(".+\\@.+\\..+");
+    }
 }

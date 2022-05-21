@@ -22,6 +22,8 @@ import java.util.logging.Logger;
 public class AdsDAO implements AdsSource {
 
     private static final String SQL_SELECT_BY_ID = "SELECT * FROM ads WHERE id = ?";
+    
+    private static final String SQL_SELECT_BY_COMPANY_ID = "SELECT * FROM ads WHERE company_id = ?";
 
     private static final String SQL_SELECT = "SELECT * FROM ads";
 
@@ -54,6 +56,34 @@ public class AdsDAO implements AdsSource {
         }
         return null;
     }
+            
+            
+    @Override
+    public List<Ads> getAdsFromCompanyid(int company_id) {
+        try {
+            PreparedStatement ps = ConnectionDB.getConnection().prepareStatement(SQL_SELECT_BY_COMPANY_ID);
+            ps.setInt(1, company_id);
+            ResultSet result = ps.executeQuery();
+            List<Ads> adsLst = new ArrayList();
+
+            while (result.next()) {
+                adsLst.add(new Ads(
+                        result.getInt("id"),
+                        result.getString("title"),
+                        result.getString("description"),
+                        result.getString("image"),
+                        result.getInt("company_id")
+                ));
+            }
+            ConnectionDB.closeConnection();
+            return adsLst;
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(AdsDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
 
     @Override
     public List<Ads> getAllAds() {
