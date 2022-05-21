@@ -6,7 +6,10 @@
 package com.stagemont.controller.action.display.dashboard;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
+import com.stagemont.entities.Company;
 import com.stagemont.entities.Job;
+import com.stagemont.source.company.CompanyDAO;
+import com.stagemont.source.company.CompanySource;
 import com.stagemont.source.job.JobDAO;
 import com.stagemont.source.job.JobSource;
 import java.util.List;
@@ -19,19 +22,21 @@ import javax.servlet.http.HttpSession;
 public class ShowJobDashboard  extends AbstractAction {
 
     private final JobSource J_SOURCE = new JobDAO();
+    private final CompanySource C_SOURCE = new CompanyDAO();
     @Override
     public String execute() {
         HttpSession session = request.getSession(false);
-        //List<Job> lstJob = J_SOURCE.getAllJob();
+        int jobId = Integer.parseInt(request.getParameter("id"));
+        
+        Job job = J_SOURCE.getJobFromId(jobId);
+        Company company = C_SOURCE.getCompanyFromId(job.getCompany_id());
         String userType = session.getAttribute("type").toString();    
-        String jobId = request.getParameter("id");
-        if (jobId == null) {
-             jobId = session.getAttribute("id").toString();
-        }
-        int infoJobId = Integer.parseInt(jobId);
-        Job job = J_SOURCE.getJobFromId(infoJobId);
+        
+        //int infoJobId = Integer.parseInt(jobId);
+        //Job job = J_SOURCE.getJobFromId(infoJobId);
         //request.setAttribute("listJob", lstJob);
-        request.setAttribute("jobId", job);
+        request.setAttribute("job", job);
+        request.setAttribute("company", company);
         
         String viewPath = "student/InfoEmploi";        
         return viewPath;

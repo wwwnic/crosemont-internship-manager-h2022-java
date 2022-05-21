@@ -3,7 +3,7 @@
     Created on : 2022-04-04, 19:49:19
     Author     : melis
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.stagemont.entities.Company"%>
 <%@page import="com.stagemont.entities.Contract"%>
 <%@page import="com.stagemont.entities.Student"%>
@@ -13,20 +13,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/center.css" />
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
+        <link rel="stylesheet" type="text/css" href="./static/css/table.css" />
+        <link rel="stylesheet" type="text/css" href="./static/css/contract.css" /> 
         <%@include file="../company/header.html" %>
 
         <%
             ArrayList<Contract> listContracts = (ArrayList) request.getAttribute("listContracts");
 
             ArrayList<Student> listStudents = (ArrayList) request.getAttribute("listStudents");
-
-            ArrayList<Company> listCompanyDAO = (ArrayList) request.getAttribute("listCompanyDAO");
             
-            ArrayList<Contract> listContractsByCompanyId = (ArrayList) request.getAttribute("listContractsByCompanyId");
-
-            Company comp = (Company) request.getAttribute("companyTest");
         %>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
@@ -37,6 +33,8 @@
     </head>
     <body>
         <h1 class="center">Liste Des Candidatures</h1>
+        
+        <h1>id : <c:out value = "${idConnecte}"/> </h1>
 
         <table class="center">
             <tr>
@@ -66,7 +64,7 @@
                 <td><%=c.getStart_date()%></td>
                 <td><%=c.getEnd_date()%></td>
                 <td>
-                    <button type="button">Voir détails</button>
+                    <button type="button"> <a href="contract?companyId=<%=c.getCompany_id()%>&studentId=<%=s.getId()%>">Voir détails</a></button>
                 </td>
             </tr>
 

@@ -13,30 +13,42 @@
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" /> 
         <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/table.css" /> 
-    <c:if test="${sessionScope.type=='student'}"><%@include file="../student/header.html" %>
-    </c:if>  
-    <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
-    </c:if>  
-    <c:if test="${sessionScope.type=='company'}"><%@include file="../company/header.html" %>
-    </c:if>  
-    <c:if test="${sessionScope.type=='admin'}"><%@include file="../admin/header.html" %>
-    </c:if>         <title>Détails Stages</title>
-</head>
-<body>
-    <h1 class="text-center">Détails du stage</h1>
-    <div>
-        <div>
-            </br>
-            <div class='line'>
+        <%@include file="../student/header.html" %>
+        <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        <title>Détails Stages</title>
+    </head>
+    <body>
+        <h1 class="text-center">Détails du stage</h1>
+        <div class="wrapper">
+            <div>
+                
+            </div>
+            <div>
                 </br>
-                </br>     
-                <p id="elementname">Nom de l'entreprise</p>
-                </br>
-                <p id="elementname">Description</p>
-                </br>
-                <p id="elementname">Status du stage</p>
-                </br>
-                <p id="elementname">Numéro de stage</p>
+                <div class='line'>
+                    </br>
+                    </br>     
+                    <p id="elementname">Nom de l'entreprise</p>
+                    <p id="element"><c:out value = "${company.name}"/></p>
+                    </br>
+                    <p id="elementname">Description</p>
+                    <p id="element"><c:out value = "${intern.description}"/></p>
+                    </br>
+                    <p id="elementname">Status du stage</p>
+                    
+                    </br>
+                    <p id="elementname">Numéro de stage</p>
+                    <p id="element"><c:out value = "${intern.id}"/></p>
+                    </br>
+                    <p id="elementname">Date de début</p>
+                    <p id="element"><fmt:formatDate pattern = "yyyy-MM-dd" value = "${intern.start_date}" /></p>
+                    </br>
+                    <p id="elementname">Date de fin</p>
+                    <p id="element"><fmt:formatDate pattern = "yyyy-MM-dd" value = "${intern.end_date}" /></p>
+                    </br>
+                    <i class="fa-solid fa-envelope"></i><p>Postuler par courriel</p>
+                </div>
                 </br>
                 <p id="elementname">Date de début</p>
                 </br>
@@ -51,7 +63,7 @@
                 </div>
 
             </div>
-        </div>
-    </div>  
-</body>
+            <div></div>
+        </div>  
+    </body>
 </html>

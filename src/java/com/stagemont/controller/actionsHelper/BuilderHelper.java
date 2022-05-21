@@ -105,6 +105,22 @@ public interface BuilderHelper {
             case "test":
                 action = new ByDefault();
                 break;
+            case "addAdsForm":
+                action = new AddAds();
+                break;
+            case "adsList":
+                action = new AdsList();
+                break;
+            case "contract":
+                action = new Contract();
+                break;
+            case "contractList":
+                action = new ContractList();
+                break;
+            case "dashboard":
+                action = new Dashboard();
+                break;
+                
         }
         return action;
     }
@@ -193,6 +209,12 @@ public interface BuilderHelper {
                 break;
             case "logout":
                 action = new Logout();
+                break;
+            case "showStudentInfoJob":
+                action = new ShowStudentInfoJob();
+                break;
+            case "showStudentInfoStage":
+                action = new ShowStudentInfoStage();
                 break;
             default:
                 action = new ShowHomepage();

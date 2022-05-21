@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -72,6 +73,9 @@ public class Login extends AbstractAction {
         session.setAttribute("id", user.getId());
         session.setAttribute("name", user.getFirstname());
         session.setAttribute("type", user.getUserTypeName());
+        
+        Cookie idCookie = new Cookie("idConnecte", String.valueOf(user.getId()));
+        response.addCookie(idCookie);
     }
 
     private User getUserInDataBase(String username, String password) {

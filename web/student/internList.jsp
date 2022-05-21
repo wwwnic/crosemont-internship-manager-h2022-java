@@ -53,7 +53,7 @@
                 <div class="card bg-info text-white">
                     <div class="card-header"><c:out value = "${intern.getTitle()}"/></div>
                     <div class="card-body"><c:out value = "${intern.getDescription()}"/></div> 
-                    <div class="card-footer"><button type="button">Voir détails</button></div>
+                    <div class="card-footer"><button type="button"><a href="showStudentInfoStage?id=<c:out value = "${intern.getId()}"/>">Voir détails</a></button></div>
                 </div>
             </c:forEach>
             </br>

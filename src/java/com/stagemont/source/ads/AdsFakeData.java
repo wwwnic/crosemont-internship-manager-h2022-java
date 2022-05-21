@@ -49,4 +49,9 @@ public class AdsFakeData implements AdsSource {
         return true;
     }
 
+    @Override
+    public List<Ads> getAdsFromCompanyid(int company_id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

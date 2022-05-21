@@ -29,6 +29,12 @@ INSERT INTO `company` VALUES
 ("4", "Dell", "iamdell", "5141112222", "Dell@dell.ca", "John"),
 ("5", "Ubisoft", "iamubisoft", "5148884536", "ubisoft@ubisoft.com", "Oliver");
 
+-- (`id` `username` `password`)
+INSERT INTO `admin` VALUES 
+("1", "root", "root"),
+("2", "admin", "admin"),
+("3", "sonic", "adventure");
+
 -- (`id` `title` `description` `start_date` `end_date` `company_id`) 
 INSERT INTO `internship` VALUES 
 ("1", "Developper Intern", "Google is hiring intern developpers who are fluent in : HTML, CSS, PHP, SQL", "2022-01-14", "2022-03-14", "1"),

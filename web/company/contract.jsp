@@ -11,8 +11,8 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/center.css" /> 
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/contract.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
+        <link rel="stylesheet" type="text/css" href="./static/css/contract.css" /> 
         <%@include file="../company/header.html" %>
 
 
