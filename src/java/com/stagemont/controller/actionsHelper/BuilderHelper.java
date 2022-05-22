@@ -26,6 +26,7 @@ import com.stagemont.controller.action.display.dashboard.ShowInternshipDashboard
 import com.stagemont.controller.action.display.form.ShowStudentForm;
 import com.stagemont.controller.action.display.form.ShowTeacherForm;
 import com.stagemont.controller.action.display.dashboard.ShowJobDashboard;
+import com.stagemont.controller.action.display.form.ShowCVForm;
 import com.stagemont.controller.action.display.list.ShowInternshipList;
 import com.stagemont.controller.action.display.list.ShowJobsList;
 import com.stagemont.controller.action.edit.delete.DeleteCompany;
@@ -38,6 +39,7 @@ import com.stagemont.controller.action.edit.add.AddStudent;
 import com.stagemont.controller.action.edit.add.AddTeacher;
 import com.stagemont.controller.action.edit.delete.DeleteTeacher;
 import com.stagemont.controller.action.edit.edit.EditTeacher;
+import com.stagemont.controller.action.pdf.CreatePdf;
 
 /**
  *
@@ -53,6 +55,15 @@ public interface BuilderHelper {
                 break;
             case "showStudentInternship":
                 action = new ShowInternshipList();
+                break;
+            case "showCVForm":
+                action = new ShowCVForm();
+                break;
+            case "createPdf":
+                action = new CreatePdf();
+                break;
+            case "showStudentDashboard":
+                action = new ShowStudentDashboard();
                 break;
         }
         return action;

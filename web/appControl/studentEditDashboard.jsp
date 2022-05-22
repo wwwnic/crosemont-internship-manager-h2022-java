@@ -20,6 +20,8 @@
         </c:if>  
         <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
         </c:if>          
+        <c:if test="${sessionScope.type=='student'}"><%@include file="../admin/header.html" %>
+        </c:if>  
         <title>Dashboard</title>
     </head>
     <body>
@@ -38,24 +40,27 @@
                         <p id="element"><c:out value = "${student.da}"/></p>
                         </br>
                     </div>
-                    <br/>
-                    <div class="row">
-                        <div class="column btncontainer">
-                            <a href="showStudentForm?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Modifier">
-                                <button class="btnBlue btncenter">Modifier</button>
-                            </a>
+                    <c:if test="${sessionScope.type!='student'}">
+                        <br/>
+                        <div class="row">
+                            <div class="column btncontainer">
+                                <a href="showStudentForm?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Modifier">
+                                    <button class="btnBlue btncenter">Modifier</button>
+                                </a>
+                            </div>
+                            <div class="column btncontainer">
+                                <a href="deleteStudent?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Supprimer le compte">
+                                    <button class="btnRed btncenter">Supprimer</button>
+                                </a>
+                            </div>
                         </div>
-                        <div class="column btncontainer">
-                            <a href="deleteStudent?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Supprimer le compte">
-                                <button class="btnRed btncenter">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
+                    </c:if>  
+
                     </br>
                     <h2 id="elementname" class="text-center">Curriculum vitae</h2>
                     <div class="row">
                         <div class="column">
-                            <a href="uploadCV?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner un cv">
+                            <a href="showCVForm?id=<c:out value = "${student.id}"/>&fname=<c:out value = "${student.firstname}"/>&lname=<c:out value = "${student.lastname}"/>" data-toggle="tooltip" title="donner un cv">
                                 <img src="./static/images/Uploadfile.png" width="25%" alt="PDF">
                             </a>
 
