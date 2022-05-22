@@ -10,6 +10,11 @@ public class ByDefault extends AbstractAction {
 
     @Override
     public String execute() {
-        return "login";
+        Object type = request.getSession(false);
+        if (type == null) {
+            return "login";
+        } else {
+            return "error";
+        }
     }
 }

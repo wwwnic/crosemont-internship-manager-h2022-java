@@ -26,6 +26,8 @@ import com.stagemont.controller.action.display.dashboard.ShowInternshipDashboard
 import com.stagemont.controller.action.display.form.ShowStudentForm;
 import com.stagemont.controller.action.display.form.ShowTeacherForm;
 import com.stagemont.controller.action.display.dashboard.ShowJobDashboard;
+import com.stagemont.controller.action.display.form.ShowCVForm;
+import com.stagemont.controller.action.display.form.ShowLetterForm;
 import com.stagemont.controller.action.display.list.ShowInternshipList;
 import com.stagemont.controller.action.display.list.ShowJobsList;
 import com.stagemont.controller.action.edit.delete.DeleteCompany;
@@ -33,11 +35,13 @@ import com.stagemont.controller.action.edit.edit.EditCompany;
 import com.stagemont.controller.action.display.list.ShowCompanyList;
 import com.stagemont.controller.action.display.list.ShowStudentList;
 import com.stagemont.controller.action.display.list.ShowTeacherList;
+import com.stagemont.controller.action.display.pdf.ShowPDF;
 import com.stagemont.controller.action.edit.add.AddCompany;
 import com.stagemont.controller.action.edit.add.AddStudent;
 import com.stagemont.controller.action.edit.add.AddTeacher;
 import com.stagemont.controller.action.edit.delete.DeleteTeacher;
 import com.stagemont.controller.action.edit.edit.EditTeacher;
+import com.stagemont.controller.action.pdf.CreatePDF;
 
 /**
  *
@@ -53,6 +57,18 @@ public interface BuilderHelper {
                 break;
             case "showStudentInternship":
                 action = new ShowInternshipList();
+                break;
+            case "showCVForm":
+                action = new ShowCVForm();
+                break;
+            case "showLetterForm":
+                action = new ShowLetterForm();
+                break;
+            case "createPdf":
+                action = new CreatePDF();
+                break;
+            case "showStudentDashboard":
+                action = new ShowStudentDashboard();
                 break;
         }
         return action;
@@ -206,6 +222,9 @@ public interface BuilderHelper {
             case "showHomepage":
                 action = new ShowHomepage();
                 break;
+            case "showPDF":
+                action = new ShowPDF();
+                break;
             case "login":
                 action = new Login();
                 break;
@@ -219,7 +238,7 @@ public interface BuilderHelper {
                 action = new ShowInternshipDashboard();
                 break;
             default:
-                action = new ShowHomepage();
+                action = new ByDefault();
         }
         return action;
     }

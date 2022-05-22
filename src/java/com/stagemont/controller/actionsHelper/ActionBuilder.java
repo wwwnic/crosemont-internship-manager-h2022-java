@@ -6,6 +6,8 @@
 package com.stagemont.controller.actionsHelper;
 
 import com.stagemont.controller.action.ByDefault;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -18,13 +20,12 @@ public class ActionBuilder {
         if (session == null) {
             return new ByDefault();
         }
-        System.out.println("la session est active? " + request.getSession(false));
 
         String actionToDo;
         String servletPath = request.getServletPath();
-        System.out.println("servlet to action a faire " + servletPath);
-
+        Logger.getLogger(ActionBuilder.class.getName()).log(Level.INFO, null, "Action à faire " + servletPath);
         servletPath = servletPath.substring(1);
+
         int i = servletPath.indexOf("/");
         if (i == -1) {
             actionToDo = servletPath;

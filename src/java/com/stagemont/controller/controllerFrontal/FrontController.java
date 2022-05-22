@@ -17,17 +17,21 @@ public class FrontController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        Action action;
-        String path;
-
-        action = ActionBuilder.getAction(request);
+        
+        Action action = ActionBuilder.getAction(request);
         System.out.println(" action : " + action);
         action.setRequest(request);
         action.setResponse(response);
-        path = action.execute();
 
-        request.getRequestDispatcher("/" + path + ".jsp").forward(request, response);
+        String path = action.execute();
+
+        boolean exeAnotherAction = path.contains("~");
+        if (exeAnotherAction) {
+            path = path.substring(1);
+            response.sendRedirect(path);
+        } else {
+            request.getRequestDispatcher("/" + path + ".jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
