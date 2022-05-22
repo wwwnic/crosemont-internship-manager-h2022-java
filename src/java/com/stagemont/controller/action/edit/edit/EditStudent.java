@@ -35,7 +35,6 @@ public class EditStudent extends AbstractAction {
         List<String> lstInput = Arrays.asList(id, fname, lname, da, pw);
         boolean isListContainsNull = inputUtil.isListContainsNull(lstInput);
 
-
         if (isListContainsNull) {
             request.setAttribute("msgError", "Information refusée");
             request.setAttribute("uid", id);

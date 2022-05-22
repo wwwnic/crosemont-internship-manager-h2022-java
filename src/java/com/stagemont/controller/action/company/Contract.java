@@ -9,10 +9,8 @@ import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Company;
 import com.stagemont.entities.Student;
 import com.stagemont.source.company.CompanyDAO;
-import com.stagemont.source.company.CompanyFakeData;
 import com.stagemont.source.company.CompanySource;
 import com.stagemont.source.student.StudentDAO;
-import com.stagemont.source.student.StudentFakeData;
 import com.stagemont.source.student.StudentSource;
 
 /**
@@ -20,11 +18,11 @@ import com.stagemont.source.student.StudentSource;
  * @author 1816098
  */
 public class Contract extends AbstractAction {
-    
+
     private final CompanySource DATA_COMPANY_DAO = new CompanyDAO();
-    
-    private static StudentSource DATA_STUDENT_DAO  = new StudentDAO();
-    
+
+    private static StudentSource DATA_STUDENT_DAO = new StudentDAO();
+
     @Override
     public String execute() {
 
@@ -52,13 +50,7 @@ public class Contract extends AbstractAction {
 
         String userType = request.getSession(false).getAttribute("type").toString();
         return userType + "/contract";
-    
-    
-    
+
     }
-    
-    
-    
-    
 
 }
