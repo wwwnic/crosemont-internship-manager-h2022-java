@@ -10,6 +10,6 @@ public class ByDefault extends AbstractAction {
 
     @Override
     public String execute() {
-        return "login";
+        return "error";
     }
 }

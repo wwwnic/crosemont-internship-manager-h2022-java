@@ -20,7 +20,7 @@
         </c:if>  
         <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
         </c:if>          
-        <c:if test="${sessionScope.type=='student'}"><%@include file="../admin/header.html" %>
+        <c:if test="${sessionScope.type=='student'}"><%@include file="../student/header.html" %>
         </c:if>  
         <title>Dashboard</title>
     </head>

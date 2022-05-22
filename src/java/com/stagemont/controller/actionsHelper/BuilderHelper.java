@@ -39,7 +39,7 @@ import com.stagemont.controller.action.edit.add.AddStudent;
 import com.stagemont.controller.action.edit.add.AddTeacher;
 import com.stagemont.controller.action.edit.delete.DeleteTeacher;
 import com.stagemont.controller.action.edit.edit.EditTeacher;
-import com.stagemont.controller.action.pdf.CreatePdf;
+import com.stagemont.controller.action.pdf.CreatePDF;
 
 /**
  *
@@ -60,7 +60,7 @@ public interface BuilderHelper {
                 action = new ShowCVForm();
                 break;
             case "createPdf":
-                action = new CreatePdf();
+                action = new CreatePDF();
                 break;
             case "showStudentDashboard":
                 action = new ShowStudentDashboard();
@@ -230,7 +230,7 @@ public interface BuilderHelper {
                 action = new ShowInternshipDashboard();
                 break;
             default:
-                action = new ShowHomepage();
+                action = new ByDefault();
         }
         return action;
     }
