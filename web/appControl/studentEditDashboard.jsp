@@ -56,7 +56,11 @@
                         </div>
                     </c:if>  
                     <br>
-
+                    <c:if test="${not empty msgError}">
+                        <div class="alert alert-danger" role="alert">
+                            <c:out value="${msgError}" />
+                        </div>
+                    </c:if>
                     <c:if test="${sessionScope.type=='student'}">
                         <div class="row">
                             <div class="column">

@@ -49,6 +49,10 @@ public class ShowStudentDashboard extends AbstractAction {
             contRelation.getContract().getStart_date().toString();
             lstContRelation.add(contRelation);
         }
+        String pdfError = request.getParameter("pdferror");
+        if (pdfError != null) {
+            request.setAttribute("msgError", "Ce document n'est pas disponible");
+        }
 
         request.setAttribute("lstContRelation", lstContRelation);
         request.setAttribute("student", student);
