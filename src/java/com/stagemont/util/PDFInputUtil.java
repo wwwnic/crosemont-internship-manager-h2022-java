@@ -25,12 +25,12 @@ public class PDFInputUtil {
     }
 
     public String getTitleFromRequest() {
-        String title = request.getParameter("titleText");
+        String title = request.getParameter("title");
         return convertStringToUtf8(title);
     }
 
     public String getTextFromRequest() {
-        String text = request.getParameter("cvText");
+        String text = request.getParameter("text");
         return convertStringToUtf8(text);
     }
     

@@ -27,6 +27,7 @@ import com.stagemont.controller.action.display.form.ShowStudentForm;
 import com.stagemont.controller.action.display.form.ShowTeacherForm;
 import com.stagemont.controller.action.display.dashboard.ShowJobDashboard;
 import com.stagemont.controller.action.display.form.ShowCVForm;
+import com.stagemont.controller.action.display.form.ShowLetterForm;
 import com.stagemont.controller.action.display.list.ShowInternshipList;
 import com.stagemont.controller.action.display.list.ShowJobsList;
 import com.stagemont.controller.action.edit.delete.DeleteCompany;
@@ -58,6 +59,9 @@ public interface BuilderHelper {
                 break;
             case "showCVForm":
                 action = new ShowCVForm();
+                break;
+            case "showLetterForm":
+                action = new ShowLetterForm();
                 break;
             case "createPdf":
                 action = new CreatePDF();
