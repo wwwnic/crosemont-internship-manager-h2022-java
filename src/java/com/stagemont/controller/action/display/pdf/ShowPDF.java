@@ -32,11 +32,14 @@ public class ShowPDF extends AbstractAction {
     public String execute() {
         FileInputStream fileInputStream = null;
         OutputStream responseOutputStream = null;
+        String filename = getFileName();
+        String filePath = request.getServletContext().getRealPath("/pdf/") + filename;
+        File file = new File(filePath);
+        if (!file.exists()) {
+            String id = request.getParameter("id");
+            return "~showStudentDashboard?id=" + id + "&pdferror=true";
+        }
         try {
-            String filename = getFileName();
-            String filePath = request.getServletContext().getRealPath("/pdf/") + filename;
-            File file = new File(filePath);
-
             String mimeType = request.getServletContext().getMimeType(filePath);
             if (mimeType == null) {
                 mimeType = "application/octet-stream";
