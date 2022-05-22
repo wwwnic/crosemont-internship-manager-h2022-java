@@ -35,6 +35,7 @@ import com.stagemont.controller.action.edit.edit.EditCompany;
 import com.stagemont.controller.action.display.list.ShowCompanyList;
 import com.stagemont.controller.action.display.list.ShowStudentList;
 import com.stagemont.controller.action.display.list.ShowTeacherList;
+import com.stagemont.controller.action.display.pdf.ShowPDF;
 import com.stagemont.controller.action.edit.add.AddCompany;
 import com.stagemont.controller.action.edit.add.AddStudent;
 import com.stagemont.controller.action.edit.add.AddTeacher;
@@ -220,6 +221,9 @@ public interface BuilderHelper {
         switch (actionToDo) {
             case "showHomepage":
                 action = new ShowHomepage();
+                break;
+            case "showPDF":
+                action = new ShowPDF();
                 break;
             case "login":
                 action = new Login();
