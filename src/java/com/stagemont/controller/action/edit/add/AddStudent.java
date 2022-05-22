@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stagemont.controller.action.edit.add;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
@@ -19,7 +14,7 @@ import java.util.List;
  */
 public class AddStudent extends AbstractAction {
 
-    private final StudentSource SOURCE = new StudentDAO();
+    private final StudentSource S_SOURCE = new StudentDAO();
 
     @Override
     public String execute() {
@@ -50,12 +45,9 @@ public class AddStudent extends AbstractAction {
                 letter
         );
 
-        SOURCE.insertStudent(student);
+        S_SOURCE.insertStudent(student);
         request.setAttribute("msgSuccess", student.getFirstname() + " a été ajouté avec succès");
-
-        List<Student> lstStudent = SOURCE.getAllStudents();
-        request.setAttribute("listStudent", lstStudent);
-        String viewPath = "appControl/studentList";
+        String viewPath = "~showStudentList";
         return viewPath;
     }
 }

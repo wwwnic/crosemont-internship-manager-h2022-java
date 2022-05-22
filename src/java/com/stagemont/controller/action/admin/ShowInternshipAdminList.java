@@ -7,8 +7,6 @@ package com.stagemont.controller.action.admin;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Internship;
-import com.stagemont.source.company.CompanyDAO;
-import com.stagemont.source.company.CompanySource;
 import com.stagemont.source.internship.InternshipDAO;
 import com.stagemont.source.internship.InternshipSource;
 import java.util.List;

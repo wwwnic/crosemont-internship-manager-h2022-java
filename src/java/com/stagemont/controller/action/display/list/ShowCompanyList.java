@@ -5,7 +5,6 @@ import com.stagemont.entities.Company;
 import com.stagemont.source.company.CompanyDAO;
 import com.stagemont.source.company.CompanySource;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 
 /**
  *

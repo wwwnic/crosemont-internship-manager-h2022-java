@@ -5,9 +5,11 @@
  */
 package com.stagemont.controller.controllerFrontal;
 
-import com.stagemont.controller.actionsHelper.ActionBuilder;
 import com.stagemont.controller.actionsHelper.Action;
+import com.stagemont.controller.actionsHelper.ActionBuilder;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,9 +19,9 @@ public class FrontController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         Action action = ActionBuilder.getAction(request);
-        System.out.println(" action : " + action);
+        Logger.getLogger(ActionBuilder.class.getName()).log(Level.INFO, null, "Action à faire " + action);
         action.setRequest(request);
         action.setResponse(response);
 
@@ -28,7 +30,7 @@ public class FrontController extends HttpServlet {
         boolean exeAnotherAction = path.contains("~");
         if (exeAnotherAction) {
             path = path.substring(1);
-            response.sendRedirect(path);
+            request.getRequestDispatcher(path).forward(request, response);
         } else {
             request.getRequestDispatcher("/" + path + ".jsp").forward(request, response);
         }

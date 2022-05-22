@@ -10,7 +10,6 @@ import com.stagemont.entities.Student;
 import com.stagemont.source.student.StudentDAO;
 import com.stagemont.source.student.StudentSource;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,9 +23,8 @@ public class ShowStudentList extends AbstractAction {
     public String execute() {
         List<Student> lstStudent = S_SOURCE.getAllStudents();
         request.setAttribute("listStudent", lstStudent);
-
         String viewPath = "appControl/studentList";
         return viewPath;
     }
-
+    
 }

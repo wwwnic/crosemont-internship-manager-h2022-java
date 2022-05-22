@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stagemont.controller.action.edit.add;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
@@ -19,7 +14,7 @@ import java.util.List;
  */
 public class AddCompany extends AbstractAction {
 
-    private final CompanySource SOURCE = new CompanyDAO();
+    private final CompanySource C_SOURCE = new CompanyDAO();
 
     @Override
     public String execute() {
@@ -50,12 +45,9 @@ public class AddCompany extends AbstractAction {
                 perInCharge
         );
 
-        SOURCE.insertCompany(company);
+        C_SOURCE.insertCompany(company);
         request.setAttribute("msgSuccess", company.getName() + " a été ajouté avec succès");
-
-        List<Company> lstCompany = SOURCE.getAllCompany();
-        request.setAttribute("listCompany", lstCompany);
-        String viewPath = "appControl/companyList";
+        String viewPath = "~showCompanyList";
         return viewPath;
     }
 

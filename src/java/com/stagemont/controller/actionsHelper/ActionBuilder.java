@@ -23,7 +23,6 @@ public class ActionBuilder {
 
         String actionToDo;
         String servletPath = request.getServletPath();
-        Logger.getLogger(ActionBuilder.class.getName()).log(Level.INFO, null, "Action à faire " + servletPath);
         servletPath = servletPath.substring(1);
 
         int i = servletPath.indexOf("/");

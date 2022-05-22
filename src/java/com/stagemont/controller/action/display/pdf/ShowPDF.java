@@ -37,7 +37,8 @@ public class ShowPDF extends AbstractAction {
         File file = new File(filePath);
         if (!file.exists()) {
             String id = request.getParameter("id");
-            return "~showStudentDashboard?id=" + id + "&pdferror=true";
+            request.setAttribute("msgError", "Ce document n'est pas disponible");
+            return "~showStudentDashboard?id=" + id;
         }
         try {
             String mimeType = request.getServletContext().getMimeType(filePath);
