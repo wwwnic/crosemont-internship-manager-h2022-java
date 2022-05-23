@@ -20,6 +20,8 @@
         </c:if>  
         <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
         </c:if>          
+        <c:if test="${sessionScope.type=='student'}"><%@include file="../student/header.html" %>
+        </c:if>  
         <title>Dashboard</title>
     </head>
     <body>
@@ -38,50 +40,78 @@
                         <p id="element"><c:out value = "${student.da}"/></p>
                         </br>
                     </div>
-                    <br/>
-                    <div class="row">
-                        <div class="column btncontainer">
-                            <a href="showStudentForm?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Modifier">
-                                <button class="btnBlue btncenter">Modifier</button>
-                            </a>
+                    <c:if test="${sessionScope.type!='student'}">
+                        <br/>
+                        <div class="row">
+                            <div class="column btncontainer">
+                                <a href="showStudentForm?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Modifier">
+                                    <button class="btnBlue btncenter">Modifier</button>
+                                </a>
+                            </div>
+                            <div class="column btncontainer">
+                                <a href="deleteStudent?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Supprimer le compte">
+                                    <button class="btnRed btncenter">Supprimer</button>
+                                </a>
+                            </div>
                         </div>
-                        <div class="column btncontainer">
-                            <a href="deleteStudent?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="Supprimer le compte">
-                                <button class="btnRed btncenter">Supprimer</button>
-                            </a>
+                    </c:if>  
+                    <br>
+                    <c:if test="${not empty msgError}">
+                        <div class="alert alert-danger" role="alert">
+                            <c:out value="${msgError}" />
+                        </div>
+                    </c:if>
+                    <c:if test="${sessionScope.type=='student'}">
+                        <div class="row">
+                            <div class="column">
+                                <h4 class="text-center">Creer CV</h4>
+                                <a href="showCVForm?id=<c:out value = "${student.id}"/>&fname=<c:out value = "${student.firstname}"/>&lname=<c:out value = "${student.lastname}"/>" data-toggle="tooltip" title="faire un cv">
+                                    <img src="./static/images/Uploadfile.png" width="25%" alt="PDF">
+                                </a>
+                            </div>
+                            <div class="column">
+                                <h4 class="text-center">Voir CV</h4>
+                                <a href="showPDF?id=<c:out value = "${student.id}"/>&fileType=CV" target="_blank" data-toggle="tooltip" title="voir votre cv">
+                                    <img src="./static/images/PDF.png" width="25%" alt="PDF2">
+                                </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="column">
+                                <h4 class="text-center">Creer lettre</h4>
+                                <a href="showLetterForm?id=<c:out value = "${student.id}"/>&fname=<c:out value = "${student.firstname}"/>&lname=<c:out value = "${student.lastname}"/>" data-toggle="tooltip" title="faire une lettre">
+                                    <img src="./static/images/Uploadfile.png" width="25%" alt="PDF">
+                                </a>
+                            </div>
+                            <div class="column">
+                                <h4 class="text-center">Voir lettre</h4>
+                                <a href="showPDF?id=<c:out value = "${student.id}"/>&fileType=letter" target="_blank" data-toggle="tooltip" title="voir votre lettre">
+                                    <img src="./static/images/PDF.png" width="25%" alt="PDF2">
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    </br>
-                    <h2 id="elementname" class="text-center">Curriculum vitae</h2>
+                </c:if>  
+                <c:if test="${sessionScope.type!='student'}">
                     <div class="row">
                         <div class="column">
-                            <a href="uploadCV?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner un cv">
-                                <img src="./static/images/Uploadfile.png" width="25%" alt="PDF">
-                            </a>
-
-                        </div>
-                        <div class="column">
-                            <a href="showCV?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="voir votre dv">
-
+                            <h4 class="text-center">Voir CV</h4>
+                            <a href="showPDF?id=<c:out value = "${student.id}"/>&fname=<c:out value = "${student.firstname}"/>&lname=<c:out value = "${student.lastname}"/>&fileType=CV" target="_blank" data-toggle="tooltip" title="voir votre cv">
                                 <img src="./static/images/PDF.png" width="25%" alt="PDF2">
                             </a>
-
-                        </div>
-                    </div>
-                    <h2 class="text-center">Lettre de motivation</h2>
-                    <div class="row">
-                        <div class="column">
-                            <a href="uploadLetter?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner une lettre">
-                                <img src="./static/images/Uploadfile.png" width="25%" alt="PDF">
-                            </a>
                         </div>
                         <div class="column">
-                            <a href="showLetter?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="voir votre lettre">
+                            <h4 class="text-center">Voir lettre</h4>
+                            <a href="showPDF?id=<c:out value = "${student.id}"/>&fileType=letter" target="_blank" data-toggle="tooltip" title="voir votre lettre">
                                 <img src="./static/images/PDF.png" width="25%" alt="PDF2">
                             </a>
                         </div>
                     </div>
-                </div>
+                </c:if>  
+
+
+                </br>
                 </br>
                 <h2 class='text-center'>Requêtes de l'étudiant</h2>
                 </br>

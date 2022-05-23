@@ -8,7 +8,6 @@ package com.stagemont.source.contract;
 import com.stagemont.entities.Contract;
 import com.stagemont.entities.Status;
 import com.stagemont.service.ConnectionDB;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

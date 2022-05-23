@@ -11,14 +11,17 @@ import com.stagemont.controller.actionsHelper.AbstractAction;
  *
  * @author Nicolas Brunet
  */
-public class ShowStudentForm extends AbstractAction {
+public class ShowLetterForm extends AbstractAction {
 
     @Override
     public String execute() {
-        String id = request.getParameter("id");
-        request.setAttribute("uid", id);
-        String viewPath = "appControl/editStudentForm";
+        String uid = request.getParameter("id");
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        request.setAttribute("id", uid);
+        request.setAttribute("fname", fname);
+        request.setAttribute("lname", lname);
+        String viewPath = "student/createLetter";
         return viewPath;
     }
-    
 }

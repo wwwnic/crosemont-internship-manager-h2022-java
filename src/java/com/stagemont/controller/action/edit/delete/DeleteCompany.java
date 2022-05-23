@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stagemont.controller.action.edit.delete;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
-import com.stagemont.entities.Company;
-import com.stagemont.entities.Student;
 import com.stagemont.source.company.CompanyDAO;
 import com.stagemont.source.company.CompanySource;
-import java.util.List;
 
 /**
  *
@@ -31,10 +23,7 @@ public class DeleteCompany extends AbstractAction {
         } else {
             request.setAttribute("msgError", "Cette entreprise est impossible à supprimer");
         }
-
-        List<Company> lstCompany = C_SOURCE.getAllCompany();
-        request.setAttribute("listCompany", lstCompany);
-        String viewPath = "appControl/companyList";
+        String viewPath = "~showCompanyList";
         return viewPath;
     }
 

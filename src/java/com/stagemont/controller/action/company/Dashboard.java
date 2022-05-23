@@ -18,23 +18,22 @@ import javax.servlet.http.Cookie;
 public class Dashboard extends AbstractAction {
 
     private static CompanySource DATA_COMPANY_DAO = new CompanyDAO();
-    
 
     @Override
     public String execute() {
-        
+
         Cookie[] idCookie = request.getCookies();
-        int idConnecte=-1;
-        if (idCookie!=null) {
-            for (int i=0; i<idCookie.length; i++) {
-                if ((idCookie[i].getName()).equals("idConnecte")){
+        int idConnecte = -1;
+        if (idCookie != null) {
+            for (int i = 0; i < idCookie.length; i++) {
+                if ((idCookie[i].getName()).equals("idConnecte")) {
                     idConnecte = Integer.parseInt(idCookie[i].getValue());
                 }
             }
         }
-        
+
         request.setAttribute("idConnecte", idConnecte);
-        
+
         Company company = DATA_COMPANY_DAO.getCompanyFromId(idConnecte);
 
         request.setAttribute("id", company.getId());
@@ -42,11 +41,9 @@ public class Dashboard extends AbstractAction {
         request.setAttribute("phone", company.getPhone());
         request.setAttribute("email", company.getEmail());
         request.setAttribute("personInCharge", company.getPersonInCharge());
-        
+
         String userType = request.getSession(false).getAttribute("type").toString();
         return userType + "/dashboard";
     }
-
-    
 
 }

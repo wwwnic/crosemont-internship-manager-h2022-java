@@ -20,7 +20,7 @@ import com.stagemont.source.student.StudentSource;
  * @author 1816098
  */
 public class Contract extends AbstractAction {
-    
+
     private final CompanySource DATA_COMPANY_DAO = new CompanyDAO();
     
     private static StudentSource DATA_STUDENT_DAO  = new StudentDAO();
@@ -62,13 +62,7 @@ public class Contract extends AbstractAction {
         
         String userType = request.getSession(false).getAttribute("type").toString();
         return userType + "/contract";
-    
-    
-    
+
     }
-    
-    
-    
-    
 
 }

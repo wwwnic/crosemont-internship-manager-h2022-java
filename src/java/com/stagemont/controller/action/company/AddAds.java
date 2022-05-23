@@ -16,26 +16,26 @@ import javax.servlet.http.Cookie;
  *
  * @author melis
  */
-public class AddAds extends AbstractAction  {
-    
+public class AddAds extends AbstractAction {
+
     private final AdsSource DATA_ADS = new AdsDAO();
-    
+
     @Override
     public String execute() {
-        
+
         Cookie[] idCookie = request.getCookies();
-        int idConnecte=-1;
-        if (idCookie!=null) {
-            for (int i=0; i<idCookie.length; i++) {
-                if ((idCookie[i].getName()).equals("idConnecte")){
+        int idConnecte = -1;
+        if (idCookie != null) {
+            for (int i = 0; i < idCookie.length; i++) {
+                if ((idCookie[i].getName()).equals("idConnecte")) {
                     idConnecte = Integer.parseInt(idCookie[i].getValue());
                 }
             }
         }
         request.setAttribute("idConnecte", idConnecte);
-        
+
         List<Ads> listAds = DATA_ADS.getAllAds();
-        
+
         //Ads(int id, String title, String description, String image, int company_id)
         int id = listAds.size();
         String title = request.getParameter("adsTitle");
@@ -51,11 +51,9 @@ public class AddAds extends AbstractAction  {
         Ads adsNew = new Ads(id, title, description, imglink, company_id);
         
         DATA_ADS.insertAds(adsNew);
-        
-        
+
         String userType = request.getSession(false).getAttribute("type").toString();
         return userType + "/addAdsForm";
     }
-
 
 }

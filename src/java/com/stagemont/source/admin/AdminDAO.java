@@ -1,14 +1,10 @@
 package com.stagemont.source.admin;
 
 import com.stagemont.entities.Admin;
-import com.stagemont.source.teacher.*;
-import com.stagemont.entities.Teacher;
 import com.stagemont.service.ConnectionDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

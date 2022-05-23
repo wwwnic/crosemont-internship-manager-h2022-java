@@ -18,19 +18,20 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jefferson
  */
-public class ShowJobDashboard  extends AbstractAction {
+public class ShowJobDashboard extends AbstractAction {
 
     private final JobSource J_SOURCE = new JobDAO();
     private final CompanySource C_SOURCE = new CompanyDAO();
+
     @Override
     public String execute() {
         HttpSession session = request.getSession(false);
         int jobId = Integer.parseInt(request.getParameter("id"));
-        
+
         Job job = J_SOURCE.getJobFromId(jobId);
         Company company = C_SOURCE.getCompanyFromId(job.getCompany_id());
-        String userType = session.getAttribute("type").toString();    
-        
+        String userType = session.getAttribute("type").toString();
+
         //int infoJobId = Integer.parseInt(jobId);
         //Job job = J_SOURCE.getJobFromId(infoJobId);
         //request.setAttribute("listJob", lstJob);
@@ -40,5 +41,5 @@ public class ShowJobDashboard  extends AbstractAction {
         String viewPath = userType + "/InfoEmploi";        
         return viewPath;
     }
-    
+
 }

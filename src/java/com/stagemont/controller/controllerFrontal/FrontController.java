@@ -5,9 +5,11 @@
  */
 package com.stagemont.controller.controllerFrontal;
 
-import com.stagemont.controller.actionsHelper.ActionBuilder;
 import com.stagemont.controller.actionsHelper.Action;
+import com.stagemont.controller.actionsHelper.ActionBuilder;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,17 +19,21 @@ public class FrontController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        Action action;
-        String path;
 
-        action = ActionBuilder.getAction(request);
-        System.out.println(" action : " + action);
+        Action action = ActionBuilder.getAction(request);
+        Logger.getLogger(ActionBuilder.class.getName()).log(Level.INFO, null, "Action à faire " + action);
         action.setRequest(request);
         action.setResponse(response);
-        path = action.execute();
 
-        request.getRequestDispatcher("/" + path + ".jsp").forward(request, response);
+        String path = action.execute();
+
+        boolean exeAnotherAction = path.contains("~");
+        if (exeAnotherAction) {
+            path = path.substring(1);
+            request.getRequestDispatcher(path).forward(request, response);
+        } else {
+            request.getRequestDispatcher("/" + path + ".jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

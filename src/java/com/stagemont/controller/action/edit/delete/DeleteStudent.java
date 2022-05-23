@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stagemont.controller.action.edit.delete;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
-import com.stagemont.entities.Student;
 import com.stagemont.source.student.StudentDAO;
 import com.stagemont.source.student.StudentSource;
-import java.util.List;
 
 /**
  *
@@ -31,9 +24,7 @@ public class DeleteStudent extends AbstractAction {
             request.setAttribute("msgError", "Cet étudiant est impossible à supprimer");
         }
 
-        List<Student> lstStudent = S_SOURCE.getAllStudents();
-        request.setAttribute("listStudent", lstStudent);
-        String viewPath = "appControl/studentList";
+        String viewPath = "~showStudentList";
         return viewPath;
     }
 

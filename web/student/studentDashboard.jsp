@@ -39,7 +39,7 @@
                     <p id="elementname" class="text-center">Curriculum vitae</p>
                     <div class="row">
                         <div class="column">
-                            <a href="uploadCV?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner un cv">
+                            <a href="showCVForm?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner un cv">
                                 <img src="./static/images/Uploadfile.png" width="25%" alt="PDF">
                             </a>
 
@@ -55,7 +55,7 @@
                     <p id="elementname" class="text-center">Lettre de motivation</p>
                     <div class="row">
                         <div class="column">
-                            <a href="uploadLetter?id=<c:out value = "${student.id}"/>" data-toggle="tooltip" title="donner une lettre">
+                            <a href="showLetterForm?id=<c:out value = "${student.id}"/>&fname=<c:out value = "${student.firstname}"/>&lname<c:out value = "${student.lastname}"/>" data-toggle="tooltip" title="donner une lettre">
                                 <img src="./static/images/Uploadfile.png" width="25%" alt="PDF">
                             </a>
                         </div>

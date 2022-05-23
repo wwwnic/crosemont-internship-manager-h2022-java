@@ -1,6 +1,7 @@
 package com.stagemont.controller.action;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -10,6 +11,13 @@ public class ByDefault extends AbstractAction {
 
     @Override
     public String execute() {
-        return "login";
+        HttpSession session = request.getSession(false);
+        Object objType = null;
+        if (session != null) {
+            objType = session.getAttribute("type");
+        }
+        boolean isSessionConnected = objType != null;
+        return isSessionConnected ? "error" : "login";
+
     }
 }

@@ -10,22 +10,22 @@ import com.stagemont.entities.Internship;
 import com.stagemont.source.internship.InternshipDAO;
 import com.stagemont.source.internship.InternshipSource;
 import java.util.List;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Jefferson
  */
-public class ShowInternshipList extends AbstractAction  {
+public class ShowInternshipList extends AbstractAction {
 
     private final InternshipSource I_SOURCE = new InternshipDAO();
-    
+
     @Override
     public String execute() {
         List<Internship> lstIntern = I_SOURCE.getAllInternship();
         request.setAttribute("listInternship", lstIntern);
-        
+
         String viewPath = "student/internList";
         return viewPath;
     }
+    
 }

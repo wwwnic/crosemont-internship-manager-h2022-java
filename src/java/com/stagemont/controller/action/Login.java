@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.stagemont.controller.action;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
@@ -73,7 +68,7 @@ public class Login extends AbstractAction {
         session.setAttribute("id", user.getId());
         session.setAttribute("name", user.getFirstname());
         session.setAttribute("type", user.getUserTypeName());
-        
+
         Cookie idCookie = new Cookie("idConnecte", String.valueOf(user.getId()));
         response.addCookie(idCookie);
     }
