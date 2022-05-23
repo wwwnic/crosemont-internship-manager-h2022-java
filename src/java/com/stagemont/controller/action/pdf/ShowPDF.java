@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.display.pdf;
+package com.stagemont.controller.action.pdf;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import java.io.File;
@@ -21,10 +21,8 @@ public class ShowPDF extends AbstractAction {
 
     private String getFileName() {
         String id = request.getParameter("id");
-        String fname = request.getParameter("fname");
-        String lname = request.getParameter("lname");
         String fileType = request.getParameter("fileType");
-        String filename = "stu." + lname + "." + fname + id + "_" + fileType + ".pdf";
+        String filename = "stu." + id + "_" + fileType + ".pdf";
         return filename;
     }
 

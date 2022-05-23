@@ -37,8 +37,6 @@
                         <input type="hidden" id="titleText" name="title" value="Présentation de <c:out value="${fname}" /> <c:out value="${lname}" />:" />
                         <input type="hidden" id="documentName" name="documentName" value="CV" />
                         <input type="hidden" id="id" name="id" value=<c:out value="${id}" />>
-                        <input type="hidden" id="fname" name="fname" value=<c:out value="${fname}" />>
-                        <input type="hidden" id="lname" name="lname" value=<c:out value="${lname}" />>
                         <div class="form-group">
                             <textarea id="cvText" name="text" cols="40" rows="15" aria-describedby="CVHelpBlock" required="required" class="form-control"></textarea> 
                             <span id="CVHelpBlock" class="form-text text-muted">Présentez-vous aux employeurs de Stagemont, entrez votre expérience d'emplois ainsi que vos compétences personnel.</span>

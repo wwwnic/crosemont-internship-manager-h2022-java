@@ -36,8 +36,6 @@
                         <input type="hidden" id="titleText" name="title" value="Lettre de <c:out value="${fname}" /> <c:out value="${lname}" />:" />
                         <input type="hidden" id="documentName" name="documentName" value="letter" />
                         <input type="hidden" id="id" name="id" value=<c:out value="${id}" />>
-                        <input type="hidden" id="fname" name="fname" value=<c:out value="${fname}" />>
-                        <input type="hidden" id="lname" name="lname" value=<c:out value="${lname}" />>
                         <div class="form-group">
                             <textarea id="motivLetterText" name="text" cols="40" rows="15" aria-describedby="letterHelpBlock" required="required" class="form-control"></textarea> 
                             <span id="letterHelpBlock" class="form-text text-muted">Faites-nous part de vos intentions.</span>

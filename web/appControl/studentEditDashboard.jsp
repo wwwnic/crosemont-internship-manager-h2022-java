@@ -71,7 +71,7 @@
                             </div>
                             <div class="column">
                                 <h4 class="text-center">Voir CV</h4>
-                                <a href="showPDF?id=<c:out value = "${student.id}"/>&fname=<c:out value = "${student.firstname}"/>&lname=<c:out value = "${student.lastname}"/>&fileType=CV" target="_blank" data-toggle="tooltip" title="voir votre cv">
+                                <a href="showPDF?id=<c:out value = "${student.id}"/>&fileType=CV" target="_blank" data-toggle="tooltip" title="voir votre cv">
                                     <img src="./static/images/PDF.png" width="25%" alt="PDF2">
                                 </a>
                             </div>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="column">
                                 <h4 class="text-center">Voir lettre</h4>
-                                <a href="showPDF?id=<c:out value = "${student.id}"/>&fname=<c:out value = "${student.firstname}"/>&lname=<c:out value = "${student.lastname}"/>&fileType=letter" target="_blank" data-toggle="tooltip" title="voir votre lettre">
+                                <a href="showPDF?id=<c:out value = "${student.id}"/>&fileType=letter" target="_blank" data-toggle="tooltip" title="voir votre lettre">
                                     <img src="./static/images/PDF.png" width="25%" alt="PDF2">
                                 </a>
                             </div>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="column">
                             <h4 class="text-center">Voir lettre</h4>
-                            <a href="showPDF?id=<c:out value = "${student.id}"/>&fname=<c:out value = "${student.firstname}"/>&lname=<c:out value = "${student.lastname}"/>&fileType=letter" target="_blank" data-toggle="tooltip" title="voir votre lettre">
+                            <a href="showPDF?id=<c:out value = "${student.id}"/>&fileType=letter" target="_blank" data-toggle="tooltip" title="voir votre lettre">
                                 <img src="./static/images/PDF.png" width="25%" alt="PDF2">
                             </a>
                         </div>

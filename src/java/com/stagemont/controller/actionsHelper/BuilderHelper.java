@@ -31,7 +31,7 @@ import com.stagemont.controller.action.display.list.ShowInternshipList;
 import com.stagemont.controller.action.display.list.ShowJobsList;
 import com.stagemont.controller.action.display.list.ShowStudentList;
 import com.stagemont.controller.action.display.list.ShowTeacherList;
-import com.stagemont.controller.action.display.pdf.ShowPDF;
+import com.stagemont.controller.action.pdf.ShowPDF;
 import com.stagemont.controller.action.edit.add.AddCompany;
 import com.stagemont.controller.action.edit.add.AddStudent;
 import com.stagemont.controller.action.edit.add.AddTeacher;

@@ -34,11 +34,9 @@ public class CreatePDF extends AbstractAction {
     private String getFileName() throws IOException {
         String type = "stu";
         String uid = request.getParameter("id");
-        String fname = request.getParameter("fname");
-        String lname = request.getParameter("lname");
         String docName = request.getParameter("documentName");
 
-        String fileName = type + "." + lname + "." + fname + uid + "_" + docName + ".pdf";
+        String fileName = type + "." + uid + "_" + docName + ".pdf";
         return fileName;
     }
 
