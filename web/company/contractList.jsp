@@ -16,6 +16,8 @@
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/table.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/contract.css" /> 
+        
+        <link rel="stylesheet" href="/resources/demos/style.css">
         <%@include file="../company/header.html" %>
 
         <%
@@ -34,7 +36,9 @@
     <body>
         <h1 class="center">Liste Des Candidatures</h1>
         
-        <h1>id : <c:out value = "${idConnecte}"/> </h1>
+        <!--
+        <h1>id : <c:out value = "$//{idConnecte}"/> </h1>
+        -->
 
         <table class="center">
             <tr>
@@ -64,7 +68,7 @@
                 <td><%=c.getStart_date()%></td>
                 <td><%=c.getEnd_date()%></td>
                 <td>
-                    <button type="button"> <a href="contract?companyId=<%=c.getCompany_id()%>&studentId=<%=s.getId()%>">Voir détails</a></button>
+                    <button type="button" class="btnBlue"> <a href="contract?companyId=<%=c.getCompany_id()%>&studentId=<%=s.getId()%>&contractId=<%=c.getId()%>">Voir détails</a></button>
                 </td>
             </tr>
 

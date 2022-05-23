@@ -54,7 +54,7 @@ INSERT INTO `job` VALUES
 -- (`id` `title` `description` `image` `company_id`)
 INSERT INTO `ads` VALUES 
 ("1", "Google is now hiring", "Google is hiring more employees! Contact the person in charge", "google_ad_img", "1"),
-("2", "Work Hard. Have Fun. Make History", "If you want to work in an efficient and spacious environement, apply to work for Amazon!", "amazon_ad_img", "3"),
+("2", "Work Hard. Have Fun. Make History", "If you want to work in an efficient and spacious environement, apply to work for Amazon!", "amazon_ad_img", "2"),
 ("3", "Don't be evil", "Google is now looking for interns!", "google_ad2_img", "1");
 
 -- (`id` `status` `start_date` `end_date` `company_id` `student_id`)

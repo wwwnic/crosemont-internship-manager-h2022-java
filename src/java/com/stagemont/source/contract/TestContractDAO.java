@@ -24,10 +24,11 @@ public class TestContractDAO {
         String pattern = "MM/dd/yyyy";
         
 
-//        Contract c = new Contract(12, java.sql.Date.valueOf("2000-05-05"), java.sql.Date.valueOf("2021-05-06"), Status.EMPLOY, 1, 3);
-//        result = dao.insertContract(c);
-//        System.out.println(result);
+        Contract c = new Contract(90, java.sql.Date.valueOf("2000-12-22"), java.sql.Date.valueOf("2021-12-23"), Status.EMPLOY, 1, 3);
+       result = dao.insertContract(c);
+        System.out.println(result);
 
+        /*
         System.out.println("******Test la méthode delete*****");
 
         result = dao.deleteContract(12);
@@ -39,6 +40,7 @@ public class TestContractDAO {
         Contract c2 = new Contract (15, java.sql.Date.valueOf("2030-01-01"), java.sql.Date.valueOf("2030-10-30"), Status.INTERVIEW, 1, 3);
         result = dao.updateContract(c2);
         System.out.println(result);
+*/
 
     }
 

@@ -15,6 +15,8 @@ import java.util.List;
 public interface ContractSource {
 
     public List<Contract> getAllContract();
+    
+    public Contract getContractById(int id);
 
     public List<Contract> getContractByComapnyId(int company_id);
 

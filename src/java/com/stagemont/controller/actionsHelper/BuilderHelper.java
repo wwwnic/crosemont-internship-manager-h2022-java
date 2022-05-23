@@ -20,6 +20,11 @@ import com.stagemont.controller.action.admin.ShowAddUserForm;
 import com.stagemont.controller.action.admin.ShowHomepage;
 import com.stagemont.controller.action.company.AddAds;
 import com.stagemont.controller.action.company.AdsList;
+import com.stagemont.controller.action.company.CompanyEditDashboard;
+import com.stagemont.controller.action.company.Contract;
+import com.stagemont.controller.action.company.ContractDelete;
+import com.stagemont.controller.action.company.ContractEdit;
+import com.stagemont.controller.action.company.ContractForm;
 import com.stagemont.controller.action.company.ContractList;
 import com.stagemont.controller.action.company.Dashboard;
 import com.stagemont.controller.action.display.dashboard.ShowInternshipDashboard;
@@ -122,6 +127,29 @@ public interface BuilderHelper {
             case "dashboard":
                 action = new Dashboard();
                 break;
+            case "showJobsList":
+                action = new ShowJobsList();
+                break;
+            case "showInternshipList":
+                action = new ShowInternshipList();
+                break;
+            case "contract":
+                action = new Contract();
+                break;
+                
+            case "editDashboard":
+                action = new CompanyEditDashboard();
+                break;
+            case "contractForm":
+                action = new ContractForm();
+                break;
+            case "contractDelete":
+                action = new ContractDelete();
+                break;
+            case "contractEdit":
+                action = new ContractEdit();
+                break;
+
 
         }
         return action;

@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="/resources/demos/style.css">
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-        
+
         <title>Publicités</title>
     </head>
     <body>
@@ -37,22 +37,22 @@
                 <th>Image</th>
             </tr>
 
-            <% if (listAds != null && listAds.size()!=0) {
+            <% if (listAds != null && listAds.size() != 0) {
                     for (Ads a : listAds) {%>
             <tr>
                 <td><%=a.getTitle()%></td>
                 <td> <%=a.getDescription()%> </td>
                 <td>
                     <img alt="<%=a.getImage()%>"  src="./static/images/<%=a.getImage()%>.png" height="100" width="100"/> 
-                
                 </td>
             </tr>
-        </table>
             <%}
-            } else {%>
+                } else {%>
 
             <h1>Cette compagnie n'a pas de publicités!</h1>
             <%}%>
+
+        </table>
 
     </body>
 </html>

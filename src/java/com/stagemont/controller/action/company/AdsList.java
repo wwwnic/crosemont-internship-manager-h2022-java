@@ -8,7 +8,6 @@ package com.stagemont.controller.action.company;
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.entities.Ads;
 import com.stagemont.source.ads.AdsDAO;
-import com.stagemont.source.ads.AdsFakeData;
 import com.stagemont.source.ads.AdsSource;
 import java.util.List;
 import javax.servlet.http.Cookie;

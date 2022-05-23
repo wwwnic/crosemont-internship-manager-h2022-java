@@ -6,23 +6,21 @@
 package com.stagemont.controller.action.company;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
-import com.stagemont.entities.Ads;
-import com.stagemont.source.ads.AdsDAO;
-import com.stagemont.source.ads.AdsSource;
-import java.util.List;
+import com.stagemont.entities.Company;
+import com.stagemont.source.company.CompanyDAO;
+import com.stagemont.source.company.CompanySource;
 import javax.servlet.http.Cookie;
 
 /**
  *
  * @author melis
  */
-public class AddAds extends AbstractAction  {
-    
-    private final AdsSource DATA_ADS = new AdsDAO();
+public class CompanyEditDashboard extends AbstractAction {
+
+    private static CompanySource DATA_COMPANY_DAO = new CompanyDAO();
     
     @Override
     public String execute() {
-        
         Cookie[] idCookie = request.getCookies();
         int idConnecte=-1;
         if (idCookie!=null) {
@@ -34,28 +32,22 @@ public class AddAds extends AbstractAction  {
         }
         request.setAttribute("idConnecte", idConnecte);
         
-        List<Ads> listAds = DATA_ADS.getAllAds();
+        //Company companyOriginal = DATA_COMPANY_DAO.getCompanyFromId(id);
         
-        //Ads(int id, String title, String description, String image, int company_id)
-        int id = listAds.size();
-        String title = request.getParameter("adsTitle");
-        String description = request.getParameter("textDesc");
-        String imglink = request.getParameter("uploadImage");
+        //Company(int id, String name, String password, String phone, String email, String personInCharge)
         
-        if (imglink!=null){
-            imglink = imglink.replaceFirst(".png", "");
-        }
+        String name = request.getParameter("nomC");
+        String password = request.getParameter("mdpC");
+        String phone = request.getParameter("telC");
+        String email = request.getParameter("courrielC");
+        String personInCharge = request.getParameter("nomC");
         
-        int company_id = idConnecte;
+        Company company = new Company(idConnecte, name, password, phone, email, personInCharge);
         
-        Ads adsNew = new Ads(id, title, description, imglink, company_id);
-        
-        DATA_ADS.insertAds(adsNew);
-        
+        DATA_COMPANY_DAO.updateCompany(company);
         
         String userType = request.getSession(false).getAttribute("type").toString();
-        return userType + "/addAdsForm";
+        return userType + "/editDashboard";
     }
-
-
+    
 }

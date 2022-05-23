@@ -37,6 +37,7 @@ public class Dashboard extends AbstractAction {
         
         Company company = DATA_COMPANY_DAO.getCompanyFromId(idConnecte);
 
+        request.setAttribute("id", company.getId());
         request.setAttribute("name", company.getFirstname());
         request.setAttribute("phone", company.getPhone());
         request.setAttribute("email", company.getEmail());

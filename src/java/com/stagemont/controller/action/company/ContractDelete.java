@@ -18,15 +18,25 @@ import javax.servlet.http.Cookie;
  *
  * @author melis
  */
-public class ContractList extends AbstractAction {
+public class ContractDelete extends AbstractAction {
+    
+    
+    private static ContractSource DATA_CONTRACT_DAO = new ContractDAO();
     
     private final ContractSource DATA_CONTRACTS_DAO = new ContractDAO();
     
     private static StudentSource DATA_STUDENT_DAO  = new StudentDAO();
     
 
+
     @Override
     public String execute() {
+        
+        int id = Integer.parseInt(request.getParameter("idC"));
+        
+        DATA_CONTRACT_DAO.deleteContract(id);
+        
+        //--------------------
         
         Cookie[] idCookie = request.getCookies();
         int idConnecte=-1;
@@ -45,11 +55,9 @@ public class ContractList extends AbstractAction {
         List<Student> listStudents = DATA_STUDENT_DAO.getAllStudents();
         request.setAttribute("listStudents", listStudents);
         
-        
         String userType = request.getSession(false).getAttribute("type").toString();
         return userType + "/contractList";
     }
 
     
-
 }
