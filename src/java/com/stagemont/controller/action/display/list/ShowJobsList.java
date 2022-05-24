@@ -23,8 +23,8 @@ public class ShowJobsList extends AbstractAction {
     public String execute() {
         List<Job> lstJob = J_SOURCE.getAllJob();
         request.setAttribute("listJob", lstJob);
-        String viewPath = "student/jobList";
+        String viewPath = "search/jobList";
         return viewPath;
     }
-    
+
 }

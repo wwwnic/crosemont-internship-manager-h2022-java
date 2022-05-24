@@ -25,17 +25,15 @@ public class ShowInternshipDashboard extends AbstractAction {
 
     @Override
     public String execute() {
-        HttpSession session = request.getSession(false);
         int stageId = Integer.parseInt(request.getParameter("id"));
 
         Internship intern = I_SOURCE.getInternshipFromId(stageId);
         Company company = C_SOURCE.getCompanyFromId(intern.getCompany_id());
-        String userType = session.getAttribute("type").toString();
 
         request.setAttribute("intern", intern);
         request.setAttribute("company", company);
 
-        String viewPath = userType + "/InfoStage";
+        String viewPath = "search/InfoStage";
         return viewPath;
 
     }

@@ -74,6 +74,10 @@ split {
     position: relative;
 }
 
+.btnhorcenter {
+    margin:0 auto;
+    display:block;
+} 
 .btncenter {
     margin: 0;
     position: absolute;
@@ -156,4 +160,8 @@ td {
 table { 
     margin-left: auto;
     margin-right: auto;
+}
+
+svg{
+    margin-left: 25px; 
 }

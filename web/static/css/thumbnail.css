@@ -1,0 +1,71 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 24, 2022, 2:43:52 PM
+    Author     : Brune
+*/
+.cardDiv{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:15%;
+}
+
+.thumbnailMarging{
+    margin-bottom:2%;
+}
+
+.bg-primary {
+    background-color: #0A98E8!important;
+}
+
+
+.thumbnail{
+    background-color: white!important;
+    color: #0A98E8;
+}
+
+.thumbnail-header{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 4%;
+    padding-right: 4%;
+    border-radius: 6px 6px 0px 0px;
+    border-style: solid;
+    border-color : #0A98E8;
+    border: 1px;
+    background-color: #0A98E8!important;
+    color: white;
+    min-height: 40px;
+    font:normal 20px/1 "Open Sans", sans-serif;
+
+}
+
+.thumbnail-body{
+    padding: 4%;
+    border-radius: 0px 0px 6px 6px;
+    border: 1px;
+    border-style: solid;
+    border-color : #0A98E8;
+    font:normal 18px/1 "Open Sans", sans-serif;
+
+}
+
+.thumbnail-button {
+    margin-top:    4%;
+    background:    #0a98e8;
+    border:        2px solid #0a98e8;
+    border-radius: 6px;
+    padding:       6px 10px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal normal 19px/1 "Roboto", sans-serif;
+    text-align:    center;
+}
+
+.thumbnail-button:hover{
+    opacity: 0.7
+}

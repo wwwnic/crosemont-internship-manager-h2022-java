@@ -25,20 +25,15 @@ public class ShowJobDashboard extends AbstractAction {
 
     @Override
     public String execute() {
-        HttpSession session = request.getSession(false);
         int jobId = Integer.parseInt(request.getParameter("id"));
 
         Job job = J_SOURCE.getJobFromId(jobId);
         Company company = C_SOURCE.getCompanyFromId(job.getCompany_id());
-        String userType = session.getAttribute("type").toString();
 
-        //int infoJobId = Integer.parseInt(jobId);
-        //Job job = J_SOURCE.getJobFromId(infoJobId);
-        //request.setAttribute("listJob", lstJob);
         request.setAttribute("job", job);
         request.setAttribute("company", company);
         
-        String viewPath = userType + "/InfoEmploi";        
+        String viewPath = "search/InfoEmploi";        
         return viewPath;
     }
 
