@@ -23,9 +23,8 @@ public class ShowInternshipList extends AbstractAction {
     public String execute() {
         List<Internship> lstIntern = I_SOURCE.getAllInternship();
         request.setAttribute("listInternship", lstIntern);
-
-        String viewPath = "student/internList";
+        String viewPath = "search/internList";
         return viewPath;
     }
-    
+
 }

@@ -57,12 +57,6 @@ public interface BuilderHelper {
     public static Action iterateActionStudent(String actionToDo) {
         Action action = null;
         switch (actionToDo) {
-            case "showStudentJobs":
-                action = new ShowJobsList();
-                break;
-            case "showStudentInternship":
-                action = new ShowInternshipList();
-                break;
             case "showCVForm":
                 action = new ShowCVForm();
                 break;
@@ -115,12 +109,6 @@ public interface BuilderHelper {
             case "showCompanyDashboard":
                 action = new ShowCompanyDashboard();
                 break;
-            case "showJobsList":
-                action = new ShowJobsList();
-                break;
-            case "showInternshipList":
-                action = new ShowInternshipList();
-                break;
         }
         return action;
     }
@@ -143,16 +131,9 @@ public interface BuilderHelper {
             case "dashboard":
                 action = new Dashboard();
                 break;
-            case "showJobsList":
-                action = new ShowJobsList();
-                break;
-            case "showInternshipList":
-                action = new ShowInternshipList();
-                break;
             case "contract":
                 action = new Contract();
                 break;
-                
             case "editDashboard":
                 action = new CompanyEditDashboard();
                 break;
@@ -228,9 +209,6 @@ public interface BuilderHelper {
             case "showCompanyDashboard":
                 action = new ShowCompanyDashboard();
                 break;
-            case "showStudentInfoJob":
-                action = new ShowJobDashboard();
-                break;
             case "showInternshipAdminList":
                 action = new ShowInternshipAdminList();
                 break;
@@ -259,10 +237,16 @@ public interface BuilderHelper {
             case "logout":
                 action = new Logout();
                 break;
-            case "showStudentInfoJob":
+            case "showInternshipList":
+                action = new ShowInternshipList();
+                break;
+            case "showJobsList":
+                action = new ShowJobsList();
+                break;
+            case "showJobDashboard":
                 action = new ShowJobDashboard();
                 break;
-            case "showStudentInfoStage":
+            case "showInternshipDashboard":
                 action = new ShowInternshipDashboard();
                 break;
             default:
