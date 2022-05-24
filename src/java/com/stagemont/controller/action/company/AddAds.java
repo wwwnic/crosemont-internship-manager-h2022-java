@@ -40,11 +40,16 @@ public class AddAds extends AbstractAction {
         int id = listAds.size();
         String title = request.getParameter("adsTitle");
         String description = request.getParameter("textDesc");
-        String image = "";
+        String imglink = request.getParameter("uploadImage");
+        
+        if (imglink!=null){
+            imglink = imglink.replaceFirst(".png", "");
+        }
+        
         int company_id = idConnecte;
-
-        Ads adsNew = new Ads(id, title, description, image, company_id);
-
+        
+        Ads adsNew = new Ads(id, title, description, imglink, company_id);
+        
         DATA_ADS.insertAds(adsNew);
 
         String userType = request.getSession(false).getAttribute("type").toString();

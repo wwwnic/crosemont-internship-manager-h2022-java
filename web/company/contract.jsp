@@ -32,39 +32,96 @@
                 <div>
                     <p id="pagetitle">Élaboration d'un contrat</p>
                     <div class='line'>
+                        <p id="elementname"> Numéro du stage :</p>
+                        <p id="element"><c:out value = "${company.getId()}"/></p>
+                        <br/>
                         <p id="elementname"> La compagnie :</p>
-                        <p id="element"><c:out value = "${name}"/></p>
-                        <p id="elementname"> Désire embaucher :</p>
-                        <p id="element"><c:out value = "${firstName}"/> <c:out value = "${lastName}"/></p>
-                        <p id="elementCalender">Durant la période suivante :</p>
-                        <form id="contractForm" method="post" action="#">
-                            <div>
-                                <div class="row">
-                                    <div class="column inputcontainer">
-                                        <label id="label" for="from">De:</label>
-                                        <input class="form-control" type="text" id="from" name="from">   
-                                    </div>
-                                    <div class="column inputcontainer">
-                                        <label id="label" for="to">À:</label>
-                                        <input class="form-control" type="text" id="to" name="to">   
-                                    </div>
+                        <p id="element"><c:out value = "${company.getName()}"/></p>
+                        <br/>
+                        <p id="elementname"> Le candidat :</p>
+                        <p id="element"><c:out value = "${student.getFirstname()}"/> <c:out value = "${student.getLastname()}"/></p>
+                        <p id="element">DA : <c:out value = "${student.getDa()}"/> </p>
+                        <br/>
+                        <p id="elementname">Durant la période suivante :</p>
+                        <p id="element"><c:out value = "${contract.getStart_date()}"/> jusqu'à: <c:out value = "${contract.getEnd_date()}"/></p>
+                        <br/>
+
+                        <p id="elementname"> Le status du candidat :</p>
+
+                        <c:set var="status" value="${contract.getStatus()}"/>
+
+                        <c:if test = "${status == 'SUBMIT'}">
+                            <p id="element">Soumis</p>
+                            <br/>
+                            <form id="contractForm" method="post" action="contractForm?idC=${contract.getId()}">
+                                <div>
+                                    <label id="elementname" for="mdp">Signer virtuellement pour l'envoyer en entrevue:</label>
+                                    <input class="form-control" type="password" id="mdp" name="mdpSUBMIT">   
+                                </div> 
+
+                                </br>
+
+                                <div class="column btncontainer">
+                                    <button type="submit" form="contractForm" class="btnBlue">Soumettre</button>
                                 </div>
-                                <label id="label" for="mdp">Signer virtuellement avec votre mot de passe :</label>
-                                <input class="form-control" type="password" id="mdp" name="mdp">   
-                            </div>
-                        </form>
+
+                                </br>
+
+                            </form>
+                        </c:if>
+
+                        <c:if test = "${status == 'INTERVIEW'}">
+                            <p id="element">Entrevue</p>
+                            <br/>
+
+                            <form id="contractForm" method="post" action="contractForm?idC=${contract.getId()}">
+                                <div>
+                                    <label id="elementname" for="mdp">Signer virtuellement pour l'embaucher :</label>
+                                    <input class="form-control" type="password" id="mdp" name="mdpINTERVIEW">   
+                                </div>
+
+                                </br>
+
+                                <div class="column btncontainer">
+                                    <button type="submit" form="contractForm" class="btnBlue">Soumettre</button>
+                                </div>
+
+                                </br>
+
+                            </form>
+                        </c:if>
+
+                        <c:if test = "${status == 'EMPLOY'}">
+
+                            <p id="element">Embauché</p>
+                            <br/>
+
+                            <p id="element">Ce candidat est déjà embauché!</p>
+                        </c:if>
+                        <br/>
+
                     </div>
+
+
                     <br/>
                     <div class="row">
+
                         <div class="column btncontainer">
-                            <button class="btnRed btncenter">Annuler</button>
+                            <a href="contractDelete?idC=${contract.getId()}">
+                                <button class="btnRed btncenter">Supprimer</button>
+                            </a>
                         </div>
+
                         <div class="column btncontainer">
-                            <button type="submit" form="contractForm" class="btnBlue btncenter">Soumettre</button>
+                            <a href="contractEdit?idC=${contract.getId()}">
+                                <button class="btnBlue btncenter">Modifier</button>
+                            </a>
                         </div>
+
+
+
                     </div>
                 </div>    
             </div>
-            <div></div>    
     </body>
 </html>

@@ -37,8 +37,8 @@ public class ShowJobDashboard extends AbstractAction {
         //request.setAttribute("listJob", lstJob);
         request.setAttribute("job", job);
         request.setAttribute("company", company);
-
-        String viewPath = "student/InfoEmploi";
+        
+        String viewPath = userType + "/InfoEmploi";        
         return viewPath;
     }
 

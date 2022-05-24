@@ -66,6 +66,38 @@ public class ContractDAO implements ContractSource {
     }
 
     @Override
+    public Contract getContractById(int id) {
+        Contract contract = null;
+
+        try {
+            PreparedStatement ps = ConnectionDB.getConnection().prepareStatement(SQL_SELECT_ID);
+            ps.setInt(1, id);
+            ResultSet result = ps.executeQuery();
+            contract = new Contract();
+            while (result.next()) {
+                contract.setId(result.getInt("id"));
+                contract.setStart_date(result.getDate("start_date"));
+                contract.setEnd_date(result.getDate("end_date"));
+
+                String status = (result.getString("status")).toUpperCase();
+                Status statusEnum = Status.valueOf(status);
+                contract.setStatus(statusEnum);
+
+                contract.setCompany_id(result.getInt("company_id"));
+                contract.setStudent_id(result.getInt("student_id"));
+
+            }
+
+            ConnectionDB.closeConnection();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(ContractDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return contract;
+    }
+    
+    @Override
     public List<Contract> getContractByComapnyId(int company_id) {
         List<Contract> listContract = null;
 

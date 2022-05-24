@@ -33,9 +33,9 @@
         <h1 class="center">Publier une publicité</h1>
         <br/>
         <div class="centerAddAds">
-            
+
             <form id="addAddsForm" method="get" action="addAdsForm">
-                
+
                 <div class="form-group">
                     <label for="adsTitle">Titre</label> 
                     <div class="input-group">
@@ -47,23 +47,24 @@
                         <input id="adsTitle" name="adsTitle" placeholder="titre" type="text" required="required" class="form-control">
                     </div>
                 </div>
-                
+
                 <br/>
-                
+
                 <div class="form-group">
                     <label for="textDesc">Courte Description</label> 
                     <textarea id="textDesc" name="textDesc" cols="40" rows="3" aria-describedby="textDescHelpBlock" required="required" class="form-control"></textarea> 
                     <span id="textDescHelpBlock" class="form-text text-muted">Écrivez une description pour votre publicité</span>
                 </div>
-                
+
                 <br/>
+                
                 
                 <div class="form-group">
-                    <button name="uploadImage" type="button" class="btn btn-primary">Insérer une image</button>
+                     <input type="file" name="uploadImage" class="btn btn-primary" id="photo" title ="La photo est obligatoire" />
                 </div>
-                
+
                 <br/>
-                
+
                 <div class="form-group">
                     <button name="submit" type="submit" class="btn btn-primary">Publier</button>
                 </div>

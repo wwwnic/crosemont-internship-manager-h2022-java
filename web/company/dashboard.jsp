@@ -12,7 +12,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
-        <link rel="stylesheet" type="text/css" href="./static/css/contract.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/dashboard.css" /> 
+        <link rel="stylesheet" type="text/css" href="./static/css/contract.css" />
         <%@include file="../company/header.html" %>
         <title>Dashboard</title>
     </head>
@@ -26,7 +27,7 @@
                     <div class='line'>
                         </br>
                         <p id="elementname">Nom</h2>
-                        <p id="element"><td><c:out value = "${name}"/></td>
+                        <p id="element"><c:out value = "${name}"/>
                         </p>
                         </br>
                         <p id="elementname">Téléphone</p>
@@ -42,12 +43,22 @@
                     </div>
                     </br>
                     <div class="row">
+
                         <div class="column btncontainer">
-                            <button class="btnBlue btncenter">Modifier</button>
+                            <a href="editDashboard?id=<c:out value = "${id}"/>">
+                                <button class="btnBlue btncenter">Modifier</button>
+                            </a>
                         </div>
+
+                        <!--
                         <div class="column btncontainer">
-                            <button class="btnRed btncenter">Supprimer</button>
+                            <a>
+                                <button class="btnRed btncenter">Supprimer</button>
+                            </a>
                         </div>
+                        -->
+
+
                     </div>
                 </div>
             </div>    
