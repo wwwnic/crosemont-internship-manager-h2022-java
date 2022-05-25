@@ -111,6 +111,9 @@ public interface BuilderHelper {
             case "showCompanyDashboard":
                 action = new ShowCompanyDashboard();
                 break;
+            case "showTeacherDashboard":
+                action = new ShowTeacherDashboard();
+                break;
         }
         return action;
     }
@@ -154,7 +157,6 @@ public interface BuilderHelper {
             case "addInternship":
                 action = new AddInternship();
                 break;
-
 
         }
         return action;
