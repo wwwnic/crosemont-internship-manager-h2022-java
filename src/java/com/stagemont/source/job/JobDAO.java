@@ -26,9 +26,9 @@ public class JobDAO implements JobSource {
 
     private static final String SQL_SELECT_BY_ID = "SELECT * FROM job WHERE id = ?";
 
-    private static final String SQL_INSERT = "INSERT INTO job(title,description,start_date,end_date,company_id) value(?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO job(title,description,start_date,end_date,company_id) value(?,?,?,?,?)";
 
-    private static final String SQL_UPDATE = "UPDATE job SET title = ?, description = ?, start_date = ? end_date = ?, company_id = ? WHERE id = ?";
+    private static final String SQL_UPDATE = "UPDATE job SET title = ?, description = ?, start_date = ?, end_date = ?, company_id = ? WHERE id = ?";
 
     private static final String SQL_DELETE = "DELETE FROM job WHERE id = ?";
 
@@ -93,8 +93,8 @@ public class JobDAO implements JobSource {
 
             ps.setString(1, job.getTitle());
             ps.setString(2, job.getDescription());
-            ps.setDate(3, (Date) job.getStart_date());
-            ps.setDate(4, (Date) job.getEnd_date());
+            ps.setDate(3, new java.sql.Date(job.getStart_date().getTime()));
+            ps.setDate(4, new java.sql.Date(job.getEnd_date().getTime()));
             ps.setInt(5, job.getCompany_id());
 
             rowCount = ps.executeUpdate();
@@ -118,8 +118,8 @@ public class JobDAO implements JobSource {
 
             ps.setString(1, job.getTitle());
             ps.setString(2, job.getDescription());
-            ps.setDate(3, (Date) job.getStart_date());
-            ps.setDate(4, (Date) job.getEnd_date());
+            ps.setDate(3, new java.sql.Date(job.getStart_date().getTime()));
+            ps.setDate(4, new java.sql.Date(job.getEnd_date().getTime()));
             ps.setInt(5, job.getCompany_id());
             ps.setInt(6, job.getId());
 
