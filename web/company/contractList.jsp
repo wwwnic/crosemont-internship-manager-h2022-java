@@ -16,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/table.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/contract.css" /> 
-        
+
         <link rel="stylesheet" href="/resources/demos/style.css">
         <%@include file="../company/header.html" %>
 
@@ -24,7 +24,7 @@
             ArrayList<Contract> listContracts = (ArrayList) request.getAttribute("listContracts");
 
             ArrayList<Student> listStudents = (ArrayList) request.getAttribute("listStudents");
-            
+
         %>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/resources/demos/style.css">
@@ -35,7 +35,7 @@
     </head>
     <body>
         <h1 class="center">Liste Des Candidatures</h1>
-        
+
         <!--
         <h1>id : <c:out value = "$//{idConnecte}"/> </h1>
         -->
@@ -62,9 +62,34 @@
                 <td><%=s.getFirstname()%></td>
                 <td> <%=s.getLastname()%> </td>
                 <td><%=s.getDa()%> </td>
-                <td>(ici CV)</td>
-                <td>(ici motivation)</td>
-                <td><%=c.getStatus()%></td>
+                <td>
+                    <a href="showPDF?id=<%=s.getId()%>&fname=<%=s.getFirstname()%>&lname=<%=s.getLastname()%>&fileType=CV" target="_blank" data-toggle="tooltip" title="voir votre cv">
+                        <img src="./static/images/PDF.png" width="50px" alt="PDF2">
+                    </a>
+
+                </td>
+                <td>
+                    <a href="showPDF?id=<%=s.getId()%>&fileType=letter" target="_blank" data-toggle="tooltip" title="voir votre lettre">
+                        <img src="./static/images/PDF.png" width="50px" alt="PDF2">
+                    </a>
+                </td>
+                <td>
+                    <%
+                        if (c.getStatus().toString().equals("SUBMIT")) {
+                    %>
+                    SOUMIS
+                    <%
+                    } else if (c.getStatus().toString().equals("INTERVIEW")) {
+                    %>
+                    ENTREVUE
+                    <%
+                    } else if (c.getStatus().toString().equals("EMPLOY")) {
+                    %>
+                    EMBAUCHÉ
+                    <%
+                        }
+                    %>
+                </td>
                 <td><%=c.getStart_date()%></td>
                 <td><%=c.getEnd_date()%></td>
                 <td>
@@ -85,7 +110,7 @@
         </br>
         </br>
         </br>
-        
+
         <div class = "everythingTimeline">
             <div class ="bodyTimeline">
                 <%@ include file = "../company/timeline.jsp" %>

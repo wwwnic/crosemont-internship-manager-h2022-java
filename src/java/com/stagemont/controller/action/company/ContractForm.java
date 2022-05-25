@@ -25,15 +25,18 @@ public class ContractForm extends AbstractAction {
         
         com.stagemont.entities.Contract contract = DATA_CONTRACT_DAO.getContractById(id);
         
-        String passwordSUBMIT = request.getParameter("mdpSUBMIT");
-        String passwordINTERVIEW = request.getParameter("mdpINTERVIEW");
+        String passwordSUBMIT, passwordINTERVIEW;
         
+        passwordSUBMIT = request.getParameter("mdpSUBMIT");
+        passwordINTERVIEW = request.getParameter("mdpINTERVIEW");
+        
+        System.out.println("PRINT: "+ passwordSUBMIT + " " + passwordINTERVIEW);
             
-        if(!passwordSUBMIT.equals("")) {
+        if(passwordSUBMIT!=null) {
             statusNew = Status.INTERVIEW;
             contract.setStatus(statusNew);
             DATA_CONTRACT_DAO.updateContract(contract);
-        } else if(!passwordINTERVIEW.equals("")) {
+        } else if(passwordINTERVIEW!=null) {
             statusNew = Status.EMPLOY;
             contract.setStatus(statusNew);
             DATA_CONTRACT_DAO.updateContract(contract);

@@ -49,7 +49,6 @@
                                 <button class="btnBlue btncenter">Modifier</button>
                             </a>
                         </div>
-
                         <!--
                         <div class="column btncontainer">
                             <a>
@@ -57,7 +56,24 @@
                             </a>
                         </div>
                         -->
+                    </div>
+                    </br>
+                    <div class="row">
+                        <p id="pagetitle">En tant qu'entreprise, vous pouvez ajouter des emplois et des stages. </p>
 
+
+                        <div class="column btncontainer">
+                            <a href="addJob">
+                                <button class="btnBlue btncenter">Emploi</button>
+                            </a>
+                        </div>
+
+
+                        <div class="column btncontainer">
+                            <a href="addInternship">
+                                <button class="btnBlue btncenter">Stage</button>
+                            </a>
+                        </div>
 
                     </div>
                 </div>

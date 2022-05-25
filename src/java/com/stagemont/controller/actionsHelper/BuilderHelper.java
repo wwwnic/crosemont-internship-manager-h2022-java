@@ -13,6 +13,8 @@ import com.stagemont.controller.action.admin.ShowHomepage;
 import com.stagemont.controller.action.admin.ShowInternshipAdminList;
 import com.stagemont.controller.action.admin.ShowJobAdminList;
 import com.stagemont.controller.action.company.AddAds;
+import com.stagemont.controller.action.company.AddInternship;
+import com.stagemont.controller.action.company.AddJob;
 import com.stagemont.controller.action.company.AdsList;
 import com.stagemont.controller.action.company.CompanyEditDashboard;
 import com.stagemont.controller.action.company.Contract;
@@ -145,6 +147,12 @@ public interface BuilderHelper {
                 break;
             case "contractEdit":
                 action = new ContractEdit();
+                break;
+            case "addJob":
+                action = new AddJob();
+                break;
+            case "addInternship":
+                action = new AddInternship();
                 break;
 
 

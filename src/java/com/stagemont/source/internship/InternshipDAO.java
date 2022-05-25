@@ -7,7 +7,6 @@ package com.stagemont.source.internship;
 
 import com.stagemont.entities.Internship;
 import com.stagemont.service.ConnectionDB;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,9 +25,9 @@ public class InternshipDAO implements InternshipSource {
 
     private static final String SQL_SELECT_BY_ID = "SELECT * FROM internship WHERE id = ?";
 
-    private static final String SQL_INSERT = "INSERT INTO internship(title,description,start_date,end_date,company_id) value(?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO internship(title,description,start_date,end_date,company_id) value(?,?,?,?,?)";
 
-    private static final String SQL_UPDATE = "UPDATE internship SET title = ?, description = ?, start_date = ? end_date = ?, company_id = ? WHERE id = ?";
+    private static final String SQL_UPDATE = "UPDATE internship SET title = ?, description = ?, start_date = ?, end_date = ?, company_id = ? WHERE id = ?";
 
     private static final String SQL_DELETE = "DELETE FROM internship WHERE id = ?";
     
@@ -93,8 +92,8 @@ public class InternshipDAO implements InternshipSource {
 
             ps.setString(1, internship.getTitle());
             ps.setString(2, internship.getDescription());
-            ps.setDate(3, (Date) internship.getStart_date());
-            ps.setDate(4, (Date) internship.getEnd_date());
+            ps.setDate(3, new java.sql.Date(internship.getStart_date().getTime()));
+            ps.setDate(4, new java.sql.Date(internship.getEnd_date().getTime()));
             ps.setInt(5, internship.getCompany_id());
 
             rowCount = ps.executeUpdate();
@@ -118,8 +117,8 @@ public class InternshipDAO implements InternshipSource {
 
             ps.setString(1, internship.getTitle());
             ps.setString(2, internship.getDescription());
-            ps.setDate(3, (Date) internship.getStart_date());
-            ps.setDate(4, (Date) internship.getEnd_date());
+            ps.setDate(3, new java.sql.Date(internship.getStart_date().getTime()));
+            ps.setDate(4, new java.sql.Date(internship.getEnd_date().getTime()));
             ps.setInt(5, internship.getCompany_id());
             ps.setInt(6, internship.getId());
 

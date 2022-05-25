@@ -33,7 +33,7 @@
                     <p id="pagetitle">Élaboration d'un contrat</p>
                     <div class='line'>
                         <p id="elementname"> Numéro du stage :</p>
-                        <p id="element"><c:out value = "${company.getId()}"/></p>
+                        <p id="element"><c:out value = "${contract.getId()}"/></p>
                         <br/>
                         <p id="elementname"> La compagnie :</p>
                         <p id="element"><c:out value = "${company.getName()}"/></p>
