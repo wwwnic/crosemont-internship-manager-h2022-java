@@ -21,7 +21,7 @@ public class ShowTeacherDashboard extends AbstractAction {
     @Override
     public String execute() {
         String stringIdteacher = request.getParameter("id");
-        int teacherId = 0
+        int teacherId = 0;
 
         if (stringIdteacher == null) {
             stringIdteacher = request.getSession(false).getAttribute("id").toString();
