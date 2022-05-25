@@ -20,7 +20,15 @@ public class ShowTeacherDashboard extends AbstractAction {
 
     @Override
     public String execute() {
-        int teacherId = Integer.parseInt(request.getParameter("id"));
+        String stringIdteacher = request.getParameter("id");
+        int teacherId = 0
+
+        if (stringIdteacher == null) {
+            stringIdteacher = request.getSession(false).getAttribute("id").toString();
+            teacherId = Integer.parseInt(stringIdteacher);
+        } else {
+            teacherId = Integer.parseInt(stringIdteacher);
+        }
         Teacher teacher = SOURCE.getTeacherFromId(teacherId);
 
         request.setAttribute("id", teacher.getId());

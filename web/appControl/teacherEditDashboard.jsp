@@ -37,18 +37,20 @@
                     </div>
                     <br/>
                 </div>
-                <div class="row">
-                    <div class="column btncontainer">
-                        <a href="showTeacherForm?id=<c:out value = "${id}"/>" data-toggle="tooltip" title="Modifier">
-                            <button class="btnBlue btncenter">Modifier</button>
-                        </a>
+                <c:if test="${sessionScope.type=='admin'}">
+                    <div class="row">
+                        <div class="column btncontainer">
+                            <a href="showTeacherForm?id=<c:out value = "${id}"/>" data-toggle="tooltip" title="Modifier">
+                                <button class="btnBlue btncenter">Modifier</button>
+                            </a>
+                        </div>
+                        <div class="column btncontainer">
+                            <a href="deleteTeacher?id=<c:out value = "${id}"/>" data-toggle="tooltip" title="Supprimer le compte">
+                                <button class="btnRed btncenter">Supprimer</button>
+                            </a>
+                        </div>
                     </div>
-                    <div class="column btncontainer">
-                        <a href="deleteTeacher?id=<c:out value = "${id}"/>" data-toggle="tooltip" title="Supprimer le compte">
-                            <button class="btnRed btncenter">Supprimer</button>
-                        </a>
-                    </div>
-                </div>
+                </c:if>  
             </div>
             <div></div>    
         </div>    
