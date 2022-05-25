@@ -43,6 +43,7 @@ public class AddJob extends AbstractAction {
         if(title!=null && desc!=null && debut!=null && fin!=null) {
             j = new Job(90, title, desc, java.sql.Date.valueOf(debut), java.sql.Date.valueOf(fin), idConnecte);
             DATA_JOB_DAO.insertJob(j);
+            return "~showJobsList";
         }
         
         String userType = request.getSession(false).getAttribute("type").toString();

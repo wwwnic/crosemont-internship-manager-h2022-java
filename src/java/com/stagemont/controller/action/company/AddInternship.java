@@ -43,6 +43,7 @@ public class AddInternship extends AbstractAction {
         if(title!=null && desc!=null && debut!=null && fin!=null) {
             i = new Internship(90, title, desc, java.sql.Date.valueOf(debut), java.sql.Date.valueOf(fin), idConnecte);
             DATA_INTERNSHIP_DAO.insertInternship(i);
+            return "~showInternshipList";
         }
         
         String userType = request.getSession(false).getAttribute("type").toString();

@@ -16,8 +16,8 @@
         <%@include file="../company/header.html" %>
 
 
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
+        <link rel="stylesheet" href="/resources/demos/style.css" />
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
         <script src="./static/js/formToggler.js"></script>
@@ -53,7 +53,8 @@
                         <c:if test = "${status == 'SUBMIT'}">
                             <p id="element">Soumis</p>
                             <br/>
-                            <form id="contractForm" method="post" action="contractForm?idC=${contract.getId()}">
+                            
+                            <form id="contractForm" method="post" action="contractForm?companyId=${company.getId()}&studentId=${student.getId()}&contractId=${contract.getId()}">
                                 <div>
                                     <label id="elementname" for="mdp">Signer virtuellement pour l'envoyer en entrevue:</label>
                                     <input class="form-control" type="password" id="mdp" name="mdpSUBMIT">   
@@ -62,7 +63,9 @@
                                 </br>
 
                                 <div class="column btncontainer">
-                                    <button type="submit" form="contractForm" class="btnBlue">Soumettre</button>
+                                    <a href="contract">
+                                        <button type="submit"class="btnBlue">Soumettre</button>
+                                    </a>
                                 </div>
 
                                 </br>
@@ -74,7 +77,7 @@
                             <p id="element">Entrevue</p>
                             <br/>
 
-                            <form id="contractForm" method="post" action="contractForm?idC=${contract.getId()}">
+                            <form id="contractForm" method="post" action="contractForm?companyId=${company.getId()}&studentId=${student.getId()}&contractId=${contract.getId()}">
                                 <div>
                                     <label id="elementname" for="mdp">Signer virtuellement pour l'embaucher :</label>
                                     <input class="form-control" type="password" id="mdp" name="mdpINTERVIEW">   
@@ -83,7 +86,9 @@
                                 </br>
 
                                 <div class="column btncontainer">
-                                    <button type="submit" form="contractForm" class="btnBlue">Soumettre</button>
+                                    <a href="contract">
+                                        <button type="submit" class="btnBlue">Soumettre</button>
+                                    </a>
                                 </div>
 
                                 </br>

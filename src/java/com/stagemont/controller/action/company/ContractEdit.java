@@ -37,12 +37,14 @@ public class ContractEdit extends AbstractAction {
         if (dateDebut!=null && dateFin!=null) {
             contract.setStart_date(java.sql.Date.valueOf(dateDebut));
             contract.setEnd_date(java.sql.Date.valueOf(dateFin));
+            DATA_CONTRACT_DAO.updateContract(contract);
+            return "~contractList";
         }
 
-        DATA_CONTRACT_DAO.updateContract(contract);
 
         String userType = request.getSession(false).getAttribute("type").toString();
         return userType + "/contractEdit";
+        //return "~contractList";
     }
 
 }

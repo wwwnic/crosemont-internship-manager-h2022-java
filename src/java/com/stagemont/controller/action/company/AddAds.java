@@ -44,13 +44,12 @@ public class AddAds extends AbstractAction {
         
         if (imglink!=null){
             imglink = imglink.replaceFirst(".png", "");
+            imglink = imglink.replaceFirst(".jpg", "");
+            int company_id = idConnecte;
+            Ads adsNew = new Ads(id, title, description, imglink, company_id);
+            DATA_ADS.insertAds(adsNew);
+            return "~adsList";
         }
-        
-        int company_id = idConnecte;
-        
-        Ads adsNew = new Ads(id, title, description, imglink, company_id);
-        
-        DATA_ADS.insertAds(adsNew);
 
         String userType = request.getSession(false).getAttribute("type").toString();
         return userType + "/addAdsForm";

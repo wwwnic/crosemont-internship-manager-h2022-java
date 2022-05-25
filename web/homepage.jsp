@@ -41,15 +41,15 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="./static/images/INTERNSHIP.jpg" alt="Image d'accueil">
+                                <img src="./static/images/INTERNSHIP.png" alt="Image d'accueil">
                             </div>
 
                             <div class="item">
-                                <img src="./static/images/DOCTOR.jpg" alt="Doctor">
+                                <img src="./static/images/DOCTOR.png" alt="Doctor">
                             </div>
 
                             <div class="item">
-                                <img src="./static/images/CODING.jpg" alt="Coder">
+                                <img src="./static/images/CODING.png" alt="Coder">
                             </div>
                         </div>
                         <!-- Left and right controls -->

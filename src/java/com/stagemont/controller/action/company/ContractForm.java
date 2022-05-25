@@ -21,7 +21,7 @@ public class ContractForm extends AbstractAction {
     @Override
     public String execute() {
         Status statusNew= null;
-        int id = Integer.parseInt(request.getParameter("idC"));
+        int id = Integer.parseInt(request.getParameter("contractId"));
         
         com.stagemont.entities.Contract contract = DATA_CONTRACT_DAO.getContractById(id);
         
@@ -29,8 +29,6 @@ public class ContractForm extends AbstractAction {
         
         passwordSUBMIT = request.getParameter("mdpSUBMIT");
         passwordINTERVIEW = request.getParameter("mdpINTERVIEW");
-        
-        System.out.println("PRINT: "+ passwordSUBMIT + " " + passwordINTERVIEW);
             
         if(passwordSUBMIT!=null) {
             statusNew = Status.INTERVIEW;
@@ -42,10 +40,19 @@ public class ContractForm extends AbstractAction {
             DATA_CONTRACT_DAO.updateContract(contract);
         }
         
+        int companyId;
+        int studentId;
+        int contractId;
         
+        companyId = Integer.parseInt(request.getParameter("companyId"));
+        studentId = Integer.parseInt(request.getParameter("studentId"));
+        contractId = Integer.parseInt(request.getParameter("contractId"));
         
-        String userType = request.getSession(false).getAttribute("type").toString();
-        return userType + "/contract";
+        request.setAttribute("companyId", companyId);
+        request.setAttribute("studentId", studentId);
+        request.setAttribute("contractId", contractId);
+        
+        return "~contract";
     }
     
 }

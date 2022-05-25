@@ -70,7 +70,7 @@
                 </div>
             </form>
 
-            <h4>Vous pouvez voir et modifier vos publicités dans votre tableau de bord</h4>
+            <h4>Vous pouvez voir et modifier vos publicités dans la section "Publicités"</h4>
         </div>
     </body>
 </html>
