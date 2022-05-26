@@ -40,6 +40,8 @@ import com.stagemont.controller.action.display.list.ShowStudentList;
 import com.stagemont.controller.action.display.list.ShowTeacherList;
 import com.stagemont.controller.action.pdf.ShowPDF;
 import com.stagemont.controller.action.edit.add.AddCompany;
+import com.stagemont.controller.action.edit.add.AddContractInternship;
+import com.stagemont.controller.action.edit.add.AddContractJob;
 import com.stagemont.controller.action.edit.add.AddStudent;
 import com.stagemont.controller.action.edit.add.AddTeacher;
 import com.stagemont.controller.action.edit.delete.DeleteCompany;
@@ -267,6 +269,12 @@ public interface BuilderHelper {
                 break;
             case "contractEdit":
                 action = new ContractEdit();
+                break;
+            case "addContractInternship":
+                action = new AddContractInternship();
+                break;
+            case "addContractJob":
+                action = new AddContractJob();
                 break;
             default:
                 action = new ByDefault();
