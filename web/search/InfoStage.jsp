@@ -58,7 +58,7 @@
                     <c:if test="${sessionScope.type=='student'}">
                         <br>
                         <button class="btnBlue btnhorcenter">
-                            <a href="addContract?idI=<c:out value = "${intern.id}"/>" >Postuler</a> 
+                            <a href="addContractInternship?idI=<c:out value = "${intern.id}"/>" >Postuler</a> 
                         </button>
                     </c:if>
                 </div>

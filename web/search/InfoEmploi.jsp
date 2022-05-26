@@ -58,6 +58,12 @@
                         </div>
                     </div>
                 </c:if>
+                <c:if test="${sessionScope.type=='student'}">
+                        <br>
+                        <button class="btnBlue btnhorcenter">
+                            <a href="addContractJob?idJ=<c:out value = "${job.id}"/>" >Postuler</a> 
+                        </button>
+                    </c:if>
             </div>
 
             <div></div>

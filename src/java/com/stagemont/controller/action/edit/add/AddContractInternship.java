@@ -23,7 +23,7 @@ import javax.servlet.http.Cookie;
  *
  * @author melis
  */
-public class AddContract extends AbstractAction {
+public class AddContractInternship extends AbstractAction {
 
     private static ContractSource DATA_CONTRACT_DAO = new ContractDAO();
     
@@ -48,9 +48,6 @@ public class AddContract extends AbstractAction {
         int internshipId;
         internshipId = Integer.parseInt(request.getParameter("idI"));
         
-        
-        Student s = null;
-        s = DATA_STUDENT_DAO.getStudentFromId(idConnecte);
         
         Internship i = null;
         i = DATA_INTERNSHIP_DAO.getInternshipFromId(internshipId);
