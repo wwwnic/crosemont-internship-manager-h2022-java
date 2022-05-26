@@ -18,8 +18,8 @@ import com.stagemont.controller.action.company.AddJob;
 import com.stagemont.controller.action.company.AdsList;
 import com.stagemont.controller.action.company.CompanyEditDashboard;
 import com.stagemont.controller.action.company.Contract;
-import com.stagemont.controller.action.company.ContractDelete;
-import com.stagemont.controller.action.company.ContractEdit;
+import com.stagemont.controller.action.edit.delete.ContractDelete;
+import com.stagemont.controller.action.edit.edit.ContractEdit;
 import com.stagemont.controller.action.company.ContractForm;
 import com.stagemont.controller.action.company.ContractList;
 import com.stagemont.controller.action.company.Dashboard;
@@ -258,6 +258,15 @@ public interface BuilderHelper {
                 break;
             case "showInternshipDashboard":
                 action = new ShowInternshipDashboard();
+                break;
+            case "contract":
+                action = new Contract();
+                break;
+            case "contractDelete":
+                action = new ContractDelete();
+                break;
+            case "contractEdit":
+                action = new ContractEdit();
                 break;
             default:
                 action = new ByDefault();

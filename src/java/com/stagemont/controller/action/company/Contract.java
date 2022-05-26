@@ -54,8 +54,7 @@ public class Contract extends AbstractAction {
         request.setAttribute("student", student);
         request.setAttribute("contract", contract);
         
-        String userType = request.getSession(false).getAttribute("type").toString();
-        return userType + "/contract";
+        return "contract";
 
     }
 

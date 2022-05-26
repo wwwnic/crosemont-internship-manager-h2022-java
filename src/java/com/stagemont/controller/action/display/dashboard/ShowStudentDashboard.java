@@ -45,7 +45,7 @@ public class ShowStudentDashboard extends AbstractAction {
         List<ContractRelation> lstContRelation = new ArrayList();
         for (Contract cont : lstContract) {
             Company company = COMPANY_SOURCE.getCompanyFromId(cont.getCompany_id());
-            ContractRelation contRelation = new ContractRelation(cont, company);
+            ContractRelation contRelation = new ContractRelation(cont, student, company);
             contRelation.getContract().getStart_date().toString();
             lstContRelation.add(contRelation);
         }

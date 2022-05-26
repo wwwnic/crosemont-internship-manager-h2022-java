@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stagemont.controller.action.company;
+package com.stagemont.controller.action.edit.edit;
 
 import com.stagemont.controller.actionsHelper.AbstractAction;
 import com.stagemont.source.contract.ContractDAO;
@@ -20,31 +20,32 @@ public class ContractEdit extends AbstractAction {
 
     @Override
     public String execute() {
-        String idString =request.getParameter("idC");
+        String idString = request.getParameter("idC");
         //int idC =Integer.parseInt(request.getParameter("idC"));
-        int idC=-1;
-        
-        if (!idString.equals("")){
-            idC =Integer.parseInt(idString);
+        int idC = -1;
+
+        if (!idString.equals("")) {
+            idC = Integer.parseInt(idString);
             request.setAttribute("idC", idC);
         }
-        
+
         com.stagemont.entities.Contract contract = DATA_CONTRACT_DAO.getContractById(idC);
 
         String dateDebut = request.getParameter("dateDebut");
         String dateFin = request.getParameter("dateFin");
+        String userType = request.getSession(false).getAttribute("type").toString();
 
-        if (dateDebut!=null && dateFin!=null) {
+        if (dateDebut != null && dateFin != null) {
             contract.setStart_date(java.sql.Date.valueOf(dateDebut));
             contract.setEnd_date(java.sql.Date.valueOf(dateFin));
             DATA_CONTRACT_DAO.updateContract(contract);
-            return "~contractList";
-        }
 
-
-        String userType = request.getSession(false).getAttribute("type").toString();
-        return userType + "/contractEdit";
-        //return "~contractList";
+            if (userType.equals("company")) {
+                return "~contractList";
+            } else {
+                return "~showStudentDashboard?id=" + contract.getStudent_id();
+            }
+        } 
+        return "company/contractEdit";
     }
-
 }

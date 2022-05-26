@@ -16,10 +16,6 @@ public class ContractRelation {
     private Contract contract;
     private Student student;
 
-    public ContractRelation(Contract contract, Company company) {
-        this.company = company;
-        this.contract = contract;
-    }
 
     public ContractRelation(Contract contract, Student student, Company company) {
         this.company = company;

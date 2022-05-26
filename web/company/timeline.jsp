@@ -19,20 +19,20 @@
         <div class="timeline">
             <div class="containerTimeline left">
                 <div class="content">
-                    <h2>Postule</h2>
-                    <p>L'étudiant postule à votre stage ou emploi</p>
+                    <h2 class="textWhite">Postule</h2>
+                    <p class="textWhite">L'étudiant postule à votre stage ou emploi</p>
                 </div>
             </div>
             <div class="containerTimeline right">
                 <div class="content">
-                    <h2>Entrevue</h2>
-                    <p>Vous le passez en embauche</p>
+                    <h2 class="textWhite">Entrevue</h2>
+                    <p class="textWhite">Vous le passez en embauche</p>
                 </div>
             </div>
             <div class="containerTimeline left">
                 <div class="content">
-                    <h2>Contrat</h2>
-                    <p>Vous signez un contrat avec lui</p>
+                    <h2 class="textWhite">Contrat</h2>
+                    <p class="textWhite">Vous signez un contrat avec lui</p>
                 </div>
             </div>
         </div>

@@ -13,8 +13,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="./static/css/center.css" />
         <link rel="stylesheet" type="text/css" href="./static/css/contract.css" /> 
-        <%@include file="../company/header.html" %>
-
+        <c:if test="${sessionScope.type=='student'}"><%@include file="../student/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='teacher'}"><%@include file="../teacher/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='company'}"><%@include file="../company/header.html" %>
+        </c:if>  
+        <c:if test="${sessionScope.type=='admin'}"><%@include file="../admin/header.html" %>
+        </c:if> 
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css" />
         <link rel="stylesheet" href="/resources/demos/style.css" />
@@ -49,82 +55,65 @@
                         <p id="elementname"> Le status du candidat :</p>
 
                         <c:set var="status" value="${contract.getStatus()}"/>
-
                         <c:if test = "${status == 'SUBMIT'}">
                             <p id="element">Soumis</p>
-                            <br/>
-                            
-                            <form id="contractForm" method="post" action="contractForm?companyId=${company.getId()}&studentId=${student.getId()}&contractId=${contract.getId()}">
-                                <div>
-                                    <label id="elementname" for="mdp">Signer virtuellement pour l'envoyer en entrevue:</label>
-                                    <input class="form-control" type="password" id="mdp" name="mdpSUBMIT">   
-                                </div> 
-
-                                </br>
-
-                                <div class="column btncontainer">
-                                    <a href="contract">
-                                        <button type="submit"class="btnBlue">Soumettre</button>
-                                    </a>
-                                </div>
-
-                                </br>
-
-                            </form>
-                        </c:if>
-
+                            <c:if test="${sessionScope.type=='company'}">
+                                <br/>
+                                <form id="contractForm" method="post" action="contractForm?companyId=${company.getId()}&studentId=${student.getId()}&contractId=${contract.getId()}">
+                                    <div>
+                                        <label id="elementname" for="mdp">Signer virtuellement pour l'envoyer en entrevue:</label>
+                                        <input class="form-control" type="password" id="mdp" name="mdpSUBMIT">   
+                                    </div> 
+                                    </br>
+                                    <div class="column btncontainer">
+                                        <a href="contract">
+                                            <button type="submit"class="btnBlue">Soumettre</button>
+                                        </a>
+                                    </div>
+                                    </br>
+                                </form>
+                            </c:if>
+                        </c:if>  
                         <c:if test = "${status == 'INTERVIEW'}">
                             <p id="element">Entrevue</p>
                             <br/>
-
                             <form id="contractForm" method="post" action="contractForm?companyId=${company.getId()}&studentId=${student.getId()}&contractId=${contract.getId()}">
                                 <div>
                                     <label id="elementname" for="mdp">Signer virtuellement pour l'embaucher :</label>
                                     <input class="form-control" type="password" id="mdp" name="mdpINTERVIEW">   
                                 </div>
-
                                 </br>
-
                                 <div class="column btncontainer">
                                     <a href="contract">
                                         <button type="submit" class="btnBlue">Soumettre</button>
                                     </a>
                                 </div>
-
                                 </br>
-
                             </form>
                         </c:if>
-
                         <c:if test = "${status == 'EMPLOY'}">
-
                             <p id="element">Embauché</p>
                             <br/>
-
                             <p id="element">Ce candidat est déjà embauché!</p>
                         </c:if>
                         <br/>
-
                     </div>
-
-
                     <br/>
-                    <div class="row">
+                    <c:if test="${sessionScope.type!='student'}">
+                        <div class="row">
 
-                        <div class="column btncontainer">
-                            <a href="contractDelete?idC=${contract.getId()}">
-                                <button class="btnRed btncenter">Supprimer</button>
-                            </a>
-                        </div>
+                            <div class="column btncontainer">
+                                <a href="contractDelete?idC=${contract.getId()}">
+                                    <button class="btnRed btncenter">Supprimer</button>
+                                </a>
+                            </div>
 
-                        <div class="column btncontainer">
-                            <a href="contractEdit?idC=${contract.getId()}">
-                                <button class="btnBlue btncenter">Modifier</button>
-                            </a>
-                        </div>
-
-
-
+                            <div class="column btncontainer">
+                                <a href="contractEdit?idC=${contract.getId()}">
+                                    <button class="btnBlue btncenter">Modifier</button>
+                                </a>
+                            </div>
+                        </c:if>  
                     </div>
                 </div>    
             </div>
