@@ -40,16 +40,16 @@ INSERT INTO `internship` VALUES
 ("1", "Developper Intern", "Google is hiring intern developpers who are fluent in : HTML, CSS, PHP, SQL", "2022-01-14", "2022-03-14", "1"),
 ("2", "Developper Intern", "Amazon is hiring intern developpers who are fluent in : HTML, CSS, MYSQL, ASP.NET, JAVA", "2021-06-30", "2022-08-30", "2"),
 ("3", "Developper Intern", "Meta is hiring intern developpers who are fluent in : HTML, CSS, PHP, SQL, JAVA", "2022-01-14", "2022-03-14", "3"),
-("4", "Engineer Intern", "Dell is hiring intern engineers who are fluent in : C++ and Python", null, null, "4"),
+("4", "Engineer Intern", "Dell is hiring intern engineers who are fluent in : C++ and Python", "2022-03-10", "2022-06-10", "4"),
 ("5", "Engineer Intern", "Ubisoft is hiring intern engineers who are fluent in : C++ and Python", "2022-05-30", "2022-06-30", "5");
 
 -- (`id` `title` `description` `start_date` `end_date` `company_id`)
 INSERT INTO `job` VALUES 
 ("1", "Developper", "Google is hiring developpers who are fluent in : HTML, CSS, PHP, SQL", "2022-01-14", "2022-03-14", "1"),
 ("2", "Developper", "Amazon is hiring developpers who are fluent in : HTML, CSS, MYSQL, ASP.NET, JAVA", "2021-06-30", "2022-08-30", "2"),
-("3", "Software Engineer", "Suitable for people able to work with Android mobile", null, null, "3"),
-("4", "Developper Front-end", "Applicable for people able to work in a fast-pace environnement", null, null, "4"),
-("5", "Developper Front-end", "Applicable for people able to work in a fast-pace environnement with flexible hours", null, null, "5");
+("3", "Software Engineer", "Suitable for people able to work with Android mobile", "2022-02-20", "2022-04-20", "3"),
+("4", "Developper Front-end", "Applicable for people able to work in a fast-pace environnement", "2022-09-12", "2022-12-16", "4"),
+("5", "Developper Front-end", "Applicable for people able to work in a fast-pace environnement with flexible hours", "2022-07-05", "2022-10-10", "5");
 
 -- (`id` `title` `description` `image` `company_id`)
 INSERT INTO `ads` VALUES 
